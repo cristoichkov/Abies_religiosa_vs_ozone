@@ -1,0 +1,164 @@
+#Cargar datos
+metabolitos<- read.csv("../Tablas_datos/Metabolitos-Tesis-Vero.csv")
+metabolitos2<- data.frame(metabolitos$C.A.T,metabolitos$C.A, metabolitos$Temporada,metabolitos$Condicion, metabolitos$A.expo, metabolitos$Muestra, metabolitos$mmet)
+
+colnames(metabolitos2)<- c("C.A.T", "C.A", "Temporada",
+                           "Condicion", "A.expo", "Muestra", "mmet") 
+
+# Calcular X1
+metabolitos2$x1<-(metabolitos$microlitros.de.estandar*metabolitos$miligramos/metabolitos$microlitros)*2/1000
+
+
+#Calcular X2,X3,X4,X5 para cada metabolito
+
+# beta.pinene
+metabolitos2$X2_beta.pinene <- metabolitos2$x1*metabolitos$beta.pinene/metabolitos$P.Area.estandar 
+metabolitos2$X3_beta.pinene <- metabolitos2$X2_beta.pinene*metabolitos$microlitros.de.metabolitos/metabolitos$microlitros.de.inyeccion 
+metabolitos2$X4_beta.pinene <- metabolitos2$X3_beta.pinene*100/metabolitos$Peso.acicula.gramos
+metabolitos2$X5_beta.pinene <- metabolitos2$X4_beta.pinene*1000
+# L.alfa.bornyl.acetate
+metabolitos2$X2_L.alfa.bornyl.acetate <- metabolitos2$x1*metabolitos$L.alfa.bornyl.acetate/metabolitos$P.Area.estandar 
+metabolitos2$X3_L.alfa.bornyl.acetate <- metabolitos2$X2_L.alfa.bornyl.acetate*metabolitos$microlitros.de.metabolitos/metabolitos$microlitros.de.inyeccion 
+metabolitos2$X4_L.alfa.bornyl.acetate <- metabolitos2$X3_L.alfa.bornyl.acetate*100/metabolitos$Peso.acicula.gramos
+metabolitos2$X5_L.alfa.bornyl.acetate <- metabolitos2$X4_L.alfa.bornyl.acetate*1000
+# beta.Caryophyllene.oxide
+metabolitos2$X2_beta.Caryophyllene.oxide <- metabolitos2$x1*metabolitos$beta.Caryophyllene.oxide/metabolitos$P.Area.estandar 
+metabolitos2$X3_beta.Caryophyllene.oxide <- metabolitos2$X2_beta.Caryophyllene.oxide*metabolitos$microlitros.de.metabolitos/metabolitos$microlitros.de.inyeccion 
+metabolitos2$X4_beta.Caryophyllene.oxide <- metabolitos2$X3_beta.Caryophyllene.oxide*100/metabolitos$Peso.acicula.gramos
+metabolitos2$X5_beta.Caryophyllene.oxide <- metabolitos2$X4_beta.Caryophyllene.oxide*1000
+#  alfa.Caryophyllene
+metabolitos2$X2_alfa.Caryophyllene <- metabolitos2$x1*metabolitos$alfa.Caryophyllene/metabolitos$P.Area.estandar 
+metabolitos2$X3_alfa.Caryophyllene <- metabolitos2$X2_alfa.Caryophyllene*metabolitos$microlitros.de.metabolitos/metabolitos$microlitros.de.inyeccion 
+metabolitos2$X4_alfa.Caryophyllene <- metabolitos2$X3_alfa.Caryophyllene*100/metabolitos$Peso.acicula.gramos
+metabolitos2$X5_alfa.Caryophyllene <- metabolitos2$X4_alfa.Caryophyllene*1000
+# beta.Cubebene
+metabolitos2$X2_beta.Cubebene <- metabolitos2$x1*metabolitos$beta.Cubebene/metabolitos$P.Area.estandar 
+metabolitos2$X3_beta.Cubebene <- metabolitos2$X2_beta.Cubebene*metabolitos$microlitros.de.metabolitos/metabolitos$microlitros.de.inyeccion 
+metabolitos2$X4_beta.Cubebene <- metabolitos2$X3_beta.Cubebene*100/metabolitos$Peso.acicula.gramos
+metabolitos2$X5_beta.Cubebene <- metabolitos2$X4_beta.Cubebene*1000
+# alfa.Cubenene
+metabolitos2$X2_alfa.Cubenene  <- metabolitos2$x1*metabolitos$alfa.Cubenene /metabolitos$P.Area.estandar 
+metabolitos2$X3_alfa.Cubenene  <- metabolitos2$X2_alfa.Cubenene *metabolitos$microlitros.de.metabolitos/metabolitos$microlitros.de.inyeccion 
+metabolitos2$X4_alfa.Cubenene  <- metabolitos2$X3_alfa.Cubenene *100/metabolitos$Peso.acicula.gramos
+metabolitos2$X5_alfa.Cubenene  <- metabolitos2$X4_alfa.Cubenene *1000
+# delta.Cadinene
+metabolitos2$X2_delta.Cadinene <- metabolitos2$x1*metabolitos$delta.Cadinene/metabolitos$P.Area.estandar 
+metabolitos2$X3_delta.Cadinene <- metabolitos2$X2_delta.Cadinene*metabolitos$microlitros.de.metabolitos/metabolitos$microlitros.de.inyeccion 
+metabolitos2$X4_delta.Cadinene <- metabolitos2$X3_delta.Cadinene*100/metabolitos$Peso.acicula.gramos
+metabolitos2$X5_delta.Cadinene <- metabolitos2$X4_delta.Cadinene*1000
+# alfa.Muurolene
+metabolitos2$X2_alfa.Muurolene <- metabolitos2$x1*metabolitos$alfa.Muurolene/metabolitos$P.Area.estandar 
+metabolitos2$X3_alfa.Muurolene <- metabolitos2$X2_alfa.Muurolene*metabolitos$microlitros.de.metabolitos/metabolitos$microlitros.de.inyeccion 
+metabolitos2$X4_alfa.Muurolene <- metabolitos2$X3_alfa.Muurolene*100/metabolitos$Peso.acicula.gramos
+metabolitos2$X5_alfa.Muurolene <- metabolitos2$X4_alfa.Muurolene*1000
+
+# Data frame con datos a partir de la [] del estandar 
+
+metabolitos3<- data.frame(metabolitos2$C.A.T,metabolitos2$C.A,metabolitos2$Temporada,metabolitos2$Condicion,metabolitos2$A.expo, metabolitos2$Muestra, metabolitos2$mmet,
+                          metabolitos2$X4_beta.pinene, metabolitos2$X4_L.alfa.bornyl.acetate , metabolitos2$X4_beta.Caryophyllene.oxide, metabolitos2$X4_alfa.Caryophyllene,
+                          metabolitos2$X4_beta.Cubebene,metabolitos2$X4_alfa.Cubenene,metabolitos2$X4_delta.Cadinene,metabolitos2$X4_alfa.Muurolene)
+
+
+# Cambiar nombres a las columnas
+
+metabolitos3$PCA<-c(rep("SS15",5), rep("SS16",5), 
+                    rep("SD15",5),rep("SD16",5),
+                    rep("CS15",5),rep("CS16",5),
+                    rep("CD15",5),rep("CD16",5))
+colnames(metabolitos3)<- c("C-A-T","C-A","Temporada","Condicion", "A.exposicion", "Muestra","n.GC-MS",
+                           "beta.pinene","L.alfa.bornyl.acetate","beta.Caryophyllene.oxide","alfa.Caryophyllene",
+                           "beta.Cubebene","alfa.Cubenene","delta.Cadinene","alfa.Muurolene",
+                            "PCA")
+
+
+#Exportar Data frame
+exp_table<-metabolitos3[,c(1,8:15)]
+write.csv(exp_table, file="exp_table.csv")
+write.table(exp_table, file="exp_table.txt")
+
+
+metabolitosSS<-metabolitos3[1:20,]
+metabolitosConti<-metabolitos3[21:40,]
+
+library(ggfortify)
+library(corrplot)
+df <- metabolitos3[c(8:15)]
+autoplot(prcomp(df))
+autoplot(prcomp(df), data = metabolitos3, colour = 'PCA', label = TRUE, label.size = 10)
+autoplot(prcomp(df), data = metabolitos3, colour = 'PCA', shape = FALSE, label.size = 3)
+autoplot(prcomp(df), data = metabolitos3, colour = 'PCA', loadings = TRUE)
+autoplot(prcomp(df), data = metabolitos3, colour = 'PCA',
+         loadings = TRUE, loadings.colour = 'purple',
+         loadings.label = TRUE, loadings.label.size = 3)
+
+
+df2<- as.matrix(df)
+
+
+
+M <- cor(df2) 
+corrplot(M, method = "circle")
+corrplot(M, method = "number") # Display the correlation coefficient
+
+p.mat <- cor.mtest(df2)$p
+head(p.mat[, 1:8])
+col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
+corrplot(M, method = "color", col = col(200),
+         type = "upper", order = "hclust", number.cex = .7,
+         addCoef.col = "black", # Add coefficient of correlation
+         tl.col = "black", tl.srt = 90, # Text label color and rotation
+         # Combine with significance
+         p.mat = p.mat, sig.level = 0.01, insig = "blank", 
+         # hide correlation coefficient on the principal diagonal
+         diag = FALSE)
+
+df3<-scale(df2)
+autoplot(prcomp(df3), data = metabolitos3, colour = 'PCA',
+         loadings = TRUE, loadings.colour = 'purple',
+         loadings.label = TRUE, loadings.label.size = 3)
+
+# PCA Todas
+
+df <- metabolitos3[c(8:15)]
+dff<- df[c(1:4,6:8)]
+autoplot(prcomp(dff), data = metabolitos3, colour = 'PCA',
+         loadings = TRUE, size = 3, loadings.colour = 'black',
+         loadings.label = TRUE, loadings.label.size = 4, loadings.label.colour = 'black' )
+
+
+# PCA SS
+df <- metabolitosSS[c(8:15)]
+dff<- df[c(1:4,6:8)]
+autoplot(prcomp(dff), data = metabolitosSS, colour = 'PCA',
+         loadings = TRUE, size = 3, loadings.colour = 'black',
+         loadings.label = TRUE, loadings.label.size = 4, loadings.label.colour = 'black' )
+dfSS<- as.matrix(df)
+
+
+# PCA Conti
+df <- metabolitosConti[c(8:15)]
+dff<- df[c(1:4,6:8)]
+autoplot(prcomp(dff), data = metabolitosConti, colour = 'PCA',
+         loadings = TRUE, size = 3, loadings.colour = 'black',
+         loadings.label = TRUE, loadings.label.size = 4, loadings.label.colour = 'black' )
+
+#dfConti<- as.matrix(df)
+#autoplot(pam(metabolitosConti[-5], 3), frame = TRUE, frame.type = 'norm')
+
+#PCA(df, scale.unit = TRUE, ncp = 5, graph = TRUE)
+
+#sin correlacionadas 1:13,16,17
+#sin correlacionadas 1:8,11:17
+#sin NO Significativas 2, 4:8,11,12,14,15,17
+# Solamente significativas *** no correlacionadas 6,9,10,11,14,15
+# Solamente significativas *** no correlacionadas 6,9,10,15
+# Solamente significativas *** no correlacionadas 6,14,15,11
+
+#library(lfda)
+
+# Local Fisher Discriminant Analysis (LFDA)
+#model <- lfda(metabolitosConti[-c(1:7,25),], metabolitosConti[, 25], 4, metric="plain")
+#autoplot(model, data = iris, frame = TRUE, frame.colour = 'Species')
+
+
+
