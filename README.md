@@ -1,2 +1,2 @@
 # Transcriptomic_Analysis_Abies_religiosa-TB
-This repository care all my scripts about my wonderful Master Thesis
+This repository contains all the scripts of my Master's Thesis project
