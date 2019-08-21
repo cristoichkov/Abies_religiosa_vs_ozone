@@ -14,7 +14,7 @@ To resolves my general aim, I have 3 particular aims. The analyzes to answer eac
 
 
 This is the Repository structure:
-![](RepositoryStructure.png)
+![](Repository_Structure.png)
 
 You can see in this repository:
 
