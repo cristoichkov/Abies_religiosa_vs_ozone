@@ -12,7 +12,7 @@ But my particular aims:
 
 To fulfill them I have a one directory for each one.
 
-![] (workflow.png)
+![](workflow.png)
 
 First 
 
@@ -26,18 +26,18 @@ There are three directories. Each one have a data, scripts and some results.
 ### Evaluate the differential expression of healthy and damaged trees in two periods of [O3].
 
 
-![] (Transcriptomic_methods.png)
+![](Transcriptomic_methods.png)
 
 # GENOMICS
 
 ### Identify origins of sacred fir with tolerance to O3.
 
 
-![] (Genomic_methods.png)
+![](Genomic_methods.png)
 
 # METABOLOMICS
 
 ### Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3
 
 
-![] (Metabolomic_methods.png)
+![](Metabolomic_methods.png)
