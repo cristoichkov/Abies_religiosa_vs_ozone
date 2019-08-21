@@ -6,8 +6,10 @@ The principal aim of my project is : **Assess whether the tolerance of sacred fi
 
 But my particular aims:
 
-* Evaluate the differential expression of healthy and damaged trees in two periods of [O3]([TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/TRANSCRIPTOMICS)).
+* Evaluate the differential expression of healthy and damaged trees in two periods of [O3] ([TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/TRANSCRIPTOMICS)).
+
 * Identify origins of sacred fir with tolerance to O3 ([GENOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/GENOMICS)).
+
 * Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3([METABOLOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/METABOLOMICS)).
 
 To fulfill them I have a one directory for each one.
