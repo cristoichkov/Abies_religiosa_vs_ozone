@@ -55,9 +55,9 @@ Check more info about this pipeline in the directory [TRANSCRIPTOMICS](https://g
 
 ### Identify origins of sacred fir with tolerance to O3.
 
-Check more info about this pipeline in the directory [GENOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/GENOMICS).
-
 ![](GENOMICS/Genomic_methods.png)
+
+Check more info about this pipeline in the directory [GENOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/GENOMICS).
 
 # METABOLOMICS
 
