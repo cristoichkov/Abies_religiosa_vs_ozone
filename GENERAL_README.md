@@ -10,7 +10,7 @@ But my particular aims:
 
 * Identify origins of sacred fir with tolerance to O3 ([GENOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/GENOMICS)).
 
-* Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3([METABOLOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/METABOLOMICS)).
+* Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3 ([METABOLOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/METABOLOMICS)).
 
 To fulfill them I have a one directory for each one.
 
@@ -40,7 +40,7 @@ PowerPoint about my project in [PDF file](https://github.com/VeroIarrachtai/Tran
 
 :file_folder: **`/TRANSCRIPTOMICS`** **`/GENOMICS`** **`/METABOLOMICS`**
 
-Three directories: [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/TRANSCRIPTOMICS), [GENOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/GENOMICS) and [METABOLOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/METABOLOMICS). Each one resolve one of my particular aims.
+Three directories: [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/TRANSCRIPTOMICS), [GENOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/GENOMICS) and [METABOLOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/METABOLOMICS). Each one solves one of my particular aims.
 
 # TRANSCRIPTOMICS
 
@@ -91,7 +91,7 @@ This is a directory. It contains files product of the scripts.
 
 :page_facing_up: **`/README.md`**
 
-This is a markdown file. It is a description file particular of this section.
+This is a markdown file. It is a description file particular of this directory and analysis.
 
 :page_facing_up: **`/Discussion and conclusion.md`**
 
