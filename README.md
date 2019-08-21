@@ -11,4 +11,4 @@
 And please send me a message in veronica.rg.pb@gmail.com to clear all doubts about my Master's Thesis project. :smiley:
 
 ![](panoramic_picture_DesiertodelosLeones.png)
-Photo: My Supervisor PhD [Alicia Mastretta-Yanes](http://mastrettayanes-lab.org/) in middle of the "sacred fir cementery" in Santa Rosa Xochiac"
+Photo by me: My Supervisor [PhD. Alicia Mastretta-Yanes](http://mastrettayanes-lab.org/) in middle of the "sacred fir cementery" in Santa Rosa Xochiac, 2017.
