@@ -2,7 +2,7 @@
 
 I am Veronica Reyes Galindo. This repository contains all the scripts of my Master's Thesis project at [Instituto de Ecología, UNAM](http://www.ecologia.unam.mx/).
 
-* The online version is in [UNAM]().
+* The online version of my Thesis is in [UNAM]() website.
 
 * You can found "The paper" and other files about my project in [my ResearchGate](https://www.researchgate.net/profile/Veronica_Reyes-Galindo).
 
