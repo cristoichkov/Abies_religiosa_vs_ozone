@@ -2,9 +2,9 @@
 
 This is the repository to describe my project and my particular aims of my Master´s Thesis.
 
-The principal aim of my project is : **Assess whether the tolerance of sacred fir (Abies religiosa) to exposure by O3, in a peripheral forest of the CDMX, is related to the genetic origin of the individuals or is given by differential expression of candidate genes.**
+The principal aim of my project is : **Assess if the tolerance of sacred fir (Abies religiosa) to exposure by O3, in a peripheral forest of the CDMX, is related to the genetic origin of the individuals or is given by differential expression of candidate genes.**
 
-But my particular aims:
+To resolves my general aim, I have 3 particular aims. The analyzes to answer each aim have a particular directory with data  and pictures:
 
 * Evaluate the differential expression of healthy and damaged trees in two periods of [O3] ([TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/TRANSCRIPTOMICS)).
 
@@ -12,11 +12,11 @@ But my particular aims:
 
 * Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3 ([METABOLOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/METABOLOMICS)).
 
-To fulfill them I have a one directory for each one.
 
+This is the Repository structure:
 ![](RepositoryStructure.png)
 
-First you can see in this repository:
+You can see in this repository:
 
 :page_facing_up:  **`/Transcriptomic_analysis_about tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf`**
 
