@@ -1,6 +1,6 @@
 # GENERAL README
 
-This is the repository to describe my project and do my particular aims of my Master´s Thesis.
+This is the repository to describe my project and my particular aims of my Master´s Thesis.
 
 The principal aim of my project is : **Assess whether the tolerance of sacred fir (Abies religiosa) to exposure by O3, in a peripheral forest of the CDMX, is related to the genetic origin of the individuals or is given by differential expression of candidate genes.**
 
@@ -14,12 +14,14 @@ To fulfill them I have a one directory for each one.
 
 ![](workflow.png)
 
-First 
+First you can see:
 
-
-
-
-There are three directories. Each one have a data, scripts and some results.
+* PowerPoint about my project in [PDF file](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/blob/master/Transcriptomic_analysis_about%20tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf)
+* [Abstract](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/blob/master/ABSTRACT-%20Transcriptomic%20analysis%20about%20tropospheric%20ozone%20tolerance%20in%20*Abies%20religiosa*..md) about my project
+* [General Discussion and conclusions](): is a short and global discussion of my project
+* [GENERAL_README](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/blob/master/GENERAL_README.md): is a summary of all my repository.
+* [README](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/blob/master/README.md): is a intro about my project. This include links about me, my supervisor and my project.
+* Three directories: [GENOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/GENOMICS), [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/TRANSCRIPTOMICS) y [METABOLOMICS](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/tree/master/METABOLOMICS). Each one have a data, scripts and some results.
 
 # TRANSCRIPTOMICS
 
