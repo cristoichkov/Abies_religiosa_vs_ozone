@@ -1,4 +1,4 @@
-# GENERAL README
+# Analysis_README
 
 This is the repository to describe my project and my particular aims of my Master´s Thesis.
 
@@ -82,7 +82,7 @@ This is a directory. It contains a screenshot of my data, because the real data 
 
 :file_folder: **`/metadata`**
 
-This is a directory. It contains .csv, .txt and other files non product of scripts.
+This is a directory. It contains .csv, .txt and other files to do the analysis.
 
 
 :file_folder: **`/outputs`**
