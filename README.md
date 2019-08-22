@@ -1,4 +1,4 @@
-# Transcriptomic_Analysis_Abies_religiosa-TB
+# Abies_religiosa_vs_ozone
 
 :evergreen_tree: I am Veronica Reyes Galindo. This repository contains all the scripts of my Master's Thesis project at [Instituto de Ecología, UNAM](http://www.ecologia.unam.mx/).:evergreen_tree:
 
@@ -13,4 +13,4 @@ And please send me a message in veronica.rg.pb@gmail.com to clear all doubts abo
 ![](panoramic_picture_DesiertodelosLeones.png)
 Photo by me: My Supervisor [PhD. Alicia Mastretta-Yanes](http://mastrettayanes-lab.org/) in middle of the "sacred fir cementery" in Santa Rosa Xochiac, 2017.
 
-**FINALLY** Welcome to my repository!!!! :tada: :confetti_ball: You should continue reading [GENERAL_README](https://github.com/VeroIarrachtai/Transcriptomic_Analysis_Abies_religiosa-TB/blob/master/GENERAL_README.md) to better understand this repository. :wink:
+**FINALLY** Welcome to my repository!!!! :tada: :confetti_ball: You should continue reading [Analysis_README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/Analysis_README.md) to better understand this repository. :wink:
