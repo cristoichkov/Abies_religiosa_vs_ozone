@@ -8,7 +8,7 @@
 
 * If you want  to know more about the importance of the project to reforest the forest near to Mexico city, you can see a nice [video](https://twitter.com/ChilangoCom/status/1028999361722761217?s=04&fbclid=IwAR2AF-Tfj_Uudgl_M0vbpxONYGhOTdIdeaDG6xD4VrQg_SFvUOPqDbJt1Uk) and read a [report](https://www.chilango.com/noticias/reportajes/desierto-de-los-leones-agoniza/amp/?__twitter_impression=true&fbclid=IwAR1kObOZYXBEytAUHqsL3OzTa3jTfeaXs8VtBfaao4tK0LjgGhIM1YAYlfE) in spanish by "Chilango" magazine.
 
-And please send me a message in veronica.rg.pb@gmail.com to clear all doubts about my Master's Thesis project. :smiley:
+And please send me a message in **veronica.rg.pb@gmail.com** to clear all doubts about my Master's Thesis project. :smiley:
 
 ![](panoramic_picture_DesiertodelosLeones.png)
 Photo by me: My Supervisor [PhD. Alicia Mastretta-Yanes](http://mastrettayanes-lab.org/) in middle of the "sacred fir cementery" in Santa Rosa Xochiac, 2017.
