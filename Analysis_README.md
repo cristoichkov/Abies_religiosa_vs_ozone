@@ -65,8 +65,7 @@ Check more info about this pipeline in the directory [GENOMICS](https://github.c
 
 ![](METABOLOMICS/Metabolomic_methods.png)
 
-Check more info about this pipeline in the directory [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/tree/master/METABOLOMICS).
+Check more info about this pipeline in the directory [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS).
 
 # Each one of the last directories have inside:
 
