@@ -20,13 +20,11 @@ You can see in this repository:
 
 :page_facing_up:  **`/Transcriptomic_analysis_about tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf`**
 
-PowerPoint about my project in [PDF file](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/blob/master/Transcriptomic_analysis_about%20tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf)
+PowerPoint about my project in [PDF file](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/Transcriptomic_analysis_about%20tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf)
 
 :page_facing_up:  **`/ABSTRACT- Transcriptomic analysis about tropospheric ozone tolerance in *Abies religiosa*..md`**
 
-[Abstract](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/blob/master/ABSTRACT-%20Transcriptomic%20analysis%20about%20tropospheric%20ozone%20tolerance%20in%20*Abies%20religiosa*..md) about my project
+[Abstract](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/ABSTRACT-%20Transcriptomic%20analysis%20about%20tropospheric%20ozone%20tolerance%20in%20*Abies%20religiosa*..md) about my project
 
 :page_facing_up:  **`/General_Discussion_and_conclusions.md`**
 
@@ -34,13 +32,11 @@ PowerPoint about my project in [PDF file](https://github.com/VeroIarrachtai/Abie
 
 :page_facing_up: **`/GENERAL_README.md`**
 
-[GENERAL_README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/blob/master/GENERAL_README.md): is a summary of all my repository.
+[GENERAL_README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENERAL_README.md): is a summary of all my repository.
 
 :page_facing_up: **`/README.md`**
 
-[README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/blob/master/README.md): is a intro about my project. This include links about me, my supervisor and my project.
+[README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/README.md): is a intro about my project. This include links about me, my supervisor and my project.
 
 :file_folder: **`/TRANSCRIPTOMICS`** **`/GENOMICS`** **`/METABOLOMICS`**
 
