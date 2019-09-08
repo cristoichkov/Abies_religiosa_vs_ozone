@@ -6,14 +6,11 @@ The principal aim of my project is : **Assess if the tolerance of sacred fir (Ab
 
 To resolves my general aim, I have 3 particular aims. The analyzes to answer each aim have a particular directory with data  and pictures:
 
-* Evaluate the differential expression of healthy and damaged trees in two periods of [O3] ([TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/tree/master/TRANSCRIPTOMICS)).
+* Evaluate the differential expression of healthy and damaged trees in two periods of [O3] ([TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/TRANSCRIPTOMICS)).
 
-* Identify origins of sacred fir with tolerance to O3 ([GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/tree/master/GENOMICS)).
+* Identify origins of sacred fir with tolerance to O3 ([GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/GENOMICS)).
 
-* Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3 ([METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/tree/master/METABOLOMICS)).
+* Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3 ([METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS)).
 
 
 This is the Repository structure:
@@ -23,13 +20,11 @@ You can see in this repository:
 
 :page_facing_up:  **`/Transcriptomic_analysis_about tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf`**
 
-PowerPoint about my project in [PDF file](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/blob/master/Transcriptomic_analysis_about%20tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf)
+PowerPoint about my project in [PDF file](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/Transcriptomic_analysis_about%20tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf)
 
 :page_facing_up:  **`/ABSTRACT- Transcriptomic analysis about tropospheric ozone tolerance in *Abies religiosa*..md`**
 
-[Abstract](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/blob/master/ABSTRACT-%20Transcriptomic%20analysis%20about%20tropospheric%20ozone%20tolerance%20in%20*Abies%20religiosa*..md) about my project
+[Abstract](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/ABSTRACT-%20Transcriptomic%20analysis%20about%20tropospheric%20ozone%20tolerance%20in%20*Abies%20religiosa*..md) about my project
 
 :page_facing_up:  **`/General_Discussion_and_conclusions.md`**
 
@@ -37,20 +32,15 @@ PowerPoint about my project in [PDF file](https://github.com/VeroIarrachtai/Abie
 
 :page_facing_up: **`/GENERAL_README.md`**
 
-[GENERAL_README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/blob/master/GENERAL_README.md): is a summary of all my repository.
+[GENERAL_README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENERAL_README.md): is a summary of all my repository.
 
 :page_facing_up: **`/README.md`**
 
-[README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/blob/master/README.md): is a intro about my project. This include links about me, my supervisor and my project.
+[README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/README.md): is a intro about my project. This include links about me, my supervisor and my project.
 
 :file_folder: **`/TRANSCRIPTOMICS`** **`/GENOMICS`** **`/METABOLOMICS`**
 
-Three directories: [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/tree/master/TRANSCRIPTOMICS), [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/tree/master/GENOMICS) and [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/tree/master/METABOLOMICS). Each one solves one of my particular aims.
+Three directories: [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/TRANSCRIPTOMICS), [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/GENOMICS) and [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS). Each one solves one of my particular aims.
 
 # TRANSCRIPTOMICS
 
@@ -59,8 +49,7 @@ Three directories: [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_rel
 
 ![](TRANSCRIPTOMICS/Transcriptomic_methods.png)
 
-Check more info about this pipeline in the directory [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/tree/master/TRANSCRIPTOMICS).
+Check more info about this pipeline in the directory [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/TRANSCRIPTOMICS).
 
 # GENOMICS
 
@@ -68,8 +57,7 @@ Check more info about this pipeline in the directory [TRANSCRIPTOMICS](https://g
 
 ![](GENOMICS/Genomic_methods.png)
 
-Check more info about this pipeline in the directory [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/tree/master/GENOMICS).
+Check more info about this pipeline in the directory [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/GENOMICS).
 
 # METABOLOMICS
 
@@ -77,8 +65,7 @@ Check more info about this pipeline in the directory [GENOMICS](https://github.c
 
 ![](METABOLOMICS/Metabolomic_methods.png)
 
-Check more info about this pipeline in the directory [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone
-/tree/master/METABOLOMICS).
+Check more info about this pipeline in the directory [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS).
 
 # Each one of the last directories have inside:
 
