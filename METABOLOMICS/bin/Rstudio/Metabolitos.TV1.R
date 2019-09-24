@@ -1,5 +1,6 @@
 #Cargar datos
-metabolitos<- read.csv("../Tablas_datos/Metabolitos-Tesis-Vero.csv")
+metabolitos<- read.csv("../../data/Tablas_datos/metabolitos_Tesis_Vero.csv")
+
 metabolitos2<- data.frame(metabolitos$C.A.T,metabolitos$C.A, metabolitos$Temporada,metabolitos$Condicion, metabolitos$A.expo, metabolitos$Muestra, metabolitos$mmet)
 
 colnames(metabolitos2)<- c("C.A.T", "C.A", "Temporada",
@@ -37,7 +38,7 @@ metabolitos2$X3_beta.Cubebene <- metabolitos2$X2_beta.Cubebene*metabolitos$micro
 metabolitos2$X4_beta.Cubebene <- metabolitos2$X3_beta.Cubebene*100/metabolitos$Peso.acicula.gramos
 metabolitos2$X5_beta.Cubebene <- metabolitos2$X4_beta.Cubebene*1000
 # alfa.Cubenene
-metabolitos2$X2_alfa.Cubenene  <- metabolitos2$x1*metabolitos$alfa.Cubenene /metabolitos$P.Area.estandar 
+metabolitos2$X2_alfa.Cubenene  <- metabolitos2$x1*metabolitos$alfa.Cubenene/metabolitos$P.Area.estandar 
 metabolitos2$X3_alfa.Cubenene  <- metabolitos2$X2_alfa.Cubenene *metabolitos$microlitros.de.metabolitos/metabolitos$microlitros.de.inyeccion 
 metabolitos2$X4_alfa.Cubenene  <- metabolitos2$X3_alfa.Cubenene *100/metabolitos$Peso.acicula.gramos
 metabolitos2$X5_alfa.Cubenene  <- metabolitos2$X4_alfa.Cubenene *1000

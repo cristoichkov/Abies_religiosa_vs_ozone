@@ -1,5 +1,5 @@
 #Cargar datos
-metabolitos<- read.csv("../Tablas_datos/Metabolitos-Tesis-Vero.csv")
+metabolitos<- read.csv("../../data/Tablas_datos/metabolitos_Tesis_Vero.csv")
 metabolitos2<- data.frame(metabolitos$C.A.T,metabolitos$C.A, metabolitos$Temporada,metabolitos$Condicion, metabolitos$A.expo, metabolitos$Muestra, metabolitos$mmet)
 
 colnames(metabolitos2)<- c("C.A.T", "C.A", "Temporada",
@@ -131,3 +131,4 @@ summary(fmbeta.Cubebene)
 summary(fmalfa.Cubenene)
 summary(fmdelta.Cadinene)
 summary(fmalfa.Muurolene)
+
