@@ -6,22 +6,32 @@
 metabolites<- read.csv("../../data/Tablas_datos/metabolitos_Tesis_Vero.csv")
 
 #Chose cols to analisys
-metabolites_datsel<- data.frame(metabolitos$C.A.T,metabolitos$C.A, metabolitos$Temporada,metabolitos$Condicion, metabolitos$A.expo, metabolitos$Muestra, metabolitos$mmet)
+metabolites_datsel<- data.frame(metabolites$C.A.T,metabolites$C.A, metabolites$Temporada,metabolites$Condicion, metabolites$A.expo, metabolites$Muestra, metabolites$mmet)
 
-colnames(metabolitos2)<- c("C.A.T", "C.A", "Temporada",
+colnames(metabolites_datsel)<- c("C.A.T", "C.A", "Temporada",
                            "Condicion", "A.expo", "Muestra", "mmet") 
 
 # Calcular X1
-metabolitos2$x1<-(metabolitos$microlitros.de.estandar*metabolitos$miligramos/metabolitos$microlitros)*2/1000
+metabolites_datsel$x1<-(metabolites$microlitros.de.estandar*metabolites$miligramos/metabolites$microlitros)*2/1000
 
 
 #Calcular X2,X3,X4,X5 para cada metabolito
 
 # beta.pinene
+ for i in beta.pinene L.alfa.bornyl.acetate ; 
+do
+metabolites_datsel$X2_$i\ <- metabolites_datsel$x1*metabolites$beta.pinene/metabolites$P.Area.estandar 
+metabolites_datsel$X3_$i\ <- metabolites_datsel$X2_$i\*metabolites$microlitros.de.metabolitos/metabolites$microlitros.de.inyeccion 
+metabolites_datsel$X4_$i\ <- metabolites_datsel$X3_$i\*100/metabolites$Peso.acicula.gramos
+metabolites_datsel$X5_$i\ <- metabolites_datsel$X4_$i\*1000
+done 
+
 metabolitos2$X2_beta.pinene <- metabolitos2$x1*metabolitos$beta.pinene/metabolitos$P.Area.estandar 
 metabolitos2$X3_beta.pinene <- metabolitos2$X2_beta.pinene*metabolitos$microlitros.de.metabolitos/metabolitos$microlitros.de.inyeccion 
 metabolitos2$X4_beta.pinene <- metabolitos2$X3_beta.pinene*100/metabolitos$Peso.acicula.gramos
 metabolitos2$X5_beta.pinene <- metabolitos2$X4_beta.pinene*1000
+
+
 # L.alfa.bornyl.acetate
 metabolitos2$X2_L.alfa.bornyl.acetate <- metabolitos2$x1*metabolitos$L.alfa.bornyl.acetate/metabolitos$P.Area.estandar 
 metabolitos2$X3_L.alfa.bornyl.acetate <- metabolitos2$X2_L.alfa.bornyl.acetate*metabolitos$microlitros.de.metabolitos/metabolitos$microlitros.de.inyeccion 
