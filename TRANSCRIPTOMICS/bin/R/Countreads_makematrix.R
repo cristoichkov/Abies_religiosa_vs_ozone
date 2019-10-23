@@ -1,6 +1,17 @@
 ## Datos para expresion diferencial (mapeo BWA)
 ## 15 Oct 2018
 ## Veronica Reyes
+x
+x<- c("DC01_15","DC02_15","DC03_15","DC04_15","DC05_15",
+      "DS01_15","DS02_15","DS04_15",
+      "HC01_15","HC02_15","HC03_15","HC04_15","HC05_15",
+      "HS01_15", "HS02_15", "HS05_15",
+      "HC01_17", "DC04_17"
+      )
+for(i in x){ ; do
+${i}<-read.delim("../../Counts/Genes_sw10/${i}_sw10L50.genesorder.txt", header= FALSE)
+}
+
 
 
 # Cargar archivos con numero de reads
