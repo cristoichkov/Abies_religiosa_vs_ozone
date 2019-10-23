@@ -1,4 +1,4 @@
-## Datos para expresion diferencial (mapeo BWA)
+## Data to quantify differential expression (mapping BWA)
 ## 15 Oct 2018
 ## Veronica Reyes
 x
@@ -8,13 +8,12 @@ x<- c("DC01_15","DC02_15","DC03_15","DC04_15","DC05_15",
       "HS01_15", "HS02_15", "HS05_15",
       "HC01_17", "DC04_17"
       )
-for(i in x){ ; do
-${i}<-read.delim("../../Counts/Genes_sw10/${i}_sw10L50.genesorder.txt", header= FALSE)
-}
+for(i in x)
+   {
+   [i] <-read.delim("../../Counts/Genes_sw10/$[i]_sw10L50.genesorder.txt", header= FALSE)
+   }
 
-
-
-# Cargar archivos con numero de reads
+# Load files with number of reads 
 DC01_15<-read.delim("../../Counts/Genes_sw10/DC01_15_sw10L50.genesorder.txt", header= FALSE)
 DC02_15<-read.delim("../../Counts/Genes_sw10/DC02_15_sw10L50.genesorder.txt", header= FALSE)
 DC03_15<-read.delim("../../Counts/Genes_sw10/DC03_15_sw10L50.genesorder.txt", header= FALSE)
@@ -39,7 +38,8 @@ HC01_17<-read.delim("../../Counts/Genes_sw10/SC01_17_sw10L50.genesorder.txt", he
 DC04_17<-read.delim("../../Counts/Genes_sw10/DC04_17_sw10L50.genesorder.txt", header= FALSE)
 
 head(DC04_17)
-# Cambiar nombre de columnas
+
+# Change col names
 colnames(DC01_15)<- c("number_reads", "name_gen")
 colnames(DC02_15)<- c("number_reads", "name_gen")
 colnames(DC03_15)<- c("number_reads", "name_gen")
@@ -64,7 +64,7 @@ colnames(HC01_17)<- c("number_reads", "name_gen")
 colnames(DC04_17)<- c("number_reads", "name_gen")
 head(DC04_17)
 
-# Cambiar orden de columnas
+# Change col order
 
 all<- data.frame(DC01_15$name_gen, DC01_15$number_reads)
 head(all)
@@ -93,18 +93,21 @@ all$DC47 <- DC04_17$number_reads[match(all$DC01_15.name_gen, DC04_17$name_gen)]
 head(all)
 
 
-#Cambiar nombres a columnas
+# Change col names
 
 colnames(all)[1]<- ""
 colnames(all)[2]<- "DC_1"
 head(all)
 
-# Cambiar NA por 0´s
+# Change NA to 0´s
 
 all<- as.data.frame(all, na.rm=TRUE)
 all[is.na(all)]<- 0
 
+# Export table to txt
 
-# Exportar tabla a formato txt
 write.table(all, file="OUTS/allreadsgenes.txt", sep = "\t", eol = "\n", dec = ".", 
             row.names = TRUE, col.names = TRUE)
+
+
+
