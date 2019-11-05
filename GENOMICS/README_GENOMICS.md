@@ -2,6 +2,14 @@
 
 # Pre-requisitos
 
+### ipyrad
+### plink
+### vcfTools
+
+
+
+# You can install thr programs with docker o consultar si ya está instalado en un cluster
+
 ## Docker
 ### Descargar imagen en Docker y correr un volumen para utilizar vcfTools
 docker pull biocontainers/vcftools
@@ -13,8 +21,6 @@ docker ps -a
 ### Si se salío del contenedor encender el contenedor de nuevo
 docker restart 5384b5655b7d
 docker exec -it 5384b5655b7d bash
-
-## PLINK
 
 
 ## Cluster
@@ -61,35 +67,43 @@ p, s, v, k, n, g               ## [27] [output_formats]: Output formats (see doc
 
 ```
 # Strict assembly vcfTools
+Se requiere sacar del ensamble general solamente a las muestras de Abies religiosa (89 individuals)
+
 
 ## Selected only *Abies religiosa* samples
+```
 vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0.05 --recode --out 89ind_maxmiss0.9_maf0.05
+```
 
 ## Evalue diferentes valores de missing data y MAF en los datos
-
+```
 vcftools --vcf without_duplicates.recode.vcf --max-missing 0.9 --maf 0.05 --recode --out without_duplicates_maxmiss0.9_maf0.05
 vcftools --vcf without_duplicates.recode.vcf --max-missing 0.95 --maf 0.05 --recode --out without_duplicates_maxmiss0.95_maf0.05
 vcftools --vcf without_duplicates.recode.vcf --max-missing 0.85 --maf 0.05 --recode --out without_duplicates_maxmiss0.85_maf0.05
-
+```
 
 ## Determinar missing data en las muestras
-
+```
 vcftools --vcf file.vcf --missing-indv --out name_file
 vcftools --vcf without_duplicates_maxmiss0.95_maf0.05.recode.vcf --missing-indv --out missing-indv_without_duplicates_maxmiss0.95_maf0.05
 vcftools --vcf without_duplicates_maxmiss0.9_maf0.05.recode.vcf --missing-indv --out missing-indv_without_duplicates_maxmiss0.9_maf0.05
 vcftools --vcf without_duplicates_maxmiss0.85_maf0.05.recode.vcf --missing-indv --out missing-indv_without_duplicates_maxmiss0.85_maf0.05
-
+```
 
 # Covert files
 
 ## Convertir los archivos vcf a archivos ped map
+
+```
 vcftools --vcf 63ind_maxmiss0.9_maf0.05.recode.vcf --plink --out 63ind_maxmiss0.9_maf0.05
+```
 
 ## Convertir archivos plink a archivos bed bim am
+```
 ./plink --file 63ind_maxmiss0.9_maf0.05 --out 63ind_maxmiss0.9_maf0.05 --make-bed
+```
 
-
-# 1. Seleccional muestras de la distribución de Abies religiosa en la FVTM (88 individuos)
+# 1. Select samples of distribution of Abies religiosa in the FVTM (88 individuals)
 
 ```
 vcftools --vcf TMVB_5SNPradlocus.vcf --keep 88_ind.txt --max-missing 0.9 --maf 0.05 --recode --out 88ind_maxmiss0.9_maf0.05
@@ -158,17 +172,18 @@ Se utiliza el script :
 /Users/geyev15/Dropbox/TESIS_OZONO_ORGANIZADO/GENOMICS/bin/relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.R
 /Users/geyev15/Dropbox/TESIS_OZONO_ORGANIZADO/GENOMICS/bin/relsnp_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.R
 
-``
+```
 
 #Estructura genética de las poblaciones con admixture
 
 Plotear errores cross-validation
 Cada vez que corro un admixture debo cambiar de lugar los archivos, de lo contrario se sobreescriben
 
+```
 for K in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20;
 do ./admixture --cv=20 snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed $K | tee log${K}.out; done
 grep -h CV log*.out > logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
-
+```
 
 Utilice el script para el admixture
 Primero debo modificar el logall.txt
@@ -183,7 +198,7 @@ SantaRosaXochiac	ArDlD5	0	0	0	-9
 
 # Heterocigosis
 
-
+```
 vcftools --vcf snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.vcf --keep samples_het.txt --het --recode --out samples_het_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05
 
 vcftools --vcf samples_het_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.recode.vcf --het --out samples_het_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05
@@ -206,3 +221,4 @@ vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --keep samples_het_sana.txt  
 vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --keep samples_het_da.txt  --het --out samples_het_snp_withoutDupLoci_5Dind_maxmiss0.9_maf0.05
 
 vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --keep samples_het_relat.txt  --het --out samples_het_snp_withoutDupLoci_9ind_related_maxmiss0.9_maf0.05
+```
