@@ -84,6 +84,9 @@ In addition, you can find in this repository:
 
 [wonderful_images](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/wonderful_images)
 
+
+The principal analysis are:
+
 # TRANSCRIPTOMICS
 
 ### Evaluate the differential expression of healthy and damaged trees in two periods of [O3].
