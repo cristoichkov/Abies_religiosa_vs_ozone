@@ -3,10 +3,14 @@
 # Pre-requisitos
 
 ## Docker
-### Descargue la imagen en Docker y corrí un volumen para utilizar vcfTools
+### Descargar imagen en Docker y correr un volumen para utilizar vcfTools
 docker pull biocontainers/vcftools
 docker run -v /Users/veronicareyesgalindo/Documents/DOCKER/Contenedor_VCFTools:/data -it biocontainers/vcftools /bin/bash
+
+### Corroborar que exista la imagen
 docker ps -a
+
+### Si se salío del contenedor encender el contenedor de nuevo
 docker restart 5384b5655b7d
 docker exec -it 5384b5655b7d bash
 
@@ -15,7 +19,7 @@ docker exec -it 5384b5655b7d bash
 
 ## Cluster
 
-I have access a CONABIO cluster
+I have access a [CONABIO](https://www.gob.mx/conabio) cluster
 
 
 # Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
@@ -76,7 +80,7 @@ vcftools --vcf without_duplicates_maxmiss0.9_maf0.05.recode.vcf --missing-indv -
 vcftools --vcf without_duplicates_maxmiss0.85_maf0.05.recode.vcf --missing-indv --out missing-indv_without_duplicates_maxmiss0.85_maf0.05
 
 
-# Covert files 
+# Covert files
 
 ## Convertir los archivos vcf a archivos ped map
 vcftools --vcf 63ind_maxmiss0.9_maf0.05.recode.vcf --plink --out 63ind_maxmiss0.9_maf0.05
