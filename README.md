@@ -13,9 +13,7 @@ And please send me a message in **veronica.rg.pb@ gmail.com** to clear all doubt
 ![](wonderful_images/panoramic_picture_DesiertodelosLeones.png)
 Photo by me: My Supervisor [PhD. Alicia Mastretta-Yanes](http://mastrettayanes-lab.org/) in middle of the "sacred fir cementery" in Santa Rosa Xochiac, 2017.
 
-**You should continue reading [Analysis_README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/Analysis_README.md) to better understand this repository and differents workflows of my project.** :wink:
-
-**FINALLY** Welcome to my repository!!!! :tada: :confetti_ball:
+:evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree:
 
 This is the repository that describes my project and the particular aims of my Master´s Thesis.
 
@@ -35,36 +33,36 @@ This is the Repository structure:
 
 In addition, you can find in this repository:
 
-:page_facing_up:  **`/Transcriptomic_analysis_about tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf`**
-
-PowerPoint about my project in [PDF file](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/Transcriptomic_analysis_about%20tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf)
-
-:page_facing_up:  **`/ABSTRACT- Transcriptomic analysis about tropospheric ozone tolerance in *Abies religiosa*..md`**
-
-[Abstract](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/ABSTRACT-%20Transcriptomic%20analysis%20about%20tropospheric%20ozone%20tolerance%20in%20*Abies%20religiosa*..md) about my project
-
-:page_facing_up:  **`/General_Discussion_and_conclusions.md`**
-
-[General_Discussion_and_conclusions](): is a short and global discussion of my project
-
-:page_facing_up: **`/GENERAL_README.md`**
-
-[GENERAL_README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENERAL_README.md): is a summary of all my repository.
-
 :page_facing_up: **`/README.md`**
 
-[README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/README.md): is a intro about my project. This include links about me, my supervisor and my project.
+[README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/README.md): is a intro about my project. This include the structure of my repository.
 
-:file_folder: **`/TRANSCRIPTOMICS`** **`/GENOMICS`** **`/METABOLOMICS`**
+:file_folder: **`/TRANSCRIPTOMICS`**
 
-Three directories: [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/TRANSCRIPTOMICS), [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/GENOMICS) and [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS). Each one solves one of my particular aims.
+[TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/TRANSCRIPTOMICS)
+
+:file_folder: **`/GENOMICS`**
+
+[GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/GENOMICS)
+
+:file_folder: **`/METABOLOMICS`**
+
+[METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS)
+
+:file_folder: **`/INFO_PROJECT`**
+
+[INFO_PROJECT](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/INFO_PROJECT)
+
+:file_folder: **`/wonderful_images`**
+
+[wonderful_images](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/wonderful_images)
 
 # TRANSCRIPTOMICS
 
 ### Evaluate the differential expression of healthy and damaged trees in two periods of [O3].
 
 
-![](TRANSCRIPTOMICS/Transcriptomic_methods.png)
+![](wonderful_images/Transcriptomic_methods.png)
 
 Check more info about this pipeline in the directory [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/TRANSCRIPTOMICS).
 
@@ -72,7 +70,7 @@ Check more info about this pipeline in the directory [TRANSCRIPTOMICS](https://g
 
 ### Identify origins of sacred fir with tolerance to O3.
 
-![](GENOMICS/Genomic_methods.png)
+![](wonderful_images/Genomic_methods.png)
 
 Check more info about this pipeline in the directory [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/GENOMICS).
 
@@ -80,36 +78,8 @@ Check more info about this pipeline in the directory [GENOMICS](https://github.c
 
 ### Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3
 
-![](METABOLOMICS/Metabolomic_methods.png)
+![](wonderful_images/Metabolomic_methods.png)
 
 Check more info about this pipeline in the directory [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS).
 
 # Each one of these directories have inside:
-
-
-:file_folder: **`/bin`**
-
-This is a directory. It contains the scripts and html files results of the scripts.
-
-
-:file_folder: **`/data`**
-
-This is a directory. It contains a screenshot of my data, because the real data is very heavy.
-
-
-:file_folder: **`/metadata`**
-
-This is a directory. It contains .csv, .txt and other files to do the analysis.
-
-
-:file_folder: **`/outputs`**
-
-This is a directory. It contains files product of the scripts.
-
-:page_facing_up: **`/README.md`**
-
-This is a markdown file. It is a description file particular of this directory and analysis.
-
-:page_facing_up: **`/Discussion and conclusion.md`**
-
-This is a markdown file. It is a discussion particular of this section.
