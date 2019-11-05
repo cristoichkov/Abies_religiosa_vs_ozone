@@ -147,10 +147,13 @@ SCRIPT in R [Mantel_test](https://github.com/VeroIarrachtai/Abies_religiosa_vs_o
 ## 5.2.-plot Relatedness
 SCRIPT in R [Relatedness](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/5.2_Relatedness.R)
 
+![](../wonderful_images/Relationshipe_IH.png)
+
 # 6.0.-Estructura genética de las poblaciones con PCA
 
 ## 6.1.-Plot PCA
 SCRIPT in R [PCA](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/6.1_PCA.R)
+![](../wonderful_images/PCA-IW.png)
 
 # 7.0.-Estructura genética de las poblaciones con admixture
 
@@ -175,6 +178,10 @@ SantaRosaXochiac	ArDlD5	0	0	0	-9
 
 ## 7.3.-Admixture Plot
 SCRIPT in R [Admixture](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/7.3_Relatedness.R)
+
+![](../wonderful_images/7.3_Admixture.png)
+
+![](../wonderful_images/7.3_Admixture_2.png)
 
 # 8.0.-Calculate Heterocigozity
 
