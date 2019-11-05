@@ -190,4 +190,4 @@ SCRIPT in R [Admixture](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozo
 vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --hardy --out samples_hardy_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05
 ```
 ## 8.2.-Plot
-SCRIPT in R [He](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/8.2_Calculate_He.R)
+SCRIPT in R [He](/bin/RStudio/8.2_Calculate_He.R)
