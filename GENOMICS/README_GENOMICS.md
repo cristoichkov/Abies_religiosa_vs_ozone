@@ -33,7 +33,7 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	    +--6.1_PCA.R
 |	   	    +--7.3_Admixture.R
 |	   	    +--8.2_Calculate_He.R
-|	      	+--Terminal
+|	      	+--Software
 |		+--data/
 |		+--metadata/
 |		+--outputs/
@@ -46,9 +46,11 @@ Before starting the analysis here are the programs that need to be installed:
 Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
 
 * INPUT:
+   * Archivos de la secuenciación **files.fq.gz**
+   * barcodes **file.txt**
 
 * OUTPUT:
-
+   * **file.vcf**
 
 ## 1.1.-Run relaxed assembly with iPyRAD
 
@@ -91,9 +93,10 @@ This assembly was made relaxed because we want found SNPs with same ID reference
 Se requiere sacar del ensamble general solamente a las muestras de Abies religiosa (89 individuals)
 
 * INPUT:
+   * **file.vcf**
 
 * OUTPUT:
-
+   * **fitered_file.vcf**
 
 ## 2.1.-Check perfect missing data max for your samples
 
@@ -110,8 +113,17 @@ vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0
 
 
 * INPUT:
+   * **fitered_file.vcf**
 
 * OUTPUT:
+   * **fitered_file.freq**
+   * **fitered_file.bed**
+   * **fitered_file.bim**
+   * **fitered_file.fam**
+   * **positions_s88_Ar0.9.txt**
+   * **extract_positions_file.**
+   * **extract_positions_file.**
+   * **extract_positions_file.**
 
 ## 3.1.-Primero se tiene que obtener la frecuencia que tienen los loci
 
@@ -140,42 +152,41 @@ locus_13:8
 SCRIPT in R [without_SNPs_in_same_loci](bin/Rstudio/3.3_Without_SNPs_in_same_loci.R)
 
 
-## 3.3.-Extraer posisiones en archivos plink con el outfile del paso 3.3
+## 3.4.-Extraer posisiones en archivos plink con el outfile del paso 3.3
 
 ```
 ./plink --file 88ind_maxmiss0.9_maf0.05 --extract positions_s88_Ar0.9.txt  --make-bed --out snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
 
 
-# 4.0.-Mantel test
-
-* INPUT:
-
-* OUTPUT:
-
-## 4.1.-
-SCRIPT in R [Mantel_test](bin/Rstudio/4.1_Mantel_test.R)
-
-![](../wonderful_images/4.1_Mantel_test.png)
-
-
-# 5.0.-Calcular coeficiente de relación (relatedness)
+# 4.0.-Calcular coeficiente de relación (relatedness)
 
 * INPUT:
 
 * OUTPUT:
 
 
-## 5.1.-Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
+## 4.1.-Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
 ```
 ./plink --bfile snp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --make-rel square --make-bed --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ./plink --bfile relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ./plink --file relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode vcf --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ```
-## 5.2.-plot Relatedness
-SCRIPT in R [Relatedness](bin/Rstudio/5.2_Relatedness.R)
+## 4.2.-plot Relatedness
+SCRIPT in R [Relatedness](bin/Rstudio/4.2_Relatedness.R)
 
 ![](../wonderful_images/Relationshipe_IH.png)
+
+# 5.0.-Mantel test
+
+* INPUT:
+
+* OUTPUT:
+
+## 5.1.-
+SCRIPT in R [Mantel_test](bin/Rstudio/5.1_Mantel_test.R)
+
+![](../wonderful_images/4.1_Mantel_test.png)
 
 # 6.0.-Estructura genética de las poblaciones con PCA
 
