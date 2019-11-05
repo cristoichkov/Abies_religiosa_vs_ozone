@@ -33,7 +33,8 @@ docker exec -it 5384b5655b7d bash
 
 I have access a [CONABIO](https://www.gob.mx/conabio) cluster
 
-
+This is the GENOMICS directory structure:
+```
 +----- Abies_religiosa_vs_ozone/
 |	+--GENOMICS/
 |		+--bin/
@@ -49,7 +50,7 @@ I have access a [CONABIO](https://www.gob.mx/conabio) cluster
 |		+--metadata/
 |		+--outputs/
 |		+--README_genomics.md
-
+```
 
 
 # 1.0.-RUN ASSEMBLY: Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
