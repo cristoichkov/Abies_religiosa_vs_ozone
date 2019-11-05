@@ -6,17 +6,12 @@ Before starting the analysis here are the programs that need to be installed:
 
 ## SOFTWARE
 
-### fastQC
 [fastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
-### ipyrad
 [ipyrad](https://ipyrad.readthedocs.io/en/latest/)
-### plink
 [PLINK](https://www.cog-genomics.org/plink2/)
-### vcfTools
 [vcfTools](https://vcftools.github.io/man_latest.html)
-### R y Rstudio (optional)
 [R](https://cran.r-project.org)
-[Rstudio](https://rstudio.com)
+[Rstudio (optional)](https://rstudio.com)
 
 ## R packages
 
