@@ -14,23 +14,6 @@
 
 # You can install the programs with docker o check if you have access in a cluster
 
-## Docker
-### Descargar imagen en Docker y correr un volumen para utilizar vcfTools
-```
-docker pull biocontainers/vcftools
-docker run -v /Users/veronicareyesgalindo/Documents/DOCKER/Contenedor_VCFTools:/data -it biocontainers/vcftools /bin/bash
-```
-### Corroborar que existe la imagen
-```
-docker ps -a
-```
-### Si se salío del contenedor encender el contenedor de nuevo
-```
-docker restart 5384b5655b7d
-docker exec -it 5384b5655b7d bash
-```
-## Cluster
-
 I have access a [CONABIO](https://www.gob.mx/conabio) cluster
 
 This is the GENOMICS directory structure:
@@ -40,7 +23,7 @@ This is the GENOMICS directory structure:
 |		+--bin/
 |	    	+--Rstudio/
 |	   	    +--3.3_Without_SNPs_in_same_loci.R
-|	     	  +--4.1_Mantel_test.R
+|	   	    +--4.1_Mantel_test.R
 |	   	    +--5.2_Relatedness.R
 |	   	    +--6.1_PCA.R
 |	   	    +--7.3_Admixture.R
@@ -53,7 +36,7 @@ This is the GENOMICS directory structure:
 ```
 
 
-# 1.0.-RUN ASSEMBLY: Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
+# 1.0.-RUN de novo ASSEMBLY: Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
 
 # 1.1.-Run relaxed assembly with iPyRAD
 
