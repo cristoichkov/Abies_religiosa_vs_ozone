@@ -34,6 +34,22 @@ docker exec -it 5384b5655b7d bash
 I have access a [CONABIO](https://www.gob.mx/conabio) cluster
 
 
++----- Abies_religiosa_vs_ozone/
+|	+--GENOMICS/
+|		+--bin/
+|	   	+--Rstudio/
+|	   	  +--3.3_Without_SNPs_in_same_loci.R
+|	   	  +--4.1_Mantel_test.R
+|	   	  +--5.2_Relatedness.R
+|	   	  +--6.1_PCA.R
+|	   	  +--7.3_Admixture.R
+|	   	  +--8.2_Calculate_He.R
+|	   	+--Terminal
+|		+--data/
+|		+--metadata/
+|		+--outputs/
+|		+--README_genomics.md
+
 
 
 # 1.0.-RUN ASSEMBLY: Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
