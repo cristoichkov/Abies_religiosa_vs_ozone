@@ -6,7 +6,7 @@
 [ipyrad](https://ipyrad.readthedocs.io/en/latest/), interactive assembly and analysis toolkit for restriction-site associated DNA (RAD-seq) and related data types.
 
 ### plink
-[PLINK](A set of tools written in Perl and C++ for working with VCF files.), command-line program, to do several of the most demanding jobs, including identity-by-state matrix computation, distance-based clustering, LD-based pruning, haplotype block identification, and association analysis max(T) permutation tests.
+[PLINK](https://www.cog-genomics.org/plink2/), command-line program, to do several of the most demanding jobs, including identity-by-state matrix computation, distance-based clustering, LD-based pruning, haplotype block identification, and association analysis max(T) permutation tests.
 
 ### vcfTools
 [vcfTools](https://vcftools.github.io/man_latest.html), set of tools written in Perl and C++ for working with VCF files.
@@ -19,7 +19,7 @@
 docker pull biocontainers/vcftools
 docker run -v /Users/veronicareyesgalindo/Documents/DOCKER/Contenedor_VCFTools:/data -it biocontainers/vcftools /bin/bash
 
-### Corroborar que exista la imagen
+### Corroborar que existe la imagen
 docker ps -a
 
 ### Si se salío del contenedor encender el contenedor de nuevo
@@ -119,12 +119,14 @@ Mantener las variantes del txt. Este .txt se uso para descartar a estos SNPs uti
 ```
 ./plink --file 88ind_maxmiss0.9_maf0.05 --extract positions_s88_Ar0.9.txt  --make-bed --out snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
-
-# 4.0 Calcular coeficiente de relación (relatedness)
-
+# 4.0 Mantel test
 
 
-# 4.1 Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
+# 5.0 Calcular coeficiente de relación (relatedness)
+
+
+
+## 5.1 Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
 ```
 ./plink --bfile snp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --make-rel square --make-bed --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ./plink --bfile relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
@@ -132,9 +134,9 @@ Mantener las variantes del txt. Este .txt se uso para descartar a estos SNPs uti
 ```
 
 
-# 5.0 Estructura genética de las poblaciones con admixture
+# 6.0 Estructura genética de las poblaciones con admixture
 
-# 5.1 Plotear errores cross-validation
+## 6.1 Plotear errores cross-validation
 Cada vez que corro un admixture debo cambiar de lugar los archivos, de lo contrario se sobreescriben
 
 ```
@@ -143,7 +145,7 @@ do ./admixture --cv=20 snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed $K | tee lo
 grep -h CV log*.out > logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
 
-# 5.2 Primero debo modificar el logall.txt y el archivo .fam
+## 6.2 Primero debo modificar el logall.txt y el archivo .fam
 
 CV error (K=1): 0.44124
 01	0.86369
@@ -153,10 +155,13 @@ CV error (K=1): 0.44124
 ArDlD5	ArDlD5	0	0	0	-9
 SantaRosaXochiac	ArDlD5	0	0	0	-9
 
+## 6.3 Admixture Plot
 
-# 6.0 Calculate Heterocigozity
 
-# 6.1
+# 7.0 Calculate Heterocigozity
+
+## 7.1
 ```
 vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --hardy --out samples_hardy_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05
 ```
+## 7.2
