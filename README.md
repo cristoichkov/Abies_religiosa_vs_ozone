@@ -45,7 +45,7 @@ This is the Repository structure:
 |		+--outputs/
 |		+--README_genomics.md
 |	+--METABOLOMICS/
-|   +--bin/
+|		+--bin/
 |		+--data/
 |		+--metadata/
 |		+--outputs/
