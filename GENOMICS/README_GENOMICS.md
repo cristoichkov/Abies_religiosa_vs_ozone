@@ -137,16 +137,18 @@ Mantener las variantes del txt. Este .txt se uso para descartar a estos SNPs uti
 # 5.1 Plotear errores cross-validation
 Cada vez que corro un admixture debo cambiar de lugar los archivos, de lo contrario se sobreescriben
 
+```
 for K in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20;
 do ./admixture --cv=20 snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed $K | tee log${K}.out; done
 grep -h CV log*.out > logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
+```
 
 # 5.2 Primero debo modificar el logall.txt y el archivo .fam
 
 CV error (K=1): 0.44124
 01	0.86369
 
-###fam file
+### fam file
 
 ArDlD5	ArDlD5	0	0	0	-9
 SantaRosaXochiac	ArDlD5	0	0	0	-9
@@ -155,4 +157,6 @@ SantaRosaXochiac	ArDlD5	0	0	0	-9
 # 6.0 Calculate Heterocigozity
 
 # 6.1
+```
 vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --hardy --out samples_hardy_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05
+```
