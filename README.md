@@ -10,7 +10,7 @@
 
 And please send me a message in **veronica.rg.pb@ gmail.com** to clear all doubts about my Master's Thesis project. :smiley:
 
-![](panoramic_picture_DesiertodelosLeones.png)
+![](wonderful_images/panoramic_picture_DesiertodelosLeones.png)
 Photo by me: My Supervisor [PhD. Alicia Mastretta-Yanes](http://mastrettayanes-lab.org/) in middle of the "sacred fir cementery" in Santa Rosa Xochiac, 2017.
 
 **You should continue reading [Analysis_README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/Analysis_README.md) to better understand this repository and differents workflows of my project.** :wink:
