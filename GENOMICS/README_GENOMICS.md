@@ -41,7 +41,14 @@ Before starting the analysis here are the programs that need to be installed:
 ```
 
 
-# 1.0.-RUN de novo ASSEMBLY: Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
+# 1.0.-RUN de novo ASSEMBLY
+
+Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
+
+* INPUT:
+
+* OUTPUT:
+
 
 ## 1.1.-Run relaxed assembly with iPyRAD
 
@@ -83,6 +90,10 @@ I used 79 samples of my research group to understand were is the providence of m
 This assembly was made relaxed because we want found SNPs with same ID reference in every sequences.
 Se requiere sacar del ensamble general solamente a las muestras de Abies religiosa (89 individuals)
 
+* INPUT:
+
+* OUTPUT:
+
 
 ## 2.1.-Check perfect missing data max for your samples
 
@@ -96,6 +107,11 @@ vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0
 ```
 
 # 3.0.-Make LD linkage desequilibrium (delete a SNPs in the same loci)
+
+
+* INPUT:
+
+* OUTPUT:
 
 ## 3.1.-Primero se tiene que obtener la frecuencia que tienen los loci
 
@@ -133,6 +149,10 @@ SCRIPT in R [without_SNPs_in_same_loci](bin/Rstudio/3.3_Without_SNPs_in_same_loc
 
 # 4.0.-Mantel test
 
+* INPUT:
+
+* OUTPUT:
+
 ## 4.1.-
 SCRIPT in R [Mantel_test](bin/Rstudio/4.1_Mantel_test.R)
 
@@ -141,6 +161,9 @@ SCRIPT in R [Mantel_test](bin/Rstudio/4.1_Mantel_test.R)
 
 # 5.0.-Calcular coeficiente de relación (relatedness)
 
+* INPUT:
+
+* OUTPUT:
 
 
 ## 5.1.-Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
@@ -156,11 +179,21 @@ SCRIPT in R [Relatedness](bin/Rstudio/5.2_Relatedness.R)
 
 # 6.0.-Estructura genética de las poblaciones con PCA
 
+* INPUT:
+
+* OUTPUT:
+
+
 ## 6.1.-Plot PCA
 SCRIPT in R [PCA](bin/Rstudio/6.1_PCA.R)
 ![](../wonderful_images/PCA-IW.png)
 
 # 7.0.-Estructura genética de las poblaciones con admixture
+
+* INPUT:
+
+* OUTPUT:
+
 
 ## 7.1.-Run admixture
 Cada vez que corro un admixture debo cambiar de lugar los archivos, de lo contrario se sobreescriben
@@ -190,6 +223,11 @@ SCRIPT in R [Admixture](bin/Rstudio/7.3_Admixture.R)
 ![](../wonderful_images/7.3_Admixture_2.png)
 
 # 8.0.-Calculate Heterocigozity
+
+* INPUT:
+
+* OUTPUT:
+
 
 ## 8.1.-
 ```
