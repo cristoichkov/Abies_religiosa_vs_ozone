@@ -29,7 +29,7 @@ To resolves my general aim, I have 3 particular aims. The analyzes to answer eac
 
 
 This is the Repository structure:
-
+```
 +----- Abies_religiosa_vs_ozone/
 |	+--README.md
 |	+--TRANSCRIPTOMICS/
@@ -56,6 +56,7 @@ This is the Repository structure:
 |		+--README_info_project.md
 |	+--wonderful_images/
 |		+--all_images_in _this_repository.png
+```
 
 In addition, you can find in this repository:
 
