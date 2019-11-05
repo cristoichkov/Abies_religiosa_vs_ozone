@@ -116,7 +116,7 @@ modificar el archivo
 locus_13 8
 locus_13:8
 
-SCRIPT in R [without_SNPs_in_same_loci](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/3.3_Without_SNPs_in_same_loci.R)
+SCRIPT in R [without_SNPs_in_same_loci](bin/Rstudio/3.3_Without_SNPs_in_same_loci.R)
 
 
 ## 3.3.-Extraer posisiones en archivos plink con el outfile del paso 3.3
@@ -129,7 +129,7 @@ SCRIPT in R [without_SNPs_in_same_loci](https://github.com/VeroIarrachtai/Abies_
 # 4.0.-Mantel test
 
 # 4.1.-
-SCRIPT in R [Mantel_test](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/4.1_Mantel_test.R)
+SCRIPT in R [Mantel_test](bin/Rstudio/4.1_Mantel_test.R)
 
 ![](../wonderful_images/4.1_Mantel_test.png)
 
@@ -145,14 +145,14 @@ SCRIPT in R [Mantel_test](https://github.com/VeroIarrachtai/Abies_religiosa_vs_o
 ./plink --file relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode vcf --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ```
 ## 5.2.-plot Relatedness
-SCRIPT in R [Relatedness](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/5.2_Relatedness.R)
+SCRIPT in R [Relatedness](bin/Rstudio/5.2_Relatedness.R)
 
 ![](../wonderful_images/Relationshipe_IH.png)
 
 # 6.0.-Estructura genética de las poblaciones con PCA
 
 ## 6.1.-Plot PCA
-SCRIPT in R [PCA](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/6.1_PCA.R)
+SCRIPT in R [PCA](bin/Rstudio/6.1_PCA.R)
 ![](../wonderful_images/PCA-IW.png)
 
 # 7.0.-Estructura genética de las poblaciones con admixture
@@ -177,7 +177,7 @@ ArDlD5	ArDlD5	0	0	0	-9
 SantaRosaXochiac	ArDlD5	0	0	0	-9
 
 ## 7.3.-Admixture Plot
-SCRIPT in R [Admixture](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/7.3_Relatedness.R)
+SCRIPT in R [Admixture](bin/Rstudio/7.3_Relatedness.R)
 
 ![](../wonderful_images/7.3_Admixture.png)
 
