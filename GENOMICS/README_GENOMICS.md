@@ -16,17 +16,19 @@
 
 ## Docker
 ### Descargar imagen en Docker y correr un volumen para utilizar vcfTools
+```
 docker pull biocontainers/vcftools
 docker run -v /Users/veronicareyesgalindo/Documents/DOCKER/Contenedor_VCFTools:/data -it biocontainers/vcftools /bin/bash
-
+```
 ### Corroborar que existe la imagen
+```
 docker ps -a
-
+```
 ### Si se salío del contenedor encender el contenedor de nuevo
+```
 docker restart 5384b5655b7d
 docker exec -it 5384b5655b7d bash
-
-
+```
 ## Cluster
 
 I have access a [CONABIO](https://www.gob.mx/conabio) cluster
@@ -97,13 +99,7 @@ vcftools --vcf 88ind_maxmiss0.9_maf0.05.recode.vcf --freq --out freq_88ind_maxmi
 vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --freq --out freq_89ind_maxmiss0.9_maf0.05
 
 ```
-## Para realizar esto se utilizará el script:
 
-**/Users/geyev15/Dropbox/TESIS_OZONO_ORGANIZADO/GENOMICS/bin/SNPS_s88_same_loci_0.9.R**
-Del script obtuve un archivo .txt con los locus que conservaré en los analisis. Edite los archivos con TextWrangler. Trate en la terminal pero no lo logré
-
-locus_13 8
-locus_13:8
 
 ## 3.2.-Convertir archivos vcf en plink
 
@@ -114,15 +110,21 @@ vcftools --vcf 88ind_maxmiss0.9_maf0.05.recode.vcf --plink --out 88ind_maxmiss0.
 El archivo anterior se utilizó para descartar esos locus con el comando en **VCFTools**:
 Mantener las variantes del txt. Este .txt se uso para descartar a estos SNPs utilizando comandos plink con los archivos map, ped y txt
 
-## 3.3.-Extraer posisiones en archivos plink
+## 3.3.-Utilizar el archivo .txt para extraer solamente sitios con valores de maf altos
+
+modificar el archivo
+locus_13 8
+locus_13:8
 
 SCRIPT in R [without_SNPs_in_same_loci](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/3.3_Without_SNPs_in_same_loci.R)
 
-## 3.4.-Utilizar el archivo .txt para extraer solamente sitios con valores de maf altos
+
+## 3.3.-Extraer posisiones en archivos plink con el outfile del paso 3.3
 
 ```
 ./plink --file 88ind_maxmiss0.9_maf0.05 --extract positions_s88_Ar0.9.txt  --make-bed --out snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
+
 
 # 4.0.-Mantel test
 
