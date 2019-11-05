@@ -29,7 +29,33 @@ To resolves my general aim, I have 3 particular aims. The analyzes to answer eac
 
 
 This is the Repository structure:
-![](Repository_Structure.png)
+
++----- Abies_religiosa_vs_ozone/
+|	+--README.md
+|	+--TRANSCRIPTOMICS/
+|		+--bin/
+|		+--data/
+|		+--metadata/
+|		+--outputs/
+|		+--README_transcriptomics.md
+|	+--GENOMICS/
+|		+--bin/
+|		+--data/
+|		+--metadata/
+|		+--outputs/
+|		+--README_genomics.md
+|	+--METABOLOMICS/
+|   +--bin/
+|		+--data/
+|		+--metadata/
+|		+--outputs/
+|		+--README_metabolomics.md
+|	+--INFO_PROJECT/
+|		+--Transcriptomic_analysis_about tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf
+|		+--ABSTRACT-Transcriptomic_analysis_about_tropospheric_ozone_tolerance_in_Abies_religiosa.md
+|		+--README_info_project.md
+|	+--wonderful_images/
+|		+--all_images_in _this_repository.png
 
 In addition, you can find in this repository:
 
@@ -82,4 +108,12 @@ Check more info about this pipeline in the directory [GENOMICS](https://github.c
 
 Check more info about this pipeline in the directory [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS).
 
-# Each one of these directories have inside:
+## Each one of these directories have inside:
+
+:file_folder: **`/bin`**
+
+:file_folder: **`/data`**
+
+:file_folder: **`/metadata`**
+
+:file_folder: **`/outputs`**
