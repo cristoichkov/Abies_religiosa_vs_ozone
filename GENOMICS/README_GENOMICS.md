@@ -34,9 +34,9 @@ I have access a [CONABIO](https://www.gob.mx/conabio) cluster
 
 
 
-# 1.0 RUN ASSEMBLY: Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
+# 1.0.-RUN ASSEMBLY: Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
 
-
+# 1.1.-Run relaxed assembly with iPyRAD
 
 ```
 ------- ipyrad params file (v.0.7.28)-------------------------------------------
@@ -71,26 +71,26 @@ p, s, v, k, n, g               ## [27] [output_formats]: Output formats (see doc
                                ## [28] [pop_assign_file]: Path to population assignment file
 
 ```
-# 2.0 Strict assembly vcfTools and PLINK
+# 2.0.-Strict assembly vcfTools and PLINK
 I used 79 samples of my research group to understand were is the providence of my 10 samples. So, I do my assembly with 89 samples.
 This assembly was made relaxed because we want found SNPs with same ID reference in every sequences.
 Se requiere sacar del ensamble general solamente a las muestras de Abies religiosa (89 individuals)
 
 
-## 2.1 Check perfect missing data max for your samples
+## 2.1.-Check perfect missing data max for your samples
 
 
-## 2.2 Check perfect maf for your samples
+## 2.2.-Check perfect maf for your samples
 
-## 2.3 Selected only 89 *Abies religiosa* samples, with missing data max 10% and maf 0.05
+## 2.3.-Selected only 89 *Abies religiosa* samples, with missing data max 10% and maf 0.05
 
 ```
 vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0.05 --recode --out 89ind_maxmiss0.9_maf0.05
 ```
 
-# 3.0 Make LD linkage desequilibrium (delete a SNPs in the same loci)
+# 3.0.-Make LD linkage desequilibrium (delete a SNPs in the same loci)
 
-## 3.1 Primero se tiene que obtener la frecuencia que tienen los loci
+## 3.1.-Primero se tiene que obtener la frecuencia que tienen los loci
 
 ```
 vcftools --vcf 88ind_maxmiss0.9_maf0.05.recode.vcf --freq --out freq_88ind_maxmiss0.9_maf0.05
@@ -105,7 +105,7 @@ Del script obtuve un archivo .txt con los locus que conservaré en los analisis.
 locus_13 8
 locus_13:8
 
-## 3.2 Convertir archivos vcf en plink
+## 3.2.-Convertir archivos vcf en plink
 
 El comando debe ser en archivos plink
 ```
@@ -114,29 +114,42 @@ vcftools --vcf 88ind_maxmiss0.9_maf0.05.recode.vcf --plink --out 88ind_maxmiss0.
 El archivo anterior se utilizó para descartar esos locus con el comando en **VCFTools**:
 Mantener las variantes del txt. Este .txt se uso para descartar a estos SNPs utilizando comandos plink con los archivos map, ped y txt
 
-## 3.3 Extraer posisiones en archivos plink  
+## 3.3.-Extraer posisiones en archivos plink
+
+SCRIPT in R [without_SNPs_in_same_loci](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/3.3_Without_SNPs_in_same_loci.R)
+
+## 3.4.-Utilizar el archivo .txt para extraer solamente sitios con valores de maf altos
 
 ```
 ./plink --file 88ind_maxmiss0.9_maf0.05 --extract positions_s88_Ar0.9.txt  --make-bed --out snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
-# 4.0 Mantel test
+
+# 4.0.-Mantel test
+
+# 4.1.-
+SCRIPT in R [Mantel_test](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/4.1_Mantel_test.R)
+
+# 5.0.-Calcular coeficiente de relación (relatedness)
 
 
-# 5.0 Calcular coeficiente de relación (relatedness)
 
-
-
-## 5.1 Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
+## 5.1.-Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
 ```
 ./plink --bfile snp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --make-rel square --make-bed --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ./plink --bfile relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ./plink --file relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode vcf --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ```
+## 5.2.-plot Relatedness
+SCRIPT in R [Relatedness](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/5.2_Relatedness.R)
 
+# 6.0.-Estructura genética de las poblaciones con PCA
 
-# 6.0 Estructura genética de las poblaciones con admixture
+## 6.1.-Plot PCA
+SCRIPT in R [PCA](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/6.1_PCA.R)
 
-## 6.1 Plotear errores cross-validation
+# 7.0.-Estructura genética de las poblaciones con admixture
+
+## 7.1.-Run admixture
 Cada vez que corro un admixture debo cambiar de lugar los archivos, de lo contrario se sobreescriben
 
 ```
@@ -145,7 +158,7 @@ do ./admixture --cv=20 snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed $K | tee lo
 grep -h CV log*.out > logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
 
-## 6.2 Primero debo modificar el logall.txt y el archivo .fam
+## 7.2.-Modificar el logall.txt y el archivo .fam
 
 CV error (K=1): 0.44124
 01	0.86369
@@ -155,13 +168,14 @@ CV error (K=1): 0.44124
 ArDlD5	ArDlD5	0	0	0	-9
 SantaRosaXochiac	ArDlD5	0	0	0	-9
 
-## 6.3 Admixture Plot
+## 7.3.-Admixture Plot
+SCRIPT in R [Admixture](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/7.3_Relatedness.R)
 
+# 8.0.-Calculate Heterocigozity
 
-# 7.0 Calculate Heterocigozity
-
-## 7.1
+## 8.1.-
 ```
 vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --hardy --out samples_hardy_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05
 ```
-## 7.2
+## 8.2.-Plot
+SCRIPT in R [He](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/8.2_Calculate_He.R)
