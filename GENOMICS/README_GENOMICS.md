@@ -1,8 +1,10 @@
 # README
 
-# Pre-requisitos
+## Pre-requisitos
 
 Before starting the analysis here are the programs that need to be installed:
+
+## SOFTWARE
 
 ### fastQC
 [fastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
@@ -16,7 +18,11 @@ Before starting the analysis here are the programs that need to be installed:
 [R](https://cran.r-project.org)
 [Rstudio](https://rstudio.com)
 
-This is the GENOMICS directory structure:
+## R packages
+
+
+
+## GENOMICS directory structure:
 ```
 +----- Abies_religiosa_vs_ozone/
 |	+--GENOMICS/
@@ -38,7 +44,7 @@ This is the GENOMICS directory structure:
 
 # 1.0.-RUN de novo ASSEMBLY: Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
 
-# 1.1.-Run relaxed assembly with iPyRAD
+## 1.1.-Run relaxed assembly with iPyRAD
 
 ```
 ------- ipyrad params file (v.0.7.28)-------------------------------------------
@@ -128,7 +134,7 @@ SCRIPT in R [without_SNPs_in_same_loci](bin/Rstudio/3.3_Without_SNPs_in_same_loc
 
 # 4.0.-Mantel test
 
-# 4.1.-
+## 4.1.-
 SCRIPT in R [Mantel_test](bin/Rstudio/4.1_Mantel_test.R)
 
 ![](../wonderful_images/4.1_Mantel_test.png)
@@ -168,14 +174,15 @@ grep -h CV log*.out > logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 
 ## 7.2.-Modificar el logall.txt y el archivo .fam
 
+```
 CV error (K=1): 0.44124
 01	0.86369
 
-### fam file
+fam file
 
 ArDlD5	ArDlD5	0	0	0	-9
 SantaRosaXochiac	ArDlD5	0	0	0	-9
-
+```
 ## 7.3.-Admixture Plot
 SCRIPT in R [Admixture](bin/Rstudio/7.3_Admixture.R)
 
