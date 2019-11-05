@@ -131,6 +131,9 @@ SCRIPT in R [without_SNPs_in_same_loci](https://github.com/VeroIarrachtai/Abies_
 # 4.1.-
 SCRIPT in R [Mantel_test](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/GENOMICS/bin/Rstudio/4.1_Mantel_test.R)
 
+![](../wonderful_images/4.1_Mantel_test.png)
+
+
 # 5.0.-Calcular coeficiente de relación (relatedness)
 
 
