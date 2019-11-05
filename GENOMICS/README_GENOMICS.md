@@ -14,9 +14,14 @@ Before starting the analysis here are the programs that need to be installed:
 
 ## R packages
 
-
+* []
+* []
+* []
+* []
+* []
 
 ## GENOMICS directory structure:
+
 ```
 +----- Abies_religiosa_vs_ozone/
 |	+--GENOMICS/
