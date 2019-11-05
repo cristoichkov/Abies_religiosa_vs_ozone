@@ -2,19 +2,19 @@
 
 # Pre-requisitos
 
+Before starting the analysis here are the programs that need to be installed:
+
+### fastQC
+[fastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 ### ipyrad
-[ipyrad](https://ipyrad.readthedocs.io/en/latest/), interactive assembly and analysis toolkit for restriction-site associated DNA (RAD-seq) and related data types.
-
+[ipyrad](https://ipyrad.readthedocs.io/en/latest/)
 ### plink
-[PLINK](https://www.cog-genomics.org/plink2/), command-line program, to do several of the most demanding jobs, including identity-by-state matrix computation, distance-based clustering, LD-based pruning, haplotype block identification, and association analysis max(T) permutation tests.
-
+[PLINK](https://www.cog-genomics.org/plink2/)
 ### vcfTools
-[vcfTools](https://vcftools.github.io/man_latest.html), set of tools written in Perl and C++ for working with VCF files.
-
-
-# You can install the programs with docker o check if you have access in a cluster
-
-I have access a [CONABIO](https://www.gob.mx/conabio) cluster
+[vcfTools](https://vcftools.github.io/man_latest.html)
+### R y Rstudio (optional)
+[R](https://cran.r-project.org)
+[Rstudio](https://rstudio.com)
 
 This is the GENOMICS directory structure:
 ```
