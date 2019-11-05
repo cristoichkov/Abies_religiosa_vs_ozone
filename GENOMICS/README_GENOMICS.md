@@ -20,7 +20,7 @@ Before starting the analysis here are the programs that need to be installed:
 * []
 * []
 
-## GENOMICS directory structure:
+## GENOMICS directory structure:
 
 ```
 +----- Abies_religiosa_vs_ozone/
