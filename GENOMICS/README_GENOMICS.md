@@ -34,7 +34,7 @@ I have access a [CONABIO](https://www.gob.mx/conabio) cluster
 
 
 
-# 1. RUN ASSEMBLY: Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
+# 1.0 RUN ASSEMBLY: Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
 
 
 
@@ -71,7 +71,7 @@ p, s, v, k, n, g               ## [27] [output_formats]: Output formats (see doc
                                ## [28] [pop_assign_file]: Path to population assignment file
 
 ```
-# 2 Strict assembly vcfTools and PLINK
+# 2.0 Strict assembly vcfTools and PLINK
 I used 79 samples of my research group to understand were is the providence of my 10 samples. So, I do my assembly with 89 samples.
 This assembly was made relaxed because we want found SNPs with same ID reference in every sequences.
 Se requiere sacar del ensamble general solamente a las muestras de Abies religiosa (89 individuals)
@@ -88,7 +88,7 @@ Se requiere sacar del ensamble general solamente a las muestras de Abies religio
 vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0.05 --recode --out 89ind_maxmiss0.9_maf0.05
 ```
 
-# 3 Make LD linkage desequilibrium (delete a SNPs in the same loci)
+# 3.0 Make LD linkage desequilibrium (delete a SNPs in the same loci)
 
 ## 3.1 Primero se tiene que obtener la frecuencia que tienen los loci
 
@@ -120,7 +120,7 @@ Mantener las variantes del txt. Este .txt se uso para descartar a estos SNPs uti
 ./plink --file 88ind_maxmiss0.9_maf0.05 --extract positions_s88_Ar0.9.txt  --make-bed --out snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
 
-# 4 Calcular coeficiente de relación (relatedness)
+# 4.0 Calcular coeficiente de relación (relatedness)
 
 
 
@@ -132,7 +132,7 @@ Mantener las variantes del txt. Este .txt se uso para descartar a estos SNPs uti
 ```
 
 
-# 5 Estructura genética de las poblaciones con admixture
+# 5.0 Estructura genética de las poblaciones con admixture
 
 # 5.1 Plotear errores cross-validation
 Cada vez que corro un admixture debo cambiar de lugar los archivos, de lo contrario se sobreescriben
@@ -152,7 +152,7 @@ ArDlD5	ArDlD5	0	0	0	-9
 SantaRosaXochiac	ArDlD5	0	0	0	-9
 
 
-# 6 Calculate Heterocigozity
+# 6.0 Calculate Heterocigozity
 
 # 6.1
 vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --hardy --out samples_hardy_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05
