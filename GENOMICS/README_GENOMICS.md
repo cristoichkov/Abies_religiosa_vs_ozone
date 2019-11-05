@@ -194,7 +194,7 @@ ArDlD5	ArDlD5	0	0	0	-9
 SantaRosaXochiac	ArDlD5	0	0	0	-9
 
 ## 7.3.-Admixture Plot
-SCRIPT in R [Admixture](bin/Rstudio/7.3_Relatedness.R)
+SCRIPT in R [Admixture](bin/Rstudio/7.3_Admixture.R)
 
 ![](../wonderful_images/7.3_Admixture.png)
 
