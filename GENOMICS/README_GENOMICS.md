@@ -1,4 +1,4 @@
-# README
+****OUTPUT****# README
 
 ## Pre-requisitos
 
@@ -56,7 +56,7 @@ Here you will find the scripts that are needed to perform the analyses. The scri
 
 Data files:
 
-:file_folder: **`/metadata`** 
+:file_folder: **`/metadata`**
 
 :file_folder: **`/outputs`**
 
@@ -67,11 +67,11 @@ Data files:
 
 Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
 
-* INPUT:
+* **INPUT**:
    * Archivos de la secuenciación **files.fq.gz**
    * barcodes **file.txt**
 
-* OUTPUT:
+* **OUTPUT**:
    * **file.vcf**
 
 ## 1.1.-Run relaxed assembly with ipyrad
@@ -119,10 +119,10 @@ I used 79 samples of my research group to understand were is the providence of m
 This assembly was made relaxed because we want found SNPs with same ID reference in every sequences.
 Se requiere sacar del ensamble general solamente a las muestras de Abies religiosa (89 individuals)
 
-* INPUT:
+* **INPUT**:
    * **file.vcf**
 
-* OUTPUT:
+* **OUTPUT**:
    * **fitered_file.vcf**
 
 ## 2.1.-Check perfect missing data max for your samples
@@ -140,10 +140,10 @@ vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0
 # 3.0.-Make LD linkage desequilibrium (delete a SNPs in the same loci)
 
 
-* INPUT:
+* **INPUT**:
    * **fitered_file.vcf**
 
-* OUTPUT:
+* **OUTPUT**:
    * **fitered_file.freq**
    * **fitered_file.bed**
    * **fitered_file.bim**
@@ -190,12 +190,12 @@ SCRIPT in GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Extra
 
 # 4.0.-Calcular coeficiente de relación (relatedness)
 
-* INPUT:
+* **INPUT**:
   * **extract_positions_file.**
   * **extract_positions_file.**
   * **extract_positions_file.**
 
-* OUTPUT:
+* **OUTPUT**:
 
 
 ## 4.1.-Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
@@ -213,9 +213,9 @@ SCRIPT in GENOMICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
 
 # 5.0.-Mantel test
 
-* INPUT:
+* **INPUT**:
 
-* OUTPUT:
+* **OUTPUT**:
 
 ## 5.1.-
 SCRIPT in GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
@@ -224,9 +224,9 @@ SCRIPT in GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
 
 # 6.0.-Estructura genética de las poblaciones con PCA
 
-* INPUT:
+* **INPUT**:
 
-* OUTPUT:
+* **OUTPUT**:
 
 
 ## 6.1.-Plot PCA
@@ -235,9 +235,9 @@ SCRIPT in GENOMICS/Rstudio/[6.1_PCA.R](bin/Rstudio/6.1_PCA.R)
 
 # 7.0.-Estructura genética de las poblaciones con admixture
 
-* INPUT:
+* **INPUT**:
 
-* OUTPUT:
+* **OUTPUT**:
 
 
 ## 7.1.-Run admixture
@@ -270,9 +270,9 @@ SCRIPT in GENOMICS/Rstudio/[7.3_Admixture.R](bin/Rstudio/7.3_Admixture.R)
 
 # 8.0.-Calculate Heterocigozity
 
-* INPUT:
+* **INPUT**:
 
-* OUTPUT:
+* **OUTPUT**:
 
 
 ## 8.1.-

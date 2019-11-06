@@ -121,3 +121,5 @@ Check more info about this pipeline in the directory [METABOLOMICS](https://gith
 :file_folder: **`/metadata`**
 
 :file_folder: **`/outputs`**
+
+:page_facing_up: **`/README_specific.md`**
