@@ -76,9 +76,9 @@ Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
 SCRIPT in GENOMICS/Software/[1.1_Run_relaxed_assembly.sh](bin/Software/1.1_Run_relaxed_assembly.sh)
 
 ```
-
+ipyrad -p .vcf -s 1234567 -f
 ```
-PARAMS FILE
+**PARAMS FILE**
 ```
 ------- ipyrad params file (v.0.7.28)-------------------------------------------
 TMVB_5SNPradlocus              ## [0] [assembly_name]: Assembly name. Used to name output directories for assembly steps
@@ -178,7 +178,7 @@ SCRIPT in GENOMICS/Software/[3.2_ConvertFiles_vcf_to_plink.sh](bin/Software/3.2_
 ```
 vcftools --vcf 88ind_maxmiss0.9_maf0.05.recode.vcf --plink --out 88ind_maxmiss0.9_maf0.05
 ```
-**OUT: fitered_file.bed,fitered_file.bim, fitered_file.fam**
+**OUT: fitered_file.freq, fitered_file.bed, fitered_file.bim**
 
 
 ## 3.3.-Utilizar el archivo .freq para extraer solamente SNPs con valores de maf altos
@@ -214,7 +214,6 @@ SCRIPT in GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Extra
   * **relsnp_snp_withoutDupLoci.bed**(relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.rel.bed)
   * **relsnp_snp_withoutDupLoci.fam**(relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.rel.fam)
 
-    relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05  
 ## 4.1.-Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
 
 SCRIPT in GENOMICS/Software/[4.1_Calculate_relatedness.sh](bin/Software/4.1_Calculate_relatedness.sh)
@@ -226,9 +225,9 @@ SCRIPT in GENOMICS/Software/[4.1_Calculate_relatedness.sh](bin/Software/4.1_Calc
 ## 4.2.-plot Relatedness
 SCRIPT in GENOMICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
 
-![](../wonderful_images/Relationshipe_IH.png)
-
 **OUT: Relatedness_images**
+
+![](../wonderful_images/Relationshipe_IH.png)
 
 # 5.0.-Mantel test
 
@@ -245,6 +244,7 @@ SCRIPT in GENOMICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
 
 ## 5.1.-
 SCRIPT in GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
+
 **OUT: Mantel_test_images**
 
 ![](../wonderful_images/4.1_Mantel_test.png)
@@ -263,6 +263,7 @@ SCRIPT in GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
 
 ## 6.1.-Plot PCA
 SCRIPT in GENOMICS/Rstudio/[6.1_PCA.R](bin/Rstudio/6.1_PCA.R)
+
 **OUT: PCA_images**
 
 ![](../wonderful_images/PCA-IW.png)
