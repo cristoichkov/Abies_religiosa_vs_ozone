@@ -26,14 +26,22 @@ Before starting the analysis here are the programs that need to be installed:
 +----- Abies_religiosa_vs_ozone/
 |	+--GENOMICS/
 |		+--bin/
-|	    	+--Rstudio/
+|	     +--Rstudio/
 |	   	    +--3.3_Without_SNPs_in_same_loci.R
-|	   	    +--4.1_Mantel_test.R
-|	   	    +--5.2_Relatedness.R
+|	   	    +--4.2_Relatedness.R
+|	   	    +--5.1_Mantel_test.R
 |	   	    +--6.1_PCA.R
 |	   	    +--7.3_Admixture.R
 |	   	    +--8.2_Calculate_He.R
-|	      	+--Software
+|	     +--Software
+|	   	    +--1.1_Run_relaxed_assembly.sh
+|	   	    +--2.3_Samples_missdata_maf.sh
+|	   	    +--3.1_Calculate_frequences.sh
+|	   	    +--3.2_ConvertFiles_vcf_to_plink.sh
+|	   	    +--3.4_Extract_positions_HM.sh
+|	   	    +--5.1_Calculate_relatedness.sh
+|	   	    +--7.1_Calculate_CV_Admixture.sh
+|	   	    +--8.1_Calculate_Heterozigozity.sh
 |		+--data/
 |		+--metadata/
 |		+--outputs/
@@ -53,7 +61,12 @@ Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
    * **file.vcf**
 
 ## 1.1.-Run relaxed assembly with iPyRAD
+SCRIPT in Software [Run relaxed assembly](bin/Software/1.1_Run_relaxed_assembly.sh)
 
+```
+
+```
+PARAMS FILE
 ```
 ------- ipyrad params file (v.0.7.28)-------------------------------------------
 TMVB_5SNPradlocus              ## [0] [assembly_name]: Assembly name. Used to name output directories for assembly steps
@@ -85,8 +98,8 @@ TGCAG, CGG                     ## [8] [restriction_overhang]: Restriction overha
 0, 0, 0, 0                     ## [26] [trim_loci]: Trim locus edges (see docs) (R1>, <R1, R2>, <R2)
 p, s, v, k, n, g               ## [27] [output_formats]: Output formats (see docs)
                                ## [28] [pop_assign_file]: Path to population assignment file
-
 ```
+
 # 2.0.-Strict assembly vcfTools and PLINK
 I used 79 samples of my research group to understand were is the providence of my 10 samples. So, I do my assembly with 89 samples.
 This assembly was made relaxed because we want found SNPs with same ID reference in every sequences.
