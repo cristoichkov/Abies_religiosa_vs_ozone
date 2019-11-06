@@ -1,4 +1,4 @@
-****OUTPUT****# README
+# README GENOMICS
 
 ## Pre-requisitos
 
@@ -14,9 +14,9 @@ Before starting the analysis here are the programs that need to be installed:
 
 ## R packages
 
-* []
-* []
-* []
+* [readr]
+* [dplyr]
+* [tidyr]
 * []
 * []
 
