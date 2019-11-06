@@ -47,6 +47,20 @@ Before starting the analysis here are the programs that need to be installed:
 |		+--outputs/
 |		+--README_genomics.md
 ```
+## GENOMICS content
+
+:file_folder: **`/bin`**
+Here you will find the scripts that are needed to perform the analyses. The scripts must be used in the order specified.
+
+:file_folder: **`/data`**
+
+Data files:
+
+:file_folder: **`/metadata`** 
+
+:file_folder: **`/outputs`**
+
+:page_facing_up: **`/README_genomics`**
 
 
 # 1.0.-RUN de novo ASSEMBLY
@@ -61,7 +75,7 @@ Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
    * **file.vcf**
 
 ## 1.1.-Run relaxed assembly with ipyrad
-SCRIPT in GENETICS/Software/[1.1_Run_relaxed_assembly.sh](bin/Software/1.1_Run_relaxed_assembly.sh)
+SCRIPT in GENOMICS/Software/[1.1_Run_relaxed_assembly.sh](bin/Software/1.1_Run_relaxed_assembly.sh)
 
 ```
 
@@ -117,7 +131,7 @@ Se requiere sacar del ensamble general solamente a las muestras de Abies religio
 ## 2.2.-Check perfect maf for your samples
 
 ## 2.3.-Selected samples, missing data and maf. Only 89 *Abies religiosa* samples with missing data max 10% and maf 0.05
-SCRIPT in GENETICS/Software/[2.3_Samples_missdata_maf.sh](bin/Software/2.3_Samples_missdata_maf.sh)
+SCRIPT in GENOMICS/Software/[2.3_Samples_missdata_maf.sh](bin/Software/2.3_Samples_missdata_maf.sh)
 
 ```
 vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0.05 --recode --out 89ind_maxmiss0.9_maf0.05
@@ -141,7 +155,7 @@ vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0
 
 ## 3.1.-Primero se tiene que obtener la frecuencia que tienen los loci
 
-SCRIPT in GENETICS/Software/[3.1_Calculate_frequences.sh](bin/Software/3.1_Calculate_frequences.sh)
+SCRIPT in GENOMICS/Software/[3.1_Calculate_frequences.sh](bin/Software/3.1_Calculate_frequences.sh)
 ```
 vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --freq --out freq_89ind_maxmiss0.9_maf0.05
 
@@ -150,7 +164,7 @@ vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --freq --out freq_89ind_maxmi
 
 ## 3.2.-Convertir archivos vcf en plink
 
-SCRIPT in GENETICS/Software/[3.2_ConvertFiles_vcf_to_plink.sh](bin/Software/3.2_ConvertFiles_vcf_to_plink.sh)
+SCRIPT in GENOMICS/Software/[3.2_ConvertFiles_vcf_to_plink.sh](bin/Software/3.2_ConvertFiles_vcf_to_plink.sh)
 ```
 vcftools --vcf 88ind_maxmiss0.9_maf0.05.recode.vcf --plink --out 88ind_maxmiss0.9_maf0.05
 ```
@@ -163,12 +177,12 @@ modificar el archivo
 locus_13 8
 locus_13:8
 
-SCRIPT in GENETICS/Rstudio/[3.3_Without_SNPs_in_same_loci.R](bin/Rstudio/3.3_Without_SNPs_in_same_loci.R)
+SCRIPT in GENOMICS/Rstudio/[3.3_Without_SNPs_in_same_loci.R](bin/Rstudio/3.3_Without_SNPs_in_same_loci.R)
 
 
 ## 3.4.-Extraer posisiones en archivos plink con el outfile del paso 3.3
 
-SCRIPT in GENETICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Extract_positions_HM.sh)
+SCRIPT in GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Extract_positions_HM.sh)
 ```
 ./plink --file 88ind_maxmiss0.9_maf0.05 --extract positions_s88_Ar0.9.txt  --make-bed --out snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
@@ -186,14 +200,14 @@ SCRIPT in GENETICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Extra
 
 ## 4.1.-Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
 
-SCRIPT in GENETICS/Software/[4.1_Calculate_relatedness.sh](bin/Software/4.1_Calculate_relatedness.sh)
+SCRIPT in GENOMICS/Software/[4.1_Calculate_relatedness.sh](bin/Software/4.1_Calculate_relatedness.sh)
 ```
 ./plink --bfile snp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --make-rel square --make-bed --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ./plink --bfile relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ./plink --file relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode vcf --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ```
 ## 4.2.-plot Relatedness
-SCRIPT in GENETICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
+SCRIPT in GENOMICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
 
 ![](../wonderful_images/Relationshipe_IH.png)
 
@@ -204,7 +218,7 @@ SCRIPT in GENETICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
 * OUTPUT:
 
 ## 5.1.-
-SCRIPT in GENETICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
+SCRIPT in GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
 
 ![](../wonderful_images/4.1_Mantel_test.png)
 
@@ -216,7 +230,7 @@ SCRIPT in GENETICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
 
 
 ## 6.1.-Plot PCA
-SCRIPT in GENETICS/Rstudio/[6.1_PCA.R](bin/Rstudio/6.1_PCA.R)
+SCRIPT in GENOMICS/Rstudio/[6.1_PCA.R](bin/Rstudio/6.1_PCA.R)
 ![](../wonderful_images/PCA-IW.png)
 
 # 7.0.-Estructura genética de las poblaciones con admixture
@@ -229,7 +243,7 @@ SCRIPT in GENETICS/Rstudio/[6.1_PCA.R](bin/Rstudio/6.1_PCA.R)
 ## 7.1.-Run admixture
 Cada vez que corro un admixture debo cambiar de lugar los archivos, de lo contrario se sobreescriben
 
-SCRIPT in GENETICS/Software/[7.1_Calculate_CV_Admixture.sh](bin/Software/7.1_Calculate_CV_Admixture.sh)
+SCRIPT in GENOMICS/Software/[7.1_Calculate_CV_Admixture.sh](bin/Software/7.1_Calculate_CV_Admixture.sh)
 ```
 for K in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20;
 do ./admixture --cv=20 snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed $K | tee log${K}.out; done
@@ -248,7 +262,7 @@ ArDlD5	ArDlD5	0	0	0	-9
 SantaRosaXochiac	ArDlD5	0	0	0	-9
 ```
 ## 7.3.-Admixture Plot
-SCRIPT in GENETICS/Rstudio/[7.3_Admixture.R](bin/Rstudio/7.3_Admixture.R)
+SCRIPT in GENOMICS/Rstudio/[7.3_Admixture.R](bin/Rstudio/7.3_Admixture.R)
 
 ![](../wonderful_images/7.3_Admixture.png)
 
@@ -263,9 +277,9 @@ SCRIPT in GENETICS/Rstudio/[7.3_Admixture.R](bin/Rstudio/7.3_Admixture.R)
 
 ## 8.1.-
 
-SCRIPT in GENETICS/Software/[8.1_Calculate_Heterozigozity.sh](bin/Software/8.1_Calculate_Heterozigozity.sh)
+SCRIPT in GENOMICS/Software/[8.1_Calculate_Heterozigozity.sh](bin/Software/8.1_Calculate_Heterozigozity.sh)
 ```
 vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --he --out samples_he_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05
 ```
 ## 8.2.-Plot
-SCRIPT in R GENETICS/Rstudio/[8.2_Calculate_He.R](bin/Rstudio/8.2_Calculate_He.R)
+SCRIPT in R GENOMICS/Rstudio/[8.2_Calculate_He.R](bin/Rstudio/8.2_Calculate_He.R)
