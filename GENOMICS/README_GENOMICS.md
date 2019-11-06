@@ -14,9 +14,9 @@ Before starting the analysis here are the programs that need to be installed:
 
 ## R packages
 
-* [readr]
-* [dplyr]
-* [tidyr]
+* **readr**
+* **dplyr**
+* **tidyr**
 * []
 * []
 
@@ -52,11 +52,9 @@ Before starting the analysis here are the programs that need to be installed:
 :file_folder: **`/bin`**
 Here you will find the scripts that are needed to perform the analyses. The scripts must be used in the order specified.
 
-:file_folder: **`/data`**
+:file_folder: **`/data`** Aqui se encuentran los archivos producto de la secuenciacion y el analisis de ellos
 
-Data files:
-
-:file_folder: **`/metadata`**
+:file_folder: **`/metadata`** Aqui se encuentran
 
 :file_folder: **`/outputs`**
 
@@ -72,7 +70,7 @@ Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
    * barcodes **file.txt**
 
 * **OUTPUT**:
-   * **file.vcf**
+   * **file.vcf**(.vcf)
 
 ## 1.1.-Run relaxed assembly with ipyrad
 SCRIPT in GENOMICS/Software/[1.1_Run_relaxed_assembly.sh](bin/Software/1.1_Run_relaxed_assembly.sh)
@@ -120,10 +118,10 @@ This assembly was made relaxed because we want found SNPs with same ID reference
 Se requiere sacar del ensamble general solamente a las muestras de Abies religiosa (89 individuals)
 
 * **INPUT**:
-   * **file.vcf**
+   * **file.vcf** (.vcf)
 
 * **OUTPUT**:
-   * **fitered_file.vcf**
+   * **fitered_file.vcf**(89ind_maxmiss0.9_maf0.05.recode.vcf)
 
 ## 2.1.-Check perfect missing data max for your samples
 
@@ -194,9 +192,11 @@ SCRIPT in GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Extra
   * **extract_positions_file.**
   * **extract_positions_file.**
   * **extract_positions_file.**
+  * **relatedness_file.rel**(relsnp_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.rel)
+  * **relatedness_file.rel**(relsnp_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.rel.id)
 
 * **OUTPUT**:
-
+  * **Relatedness_images**
 
 ## 4.1.-Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
 
@@ -214,8 +214,14 @@ SCRIPT in GENOMICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
 # 5.0.-Mantel test
 
 * **INPUT**:
+  * ****(Ar_IBD2.txt)
+  * ****(89ind_maxmiss0.9_maf0.05.recode.vcf)
+  * ****(FST_VCFTools_Ar89.txt)
+  * ****(Ar_IBD_comparaciones.txt)
 
 * **OUTPUT**:
+  * **file.gds**(89ind_maxmiss0.9_maf0.05.recode.gds)
+
 
 ## 5.1.-
 SCRIPT in GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
@@ -225,9 +231,12 @@ SCRIPT in GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
 # 6.0.-Estructura genética de las poblaciones con PCA
 
 * **INPUT**:
+  * ****(89ind_maxmiss0.9_maf0.05.recode.vcf)
+  * ****(PLACA_FINAL_89_samples.csv)
+
 
 * **OUTPUT**:
-
+  * ****(snp_withoutDupLoci_89s_maxmiss0.9_maf0.05_pca.gds)
 
 ## 6.1.-Plot PCA
 SCRIPT in GENOMICS/Rstudio/[6.1_PCA.R](bin/Rstudio/6.1_PCA.R)
@@ -236,6 +245,12 @@ SCRIPT in GENOMICS/Rstudio/[6.1_PCA.R](bin/Rstudio/6.1_PCA.R)
 # 7.0.-Estructura genética de las poblaciones con admixture
 
 * **INPUT**:
+  * ****(logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.txt)
+  * ****(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.fam)
+  * ****(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.2.Q)
+  * ****(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.3.Q)
+  * ****(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.4.Q)
+  * ****(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.5.Q)
 
 * **OUTPUT**:
 
@@ -271,6 +286,7 @@ SCRIPT in GENOMICS/Rstudio/[7.3_Admixture.R](bin/Rstudio/7.3_Admixture.R)
 # 8.0.-Calculate Heterocigozity
 
 * **INPUT**:
+  * ****(samples_het_snp_withoutDupLoci_10ind_maxmiss0.9_maf0.05.het)
 
 * **OUTPUT**:
 
