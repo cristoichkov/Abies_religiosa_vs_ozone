@@ -17,8 +17,17 @@ Before starting the analysis here are the programs that need to be installed:
 * **readr**
 * **dplyr**
 * **tidyr**
-* []
-* []
+* **ggplot2**
+* **geosphere**
+* **gdsfmt**
+* **SNPRelate**
+* **MASS**
+* **psych**
+* **vegan**
+* **permute**
+* **lattice**
+* **magrittr**
+* **reshape**
 
 ## GENOMICS directory structure:
 
@@ -134,6 +143,7 @@ SCRIPT in GENOMICS/Software/[2.3_Samples_missdata_maf.sh](bin/Software/2.3_Sampl
 ```
 vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0.05 --recode --out 89ind_maxmiss0.9_maf0.05
 ```
+**OUT: fitered_file.vcf**
 
 # 3.0.-Make LD linkage desequilibrium (delete a SNPs in the same loci)
 
