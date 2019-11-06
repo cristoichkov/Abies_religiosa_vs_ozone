@@ -103,7 +103,8 @@ Se requiere sacar del ensamble general solamente a las muestras de Abies religio
 
 ## 2.2.-Check perfect maf for your samples
 
-## 2.3.-Selected only 89 *Abies religiosa* samples, with missing data max 10% and maf 0.05
+## 2.3.-Selected samples, missing data and maf. Only 89 *Abies religiosa* samples with missing data max 10% and maf 0.05
+SCRIPT in Software [Selected samples, missing data and maf](bin/Software/2.3_Samples_missdata_maf.sh)
 
 ```
 vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0.05 --recode --out 89ind_maxmiss0.9_maf0.05
@@ -127,8 +128,8 @@ vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0
 
 ## 3.1.-Primero se tiene que obtener la frecuencia que tienen los loci
 
+SCRIPT in Software [calculate_frequences](bin/Software/3.1_Calculate_frequences.sh)
 ```
-vcftools --vcf 88ind_maxmiss0.9_maf0.05.recode.vcf --freq --out freq_88ind_maxmiss0.9_maf0.05
 vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --freq --out freq_89ind_maxmiss0.9_maf0.05
 
 ```
@@ -136,7 +137,7 @@ vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --freq --out freq_89ind_maxmi
 
 ## 3.2.-Convertir archivos vcf en plink
 
-El comando debe ser en archivos plink
+SCRIPT in Software [ConvertFiles_vcf_to_plink](bin/Software/3.2_ConvertFiles_vcf_to_plink.sh)
 ```
 vcftools --vcf 88ind_maxmiss0.9_maf0.05.recode.vcf --plink --out 88ind_maxmiss0.9_maf0.05
 ```
@@ -154,6 +155,7 @@ SCRIPT in R [without_SNPs_in_same_loci](bin/Rstudio/3.3_Without_SNPs_in_same_loc
 
 ## 3.4.-Extraer posisiones en archivos plink con el outfile del paso 3.3
 
+SCRIPT in Software [Extract_positions_HM](bin/Software/3.4_Extract_positions_HM.sh)
 ```
 ./plink --file 88ind_maxmiss0.9_maf0.05 --extract positions_s88_Ar0.9.txt  --make-bed --out snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
@@ -162,11 +164,16 @@ SCRIPT in R [without_SNPs_in_same_loci](bin/Rstudio/3.3_Without_SNPs_in_same_loc
 # 4.0.-Calcular coeficiente de relación (relatedness)
 
 * INPUT:
+  * **extract_positions_file.**
+  * **extract_positions_file.**
+  * **extract_positions_file.**
 
 * OUTPUT:
 
 
 ## 4.1.-Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
+
+SCRIPT in Software [Calculate_relatedness](bin/Software/4.1_Calculate_relatedness.sh)
 ```
 ./plink --bfile snp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --make-rel square --make-bed --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
 ./plink --bfile relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
@@ -209,6 +216,7 @@ SCRIPT in R [PCA](bin/Rstudio/6.1_PCA.R)
 ## 7.1.-Run admixture
 Cada vez que corro un admixture debo cambiar de lugar los archivos, de lo contrario se sobreescriben
 
+SCRIPT in Software [Calculate_CV_Admixture](bin/Software/7.1_Calculate_CV_Admixture.sh)
 ```
 for K in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20;
 do ./admixture --cv=20 snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed $K | tee log${K}.out; done
@@ -241,8 +249,10 @@ SCRIPT in R [Admixture](bin/Rstudio/7.3_Admixture.R)
 
 
 ## 8.1.-
+
+SCRIPT in Software [Calculate_Heterozigozity](bin/Software/8.1_Calculate_Heterozigozity.sh)
 ```
-vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --hardy --out samples_hardy_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05
+vcftools --vcf 89ind_maxmiss0.9_maf0.05.recode.vcf --he --out samples_he_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05
 ```
 ## 8.2.-Plot
 SCRIPT in R [He](bin/Rstudio/8.2_Calculate_He.R)
