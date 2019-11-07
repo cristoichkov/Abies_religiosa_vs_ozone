@@ -85,22 +85,13 @@ In addition, you can find in this repository:
 
 The principal analysis are:
 
-# TRANSCRIPTOMICS
-
-### Evaluate the differential expression of healthy and damaged trees in two periods of [O3].
-
-
-![](5.-wonderful_images/Transcriptomic_methods.png)
-
-Check more info about this pipeline in the directory [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS).
-
 # GENOMICS
 
 ### Identify origins of sacred fir with tolerance to O3.
 
 ![](5.-wonderful_images/Genomic_methods.png)
 
-Check more info about this pipeline in the directory [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS).
+Check more info about this pipeline in the [README_genomics](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS/README_genomics.md).
 
 # METABOLOMICS
 
@@ -108,4 +99,13 @@ Check more info about this pipeline in the directory [GENOMICS](https://github.c
 
 ![](5.-wonderful_images/Metabolomic_methods.png)
 
-Check more info about this pipeline in the directory [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/2.-METABOLOMICS).
+Check more info about this pipeline in the [README_metabolomics](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/2.-METABOLOMICS/README_metabolomics.md).
+
+# TRANSCRIPTOMICS
+
+### Evaluate the differential expression of healthy and damaged trees in two periods of [O3].
+
+
+![](5.-wonderful_images/Transcriptomic_methods.png)
+
+Check more info about this pipeline in the [README_transcriptomics](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/3.-TRANSCRIPTOMICS/README_TRANSCRIPTOMICS.md).
