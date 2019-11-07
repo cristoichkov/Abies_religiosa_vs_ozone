@@ -111,15 +111,3 @@ Check more info about this pipeline in the directory [GENOMICS](https://github.c
 ![](wonderful_images/Metabolomic_methods.png)
 
 Check more info about this pipeline in the directory [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS).
-
-## Each one of these directories have inside:
-
-:file_folder: **`/bin`**
-
-:file_folder: **`/data`**
-
-:file_folder: **`/metadata`**
-
-:file_folder: **`/outputs`**
-
-:page_facing_up: **`/README_specific.md`**
