@@ -74,7 +74,7 @@ In addition, you can find in this repository:
 
 [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/2.-METABOLOMICS)
 
-:file_folder: **`/INFO_PROJECT`**
+:file_folder: **`/4.-INFO_PROJECT`**
 
 [INFO_PROJECT](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/4.-INFO_PROJECT)
 
