@@ -62,10 +62,6 @@ In addition, you can find in this repository:
 
 [README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/README.md): is a intro about my project. This include the structure of my repository.
 
-:file_folder: **`/3.-TRANSCRIPTOMICS`**
-
-[TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS)
-
 :file_folder: **`/1.-GENOMICS`**
 
 [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS)
@@ -74,11 +70,15 @@ In addition, you can find in this repository:
 
 [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/2.-METABOLOMICS)
 
+:file_folder: **`/3.-TRANSCRIPTOMICS`**
+
+[TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS)
+
 :file_folder: **`/4.-INFO_PROJECT`**
 
 [INFO_PROJECT](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/4.-INFO_PROJECT)
 
-:file_folder: **`/wonderful_images`**
+:file_folder: **`/5.-wonderful_images`**
 
 [wonderful_images](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/5.-wonderful_images)
 
