@@ -64,7 +64,7 @@ In addition, you can find in this repository:
 
 :file_folder: **`/3.-TRANSCRIPTOMICS`**
 
-![TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS)
+[TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS)
 
 :file_folder: **`/1.-GENOMICS`**
 
