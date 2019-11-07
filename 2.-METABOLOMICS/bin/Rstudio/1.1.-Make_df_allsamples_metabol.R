@@ -5,7 +5,7 @@
 source("Load_html_files.R")
 
 ## List the directories 
-folders <- list.files("../../metadata/GC-MS/")
+folders <- list.files("../../data/GC-MS/")
 
 ## Create a dataframe empty
 htm_df <- data.frame()
@@ -15,7 +15,7 @@ for (i in folders){
   name <- stringr::str_extract(string = i, pattern = "LibSrch_[0-9]+")
   
   ## Extract the desired tree, for this we use paste0 to enter the folders where are the trees and the mean as dataframe
-  tab_htm <- parse_htm_file(paste0("../../metadata/GC-MS/", i), 3 )
+  tab_htm <- parse_htm_file(paste0("../../data/GC-MS/", i), 3 )
   
   ## Create a dataframe repeating the identifier according to with the number of row of the table 
   tab_names <- data.frame(rep(name, times = nrow(tab_htm)))
@@ -30,7 +30,7 @@ for (i in folders){
   htm_df <- rbind(htm_df, c_htm )
 }
 
-write.table(htm_df, "../../outputs/htm_df.txt", sep="\t", row.names=FALSE)
+write.table(htm_df, "../../metadata/htm_df.txt", sep="\t", row.names=FALSE)
 
 
 

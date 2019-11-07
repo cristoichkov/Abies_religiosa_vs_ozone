@@ -33,7 +33,7 @@ Before starting the analysis here are the programs that need to be installed:
 
 ```
 +----- Abies_religiosa_vs_ozone/
-|	+--GENOMICS/
+|	+--1.-GENOMICS/
 |		+--bin/
 |	     +--Rstudio/
 |	   	    +--3.3_Without_SNPs_in_same_loci.R

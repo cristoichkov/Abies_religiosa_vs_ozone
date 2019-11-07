@@ -1,54 +1,99 @@
-# Análisis de metabolitos
+# README METABOLOMICS
 
-Los datos del GC-MS se obtuvieron en listas para cada muestra.
+## Pre-requisitos
 
-![Lista metabolitos] (images/List-GC-MS.png) 
+Before starting the analysis here are the programs that need to be installed:
 
-Cada dato pk (pico), RT (tiempo de retención), Area % (porcentaje de área) CAS# (número CAS) y Qual (valor) de todas las muestras se registro en una tabla en excel.
+## SOFTWARE
 
-```
- 	Tablas_datos/Metabolites_GC-MS_ALL.xls
-```
-![Lista metabolitos] (images/Tabla_GC-MS_ALL.png)
+* [R](https://cran.r-project.org)
+* [Rstudio (optional)](https://rstudio.com)
 
-Posteriormente, se ordenó cada metabolito presente en las muestras de acuerdo al CAS#. La primer opción de CAS se tomó para ordenar los metabolitos.
+## R packages
+
+* **ggplot2**
+* **reshape2**
 
 
-```
- 	Tablas_datos/Metabolitos_orderCAS.xlsx
-```
-![Lista metabolitos] (images/Tabla_orderCAS.png)
-
-Una vez organizados por CAS se conviertió el número CAS al ID de cada metabolito según la página NSI y el nombre Library/ID dado por el equipo 
+## METABOLOMICS directory structure:
 
 ```
- 	Tablas_datos/Metabolitos_GC-MS_orderbyCAS.xlsx
++----- Abies_religiosa_vs_ozone/
+|	+--2.-METABOLOMICS/
+|		+--bin/
+|	     +--Rstudio/
+|	   	    +--3.3_Without_SNPs_in_same_loci.R
+|	   	    +--4.2_Relatedness.R
+|	   	    +--5.1_Mantel_test.R
+|	   	    +--6.1_PCA.R
+|	   	    +--7.3_Admixture.R
+|	   	    +--8.2_Calculate_He.R
+|	     +--Software
+|		+--data/
+|		+--metadata/
+|		+--outputs/
+|		+--README_genomics.md
 ```
-![Lista metabolitos] (images/Tabla_GC-MS_orderbyCAS.png)
+## METABOLOMICS content
 
-Se generaron 2 Tablas: Una con los metabolitos presentes en al menos la mitad de las muestras/mas sus metabolitos relacionados y otro con presencias menores.
+:file_folder: **`/bin`**
+Here you will find the scripts that are needed to perform the analyses. The scripts must be used in the order specified.
 
-```
-Tablas_datos/Metabolitos con menor presencia.xlsxs/Metabolitos_GC-MS_orderbyCAS.xlsx
-```
-En la de mayor presencia se hicieron varios filtros paradescartarmetabolitos con menores presencias 
-```
-Tablas_datos/Metabolitos_mayor_presencia_1.xlsx
-```
+:file_folder: **`/data`** Aqui se encuentran los archivos producto de la secuenciacion y el analisis de ellos
 
-Se mantuvieron los metabolitos con Qual mayor a 80 y se volvieron a descartar metabolitos con precencias menores.
+:file_folder: **`/metadata`** Aqui se encuentran
 
-La tabla final es: 
-```
-Tablas_datos/Metabolitos-Tesis-Vero.xlsx
-```
-![Lista metabolitos] (images/Tabla_final.png)
+:file_folder: **`/outputs`**
 
-Se utilizó el siguiente script para calcular la cantidad de metabolitos y compararla entre temporada, condicion y año de exposicion
+:page_facing_up: **`/README_metabolomics`**
 
-```
-bin/ANOVA_TV1.R
-```
+# 1.- Load data by GC-MS
+
+pk (pico), RT (tiempo de retención), Area % (porcentaje de área) CAS# (número CAS) y Qual (valor)
+
+* **INPUT**:
+  * **LibSrch_#.htm**(LibSrch_3.htm, LibSrch_4.htm, etc.)
+
+* **OUTPUT**:
+  * **htm_df.txt**(htm_df.txt)
+
+## 1.1.-plot Relatedness
+SCRIPT in 2.-METABOLOMICS/Rstudio/[1.1.-Make_df_allsamples_metabol.R](bin/Rstudio/1.1.-Make_df_allsamples_metabol.R)
+
+**OUT: htm_df.txt**
+
+# 2.- Calculate_relative_abs
+
+Se utilizó el siguiente script para calcular la cantidad de metabolitos
+
+* **INPUT**:
+  * **metabolitos.csv**(metabolitos_Tesis_Vero.csv)
+
+* **OUTPUT**:
+  * **calculate_relative_abs.txt**(calculate_relative_abs.txt)
+
+## 2.1.-Calculate_relative_abs
+
+SCRIPT in 2.-METABOLOMICS/Rstudio/[2.1-Calculate_relative_abs.R](bin/Rstudio/2.1-Calculate_relative_abs.R)
+**OUTPUT: calculate_relative_abs.txt**
+
+# 3.-Make ANOVA
+
+compararla entre temporada, condicion y año de exposicion
+
+* **INPUT**:
+  * **calculate_relative_abs.txt**(calculate_relative_abs.txt)
+
+* **OUTPUT**:
+  * ****()
+
+
+# 3.1.-Make ANOVA
+
+SCRIPT in 2.-METABOLOMICS/Rstudio/[3.1-ANOVA.R](bin/Rstudio/3.1-ANOVA)
+
+
+
 
 ![Lista metabolitos] (images/ANOVA_TV1.png)
 
@@ -71,3 +116,58 @@ bin/PCA.R
 ![Lista metabolitos] (images/PCA_2.png)
 
 
+
+
+
+
+
+
+
+
+
+
+# Análisis de metabolitos
+
+Los datos del GC-MS se obtuvieron en listas para cada muestra.
+
+![Lista metabolitos] (images/List-GC-MS.png)
+
+Cada dato pk (pico), RT (tiempo de retención), Area % (porcentaje de área) CAS# (número CAS) y Qual (valor) de todas las muestras se registro en una tabla en excel.
+
+```
+ 	Tablas_datos/Metabolites_GC-MS_ALL.xls
+```
+![Lista metabolitos] (images/Tabla_GC-MS_ALL.png)
+
+Posteriormente, se ordenó cada metabolito presente en las muestras de acuerdo al CAS#. La primer opción de CAS se tomó para ordenar los metabolitos.
+
+
+```
+ 	Tablas_datos/Metabolitos_orderCAS.xlsx
+```
+![Lista metabolitos] (images/Tabla_orderCAS.png)
+
+Una vez organizados por CAS se conviertió el número CAS al ID de cada metabolito según la página NSI y el nombre Library/ID dado por el equipo
+
+```
+ 	Tablas_datos/Metabolitos_GC-MS_orderbyCAS.xlsx
+```
+![Lista metabolitos] (images/Tabla_GC-MS_orderbyCAS.png)
+
+Se generaron 2 Tablas: Una con los metabolitos presentes en al menos la mitad de las muestras/mas sus metabolitos relacionados y otro con presencias menores.
+
+```
+Tablas_datos/Metabolitos con menor presencia.xlsxs/Metabolitos_GC-MS_orderbyCAS.xlsx
+```
+En la de mayor presencia se hicieron varios filtros paradescartarmetabolitos con menores presencias
+```
+Tablas_datos/Metabolitos_mayor_presencia_1.xlsx
+```
+
+Se mantuvieron los metabolitos con Qual mayor a 80 y se volvieron a descartar metabolitos con precencias menores.
+
+La tabla final es:
+```
+Tablas_datos/Metabolitos-Tesis-Vero.xlsx
+```
+![Lista metabolitos] (images/Tabla_final.png)
