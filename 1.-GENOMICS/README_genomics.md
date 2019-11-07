@@ -85,7 +85,7 @@ Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
 SCRIPT in 1.-GENOMICS/Software/[1.1_Run_relaxed_assembly.sh](bin/Software/1.1_Run_relaxed_assembly.sh)
 
 ```
-ipyrad -p .vcf -s 1234567 -f
+ipyrad -p TMVB_5SNPrad.vcf -s 1234567 -f
 ```
 **PARAMS FILE**
 ```
@@ -127,7 +127,7 @@ This assembly was made relaxed because we want found SNPs with same ID reference
 Se requiere sacar del ensamble general solamente a las muestras de Abies religiosa (89 individuals)
 
 * **INPUT**:
-   * **file.vcf** (.vcf)
+   * **file.vcf** (TMVB_5SNPrad.vcf)
 
 * **OUTPUT**:
    * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
