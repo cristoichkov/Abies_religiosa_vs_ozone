@@ -10,4 +10,4 @@ export HDF5_USE_FILE_LOCKING=FALSE
 
 # Run steps 1-7 in ipyrad
 
-ipyrad -p TMVB_5SNPrad.vcf -s 1234567 -f
+ipyrad -p ../data/TMVB_5SNPrad.vcf -s 1234567 -f

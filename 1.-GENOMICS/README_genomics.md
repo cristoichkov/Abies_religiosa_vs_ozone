@@ -72,7 +72,7 @@ Here you will find the scripts that are needed to perform the analyses. The scri
 
 # 1.0.-RUN de novo ASSEMBLY
 
-Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
+Relaxed assembly ipyrad with *Abies flinckii* and *Abies religiosa*
 
 * **INPUT**:
    * Archivos de la secuenciación **files.fq.gz**
@@ -85,7 +85,7 @@ Relaxed assembly iPyRAD with *Abies flinckii* and *Abies religiosa*
 SCRIPT in 1.-GENOMICS/Software/[1.1_Run_relaxed_assembly.sh](bin/Software/1.1_Run_relaxed_assembly.sh)
 
 ```
-ipyrad -p TMVB_5SNPrad.vcf -s 1234567 -f
+ipyrad -p ../data/TMVB_5SNPrad.vcf -s 1234567 -f
 ```
 **PARAMS FILE**
 ```
@@ -124,10 +124,11 @@ p, s, v, k, n, g               ## [27] [output_formats]: Output formats (see doc
 # 2.0.-Strict assembly vcfTools and PLINK
 I used 79 samples of my research group to understand were is the providence of my 10 samples. So, I do my assembly with 89 samples.
 This assembly was made relaxed because we want found SNPs with same ID reference in every sequences.
-Se requiere sacar del ensamble general solamente a las muestras de Abies religiosa (89 individuals)
+Se requiere sacar del ensamble general solamente a las muestras de *Abies religiosa* (88 individuals)
 
 * **INPUT**:
    * **file.vcf** (TMVB_5SNPrad.vcf)
+   * **ind.txt** (88_ind.txt)
 
 * **OUTPUT**:
    * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
@@ -141,7 +142,7 @@ Se requiere sacar del ensamble general solamente a las muestras de Abies religio
 SCRIPT in 1.-GENOMICS/Software/[2.3_Samples_missdata_maf.sh](bin/Software/2.3_Samples_missdata_maf.sh)
 
 ```
-vcftools --vcf TMVB_5SNPradlocus.vcf --keep 89_ind.txt --max-missing 0.9 --maf 0.05 --recode --out 89ind_maxmiss0.9_maf0.05
+vcftools --vcf ../data/TMVB_5SNPradlocus.vcf --keep ../metadata/88_ind.txt --max-missing 0.9 --maf 0.05 --recode --out ../data/88ind_maxmiss0.9_maf0.05
 ```
 **OUT: fitered_file.vcf**
 
@@ -168,7 +169,7 @@ SCRIPT in 1.-GENOMICS/Software/[3.1_Calculate_frequences.sh](bin/Software/3.1_Ca
 Para descartar SNPs de un mismo locus necesitamos calcular las frecuencias de cada SNP. Utilizamos la flag --freq. Este comando nos arroja los datos en un archivo que podemos leer como .txt en la terminal de R
 
 ```
-vcftools --vcf 88ind_maxmiss0.9_maf0.05.recode.vcf --freq --out freq_88ind_maxmiss0.9_maf0.05
+vcftools --vcf ../data/88ind_maxmiss0.9_maf0.05.recode.vcf --freq --out ../data/freq_88ind_maxmiss0.9_maf0.05
 
 ```
 
@@ -186,7 +187,7 @@ Para descartar SNPs de un mismo locus necesitamos transformar el archivo .vcf a 
 SCRIPT in 1.-GENOMICS/Software/[3.2_ConvertFiles_vcf_to_plink.sh](bin/Software/3.2_ConvertFiles_vcf_to_plink.sh)
 
 ```
-vcftools --vcf 88ind_maxmiss0.9_maf0.05.recode.vcf --plink --out 88ind_maxmiss0.9_maf0.05
+vcftools --vcf ../data/88ind_maxmiss0.9_maf0.05.recode.vcf --plink --out ../data/88ind_maxmiss0.9_maf0.05
 ```
 **OUT: fitered_file.freq, fitered_file.bed, fitered_file.bim**
 
@@ -205,7 +206,7 @@ El archivo .txt producto del paso 3.3 se requiere para formar un nuevo archivo.v
 
 SCRIPT in 1.-GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Extract_positions_HM.sh)
 ```
-./plink --file 88ind_maxmiss0.9_maf0.05 --extract positions_s88_Ar0.9.txt  --make-bed --out snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
+./plink --file ../data/88ind_maxmiss0.9_maf0.05 --extract ../metadata/positions_s88_Ar0.9.txt  --make-bed --out ../data/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
 **OUT: snp_withoutDupLoci.bed, snp_withoutDupLoci.bim, snp_withoutDupLoci.fam**
 
@@ -228,7 +229,10 @@ SCRIPT in 1.-GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Ex
 
 SCRIPT in 1.-GENOMICS/Software/[4.1_Calculate_relatedness.sh](bin/Software/4.1_Calculate_relatedness.sh)
 ```
-./plink --bfile snp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --make-rel square --make-bed --out relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
+./plink --bfile ../data/snp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --make-rel square --make-bed --out ../data/relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
+./plink --bfile ../data/relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode --out ../data/relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
+./plink --file ../data/relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode vcf --out ../data/relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
+
 ```
 **OUT: relsnp_snp_withoutDupLoci.rel, relsnp_snp_withoutDupLoci.id, relsnp_snp_withoutDupLoci.bim, relsnp_snp_withoutDupLoci.bed, relsnp_snp_withoutDupLoci.fam**
 
@@ -237,7 +241,7 @@ SCRIPT in 1.-GENOMICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
 
 **OUT: Relatedness_images**
 
-![](../5.-wonderful_images/Relationshipe_IH.png)
+![](outputs/4.2_Relatedness.png)
 
 # 5.0.-Mantel test
 
@@ -257,7 +261,7 @@ SCRIPT in 1.-GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
 
 **OUT: Mantel_test_images**
 
-![](../5.-wonderful_images/4.1_Mantel_test.png)
+![](outputs/5.1_Mantel_test.png)
 
 
 # 6.0.-Estructura genética de las poblaciones con PCA
@@ -276,7 +280,7 @@ SCRIPT in 1.-GENOMICS/Rstudio/[6.1_PCA.R](bin/Rstudio/6.1_PCA.R)
 
 **OUT: PCA_images**
 
-![](../5.-wonderful_images/PCA-IW.png)
+![](outputs/6.1_PCA.png)
 
 # 7.0.-Estructura genética de las poblaciones con admixture
 
@@ -299,8 +303,8 @@ Cada vez que corro un admixture debo cambiar de lugar los archivos, de lo contra
 SCRIPT in 1.-GENOMICS/Software/[7.1_Calculate_CV_Admixture.sh](bin/Software/7.1_Calculate_CV_Admixture.sh)
 ```
 for K in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20;
-do ./admixture --cv=20 snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed $K | tee log${K}.out; done
-grep -h CV log*.out > logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
+do ./admixture --cv=20 ../data/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed $K | tee log${K}.out; done
+grep -h CV log*.out > ../metadata/logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
 
 ## 7.2.-Modificar el logall.txt y el archivo .fam
@@ -319,9 +323,9 @@ SCRIPT in 1.-GENOMICS/Rstudio/[7.3_Admixture.R](bin/Rstudio/7.3_Admixture.R)
 
 **OUT: cross_validation_images, Admixture_images**
 
-![](../5.-wonderful_images/7.3_Admixture.png)
+![](outputs/7.3_Admixture.png)
 
-![](../5.-wonderful_images/7.3_Admixture_2.png)
+![](outputs/7.3_Admixture_2.png)
 
 # 8.0.-Calculate Heterocigozity
 
@@ -335,7 +339,7 @@ SCRIPT in 1.-GENOMICS/Rstudio/[7.3_Admixture.R](bin/Rstudio/7.3_Admixture.R)
 
 SCRIPT in 1.-GENOMICS/Software/[8.1_Calculate_Heterozigozity.sh](bin/Software/8.1_Calculate_Heterozigozity.sh)
 ```
-vcftools --vcf snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.vcf --keep samples_name.txt --het --out samples_he_snp_withoutDupLoci_10ind_maxmiss0.9_maf0.05.het
+vcftools --vcf ../data/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.vcf --keep ../metadata/samples_het_relat.txt --het --out ../data/samples_he_snp_withoutDupLoci_10ind_maxmiss0.9_maf0.05.het
 ```
 ## 8.2.- Calculate_Heterozigozity
 SCRIPT in R 1.-GENOMICS/Rstudio/[8.2_Calculate_He.R](bin/Rstudio/8.2_Calculate_He.R)

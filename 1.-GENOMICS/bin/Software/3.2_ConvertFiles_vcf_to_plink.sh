@@ -5,4 +5,4 @@
 #SBATCH -n 2
 
 
-vcftools --vcf 88ind_maxmiss0.9_maf0.05.recode.vcf --plink --out 88ind_maxmiss0.9_maf0.05
+vcftools --vcf ../data/88ind_maxmiss0.9_maf0.05.recode.vcf --plink --out ../data/88ind_maxmiss0.9_maf0.05
