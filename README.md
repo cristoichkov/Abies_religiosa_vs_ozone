@@ -1,6 +1,6 @@
 # Abies_religiosa_vs_ozone
 
-:evergreen_tree: I am Veronica Reyes Galindo. This repository contains all the scripts of my Master's Thesis project at [Instituto de Ecología, UNAM](http://www.ecologia.unam.mx/).:evergreen_tree:
+ I am Veronica Reyes Galindo. This repository contains all the scripts of my Master's Thesis project at [Instituto de Ecología, UNAM](http://www.ecologia.unam.mx/).
 
 * The online version of my Thesis is in [UNAM]() website.
 
