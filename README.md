@@ -66,15 +66,15 @@ In addition, you can find in this repository:
 
 :file_folder: **`/TRANSCRIPTOMICS`**
 
-[TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/TRANSCRIPTOMICS)
+![TRANSCRIPTOMICS](3.-TRANSCRIPTOMICS)
 
 :file_folder: **`/GENOMICS`**
 
-[GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/GENOMICS)
+[GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS)
 
 :file_folder: **`/METABOLOMICS`**
 
-[METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS)
+[METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/2.-METABOLOMICS)
 
 :file_folder: **`/INFO_PROJECT`**
 
