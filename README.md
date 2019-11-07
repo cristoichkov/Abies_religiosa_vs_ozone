@@ -15,9 +15,7 @@ Photo by me: My Supervisor [PhD. Alicia Mastretta-Yanes](http://mastrettayanes-l
 
 :evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree:
 
-This is the repository that describes my project and the particular aims of my Master´s Thesis.
-
-The principal aim of my project is to : **Assess if the tolerance of sacred fir (Abies religiosa) to exposure by O3, in a peripheral forest of the CDMX, is related to the genetic origin of the individuals or is given by differential expression of candidate genes.**
+The principal aim of my project was to : **Assess if the tolerance of sacred fir (Abies religiosa) to exposure by O3, in a peripheral forest of the CDMX, is related to the genetic origin of the individuals or is given by differential expression of candidate genes.**
 
 To resolves my general aim, I have 3 particular aims. The analyzes to answer each aim can be found in separate directories with data  and pictures:
 
@@ -64,15 +62,15 @@ In addition, you can find in this repository:
 
 [README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/README.md): is a intro about my project. This include the structure of my repository.
 
-:file_folder: **`/TRANSCRIPTOMICS`**
+:file_folder: **`/3.-TRANSCRIPTOMICS`**
 
 ![TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS)
 
-:file_folder: **`/GENOMICS`**
+:file_folder: **`/1.-GENOMICS`**
 
 [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS)
 
-:file_folder: **`/METABOLOMICS`**
+:file_folder: **`/2.-METABOLOMICS`**
 
 [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/2.-METABOLOMICS)
 
