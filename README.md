@@ -10,7 +10,7 @@
 
 And please send me a message in **veronica.rg.pb@ gmail.com** to clear all doubts about my Master's Thesis project. :smiley:
 
-![](wonderful_images/panoramic_picture_DesiertodelosLeones.png)
+![](5.-wonderful_images/panoramic_picture_DesiertodelosLeones.png)
 Photo by me: My Supervisor [PhD. Alicia Mastretta-Yanes](http://mastrettayanes-lab.org/) in middle of the "sacred fir cementery" in Santa Rosa Xochiac, 2017.
 
 :evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree::evergreen_tree:
@@ -21,11 +21,11 @@ The principal aim of my project is to : **Assess if the tolerance of sacred fir 
 
 To resolves my general aim, I have 3 particular aims. The analyzes to answer each aim can be found in separate directories with data  and pictures:
 
-* Evaluate the differential expression of healthy and damaged trees in two periods of [O3] ([TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/TRANSCRIPTOMICS)).
+* Evaluate the differential expression of healthy and damaged trees in two periods of [O3] ([TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS)).
 
-* Identify origins of sacred fir with tolerance to O3 ([GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/GENOMICS)).
+* Identify origins of sacred fir with tolerance to O3 ([GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS)).
 
-* Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3 ([METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS)).
+* Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3 ([METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/2.-METABOLOMICS)).
 
 
 This is the Repository structure:
@@ -66,7 +66,7 @@ In addition, you can find in this repository:
 
 :file_folder: **`/TRANSCRIPTOMICS`**
 
-![TRANSCRIPTOMICS](3.-TRANSCRIPTOMICS)
+![TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS)
 
 :file_folder: **`/GENOMICS`**
 
@@ -78,11 +78,11 @@ In addition, you can find in this repository:
 
 :file_folder: **`/INFO_PROJECT`**
 
-[INFO_PROJECT](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/INFO_PROJECT)
+[INFO_PROJECT](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/4.-INFO_PROJECT)
 
 :file_folder: **`/wonderful_images`**
 
-[wonderful_images](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/wonderful_images)
+[wonderful_images](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/5.-wonderful_images)
 
 
 The principal analysis are:
@@ -92,22 +92,22 @@ The principal analysis are:
 ### Evaluate the differential expression of healthy and damaged trees in two periods of [O3].
 
 
-![](wonderful_images/Transcriptomic_methods.png)
+![](5.-wonderful_images/Transcriptomic_methods.png)
 
-Check more info about this pipeline in the directory [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/TRANSCRIPTOMICS).
+Check more info about this pipeline in the directory [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS).
 
 # GENOMICS
 
 ### Identify origins of sacred fir with tolerance to O3.
 
-![](wonderful_images/Genomic_methods.png)
+![](5.-wonderful_images/Genomic_methods.png)
 
-Check more info about this pipeline in the directory [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/GENOMICS).
+Check more info about this pipeline in the directory [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS).
 
 # METABOLOMICS
 
 ### Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3
 
-![](wonderful_images/Metabolomic_methods.png)
+![](5.-wonderful_images/Metabolomic_methods.png)
 
-Check more info about this pipeline in the directory [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/METABOLOMICS).
+Check more info about this pipeline in the directory [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/2.-METABOLOMICS).
