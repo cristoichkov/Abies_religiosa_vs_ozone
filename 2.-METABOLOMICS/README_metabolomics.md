@@ -22,8 +22,7 @@ Before starting the analysis here are the programs that need to be installed:
 ```
 +----- Abies_religiosa_vs_ozone/
 |	+--2.-METABOLOMICS/
-|		+--bin/
-|       +--Rstudio/
+|       +--bin/
 |	           +--Rstudio/
 |	   	       +--1.1.-Make_df_allsamples_metabol.R
 |	   	       +--2.1.-Calculate_relative_abs.R
@@ -31,21 +30,22 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	       +--4.1.-Barplots
 |	   	       +--5.1.-PCA.R
 |	   	       +--Load_html_files.R
-|		+--data/
+|       +--data/
 |	           +--GC-MS/
 |	   	       +--LibSrch_3.htm
 |	   	       +--LibSrch_5.htm
-|		+--metadata/
+|       +--metadata/
 |	         +--Tablas_datos/
 |	   	       +--htm_df.txt
 |	   	       +--exp_table.txt
 |	   	       +--exp_table.csv
 |	   	       +--calculate_relative_abs.txt
-|		+--outputs/
+|       +--outputs/
 |	   	     +--barplot_images_conti.png
 |	         +--barplot_images_SS.png
-|		+--README_genomics.md
+|       +--README_genomics.md
 ```
+
 ## METABOLOMICS content
 
 :file_folder: **`/bin`**
