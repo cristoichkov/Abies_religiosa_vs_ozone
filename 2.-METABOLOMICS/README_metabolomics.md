@@ -13,6 +13,8 @@ Before starting the analysis here are the programs that need to be installed:
 
 * **ggplot2**
 * **reshape2**
+* **ggfortify**
+* **corrplot**
 
 
 ## METABOLOMICS directory structure:
@@ -92,41 +94,42 @@ compararla entre temporada, condicion y año de exposicion
 
 SCRIPT in 2.-METABOLOMICS/Rstudio/[3.1-ANOVA.R](bin/Rstudio/3.1-ANOVA)
 
+# 4.-Make barplots
+
+compararla entre temporada, condicion y año de exposicion
+
+* **INPUT**:
+  * **calculate_relative_abs.txt**(calculate_relative_abs.txt)
+
+* **OUTPUT**:
+  * **barplot_images.png**(barplot_images_SS.png, barplot_images_conti.png)
 
 
+# 4.1.-Make barplots
 
-![Lista metabolitos] (images/ANOVA_TV1.png)
-
-Se utilizó el siguiente script para calcular la cantidad de metabolitos y graficarla en barplot de acuerdo a la temporada, condicion y año de exposicion
-
-```
-bin/Metabolitos.TV1.R
-```
-
-![Lista metabolitos] (images/Metabolitos.TV1.png)
+SCRIPT in 2.-METABOLOMICS/Rstudio/[4.1.-Barplots](bin/Rstudio/4.1.-Barplots)
+**OUT: barplot_images.png**
 
 
-Se utilizó el siguiente script para calcular la cantidad de metabolitos y buscar correlaciones entre los metabolitos y graficar un PCA de acuerdo a la temporada
+# 5.-Make PCA
 
-```
-bin/PCA.R
-```
+compararla entre temporada, condicion y año de exposicion
 
-![Lista metabolitos] (images/PCA_1.png)
-![Lista metabolitos] (images/PCA_2.png)
+* **INPUT**:
+  * **calculate_relative_abs.txt**(calculate_relative_abs.txt)
 
-
-
-
+* **OUTPUT**:
+  * **"exp_table.csv"**("exp_table.csv")
+  * **"exp_table.txt"**("exp_table.txt")
 
 
+# 5.1.-Make PCA
+
+SCRIPT in 2.-METABOLOMICS/Rstudio/[5.1.-PCA](bin/Rstudio/5.1.-PCA)
+**OUT: exp_table.csv, exp_table.txt**
 
 
-
-
-
-
-# Análisis de metabolitos
+# ANEXO 1.-
 
 Los datos del GC-MS se obtuvieron en listas para cada muestra.
 
