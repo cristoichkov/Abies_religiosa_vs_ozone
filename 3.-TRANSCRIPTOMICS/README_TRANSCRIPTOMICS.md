@@ -22,7 +22,7 @@ Before starting the analysis here are the programs that need to be installed:
 
 ```
 +----- Abies_religiosa_vs_ozone/
-|	+--1.-GENOMICS/
+|	+--3.-TRASNCRIPTOMICS/
 |		+--bin/
 |	     +--Rstudio/
 |	   	    +--6.1_Countreads_makematrix.R
@@ -35,7 +35,31 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	    +--4.1_ConvertSamBam_sw10_L50.sh
 |	   	    +--5.1_Count_genes_bamfile.sh
 |		+--data/
+|	   	    +--BAM/
+|	   	       +--
+|	   	    +--RAW/
+|	   	       +--DPVR1_S179_L007_R1_001_fastqc.zip
+|	   	    +--SAM/
+|	   	    +--TRIMMING/
+|	   	       +--Trimm18s_sw10-28_ml50_28/
+|	   	           +--Trimmer_DPVR1_S179_L007_R1_001_paired_fastqc.zip
+|	   	    +--OSF.md
 |		+--metadata/
+|	   	    +--all_genes/
+|	   	    +--count_genes/
+|	   	    +--estadisticos_mapeo/
+|	   	       +--flagstat_DC01_15_sw10L50.txt
+|	   	    +--fastqc_before_trimm/
+|	   	       +--DPVR1_S179_L007_R1_001_fastqc.html
+|	   	    +--genes_order/
+|	   	       +--DC01_15_sw10L50.genesorder.txt
+|	   	    +--Index/
+|	   	       +--index_GCAT_AB-RNA-1.0.16/
+|	   	           +--index_Areligiosa
+|	   	    +--Reference_Trancriptome/
+|	   	       +--GCAT_AB-RNA-1.0.16.fa
+|	   	    +--seq_genes/
+|	   	    +--allreadsgenes.txt
 |		+--outputs/
 |		+--README_transcriptomics.md
 ```
