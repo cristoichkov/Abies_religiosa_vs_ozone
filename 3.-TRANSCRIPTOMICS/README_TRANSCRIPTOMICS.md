@@ -25,26 +25,21 @@ Before starting the analysis here are the programs that need to be installed:
 |	+--1.-GENOMICS/
 |		+--bin/
 |	     +--Rstudio/
-|	   	    +--3.3_Without_SNPs_in_same_loci.R
-|	   	    +--4.2_Relatedness.R
-|	   	    +--5.1_Mantel_test.R
-|	   	    +--6.1_PCA.R
-|	   	    +--7.3_Admixture.R
-|	   	    +--8.2_Calculate_He.R
+|	   	    +--6.1_Countreads_makematrix.R
+|	   	    +--7.1_5HCvs5DC.R
 |	     +--Software
-|	   	    +--1.1_Run_relaxed_assembly.sh
-|	   	    +--2.3_Samples_missdata_maf.sh
-|	   	    +--3.1_Calculate_frequences.sh
-|	   	    +--3.2_ConvertFiles_vcf_to_plink.sh
-|	   	    +--3.4_Extract_positions_HM.sh
-|	   	    +--5.1_Calculate_relatedness.sh
-|	   	    +--7.1_Calculate_CV_Admixture.sh
-|	   	    +--8.1_Calculate_Heterozigozity.sh
+|	   	    +--1.1_FastQC.sh
+|	   	    +--2.1_Trimming.sh
+|	   	    +--3.1_index.sh
+|	   	    +--3.2_Alignment_AbP_paired_sw10_L50.sh
+|	   	    +--4.1_ConvertSamBam_sw10_L50.sh
+|	   	    +--5.1_Count_genes_bamfile.sh
 |		+--data/
 |		+--metadata/
 |		+--outputs/
 |		+--README_transcriptomics.md
 ```
+
 ## TRANSCRIPTOMICS content
 
 :file_folder: **`/bin`**
