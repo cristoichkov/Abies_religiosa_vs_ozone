@@ -103,7 +103,7 @@ compararla entre temporada, condicion y año de exposicion
 
 # 3.1.-Make ANOVA
 
-SCRIPT in 2.-METABOLOMICS/Rstudio/[3.1.-ANOVA.R](bin/Rstudio/3.1.-ANOVA)
+SCRIPT in 2.-METABOLOMICS/Rstudio/[3.1.-ANOVA.R](bin/Rstudio/3.1.-ANOVA.R)
 
 # 4.-Make barplots
 
