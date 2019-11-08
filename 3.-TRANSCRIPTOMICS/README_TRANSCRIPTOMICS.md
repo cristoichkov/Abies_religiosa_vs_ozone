@@ -29,6 +29,9 @@ Before starting the analysis here are the programs that need to be installed:
 * **magrittr**
 * **reshape**
 
+library(limma)
+library(edgeR)
+
 ## TRASNCRIPTOMICS directory structure:
 
 ```
@@ -135,9 +138,91 @@ java -jar ../../Programas/Trimmomatic/Trimmomatic_bin/Trimmomatic-0.36/trimmomat
 ## 3.1.-Mapeo con BWA
 
 
+# 4.0.- Mapeo con BWA
+
+
+* **INPUT**:
+   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
+
+* **OUTPUT**:
+   * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
+   * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
+
+```
+
+```
+
+   **OUT: barplot_images.png**
 
 
 
+## 4.1.-Mapeo con BWA
+
+
+# 5.0.- Mapeo con BWA
+
+
+* **INPUT**:
+   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
+
+* **OUTPUT**:
+   * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
+   * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
+
+```
+
+```
+
+   **OUT: barplot_images.png**
+
+
+
+## 5.1.-Mapeo con BWA
+
+
+## 5.2.-Statistics con BWA
+
+
+
+# 6.0.- Conteo de transcritos
+
+
+* **INPUT**:
+   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
+
+* **OUTPUT**:
+   * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
+   * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
+
+```
+
+```
+
+   **OUT: barplot_images.png**
+
+
+
+## 6.1.- Conteo de transcritos
+
+# 7.0.- Tabla de conteo de transcritos
+
+
+* **INPUT**:
+   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
+
+* **OUTPUT**:
+   * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
+   * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
+
+```
+
+```
+
+   **OUT: barplot_images.png**
+
+
+
+## 7.1.- Tabla de conteo de transcritos
 
 
 
