@@ -6,7 +6,7 @@ Before starting the analysis here are the programs that need to be installed:
 
 ## SOFTWARE
 
-* [bwa](https://ipyrad.readthedocs.io/en/latest/)
+* [bwa](http://bio-bwa.sourceforge.net)
 * [Trimmomatic-0.36](http://www.usadellab.org/cms/?page=trimmomatic)
 * [R](https://cran.r-project.org)
 * [Rstudio (optional)](https://rstudio.com)
