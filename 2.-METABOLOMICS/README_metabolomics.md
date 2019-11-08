@@ -29,7 +29,7 @@ Before starting the analysis here are the programs that need to be installed:
 |               +--3.1.-ANOVA.R
 |               +--4.1.-Barplots
 |               +--5.1.-PCA.R
-|	   	        +--Load_html_files.R
+|               +--Load_html_files.R
 |          +--data/
 |            +--GC-MS/
 |               +--LibSrch_3.htm
