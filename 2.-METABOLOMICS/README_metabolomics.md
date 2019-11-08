@@ -110,8 +110,8 @@ compararla entre temporada, condicion y año de exposicion
 SCRIPT in 2.-METABOLOMICS/Rstudio/[4.1.-Barplots](bin/Rstudio/4.1.-Barplots)
 **OUT: barplot_images.png**
 
-![](../outputs/barplot_images_SS.png)
-![](../outputs/barplot_images_conti.png)
+![](outputs/barplot_images_SS.png)
+![](outputs/barplot_images_conti.png)
 
 # 5.-Make PCA
 
