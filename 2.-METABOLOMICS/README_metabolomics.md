@@ -31,8 +31,18 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	    +--5.1.-PCA.R
 |	   	    +--Load_html_files.R
 |		+--data/
+|	     +--GC-MS/
+|	   	    +--LibSrch_3.htm
+|	   	    +--LibSrch_5.htm
 |		+--metadata/
+|	     +--Tablas_datos/
+|	   	    +--htm_df.txt
+|	   	    +--exp_table.txt
+|	   	    +--exp_table.csv
+|	   	    +--calculate_relative_abs.txt
 |		+--outputs/
+|	   	    +--barplot_images_conti.png
+|	   	    +--barplot_images_SS.png
 |		+--README_genomics.md
 ```
 ## METABOLOMICS content
