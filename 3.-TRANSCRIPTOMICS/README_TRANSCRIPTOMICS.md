@@ -57,24 +57,31 @@ library(edgeR)
 |		+--data/
 |		+--metadata/
 |		+--outputs/
-|		+--README_genomics.md
+|		+--README_transcriptomics.md
 ```
 ## TRANSCRIPTOMICS content
 
 :file_folder: **`/bin`**
-Here you will find the scripts that are needed to perform the analyses. The scripts must be used in the order specified.
 
-:file_folder: **`/data`** Aqui se encuentran los archivos producto de la secuenciacion y el analisis de ellos
 
-:file_folder: **`/metadata`** Aqui se encuentran
+
+:file_folder: **`/data`**
+
+This is a directory. It contains a screenshot of my data, because the real data is very heavy.
+
+:file_folder: **`/metadata`**
+
+This is a directory. It contains .csv, .txt and other files to do the analysis.
 
 :file_folder: **`/outputs`**
 
-:page_facing_up: **`/README_genomics`**
+This is a directory. It contains files product of the scripts.
 
+:page_facing_up: **`/README_transcriptomics.md`**
+
+This is a markdown file. It is a description file particular of this directory and analysis.
 
 # 1.0.- Evaluar secuencias con fastqc
-
 
 * **INPUT**:
    * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
@@ -233,40 +240,3 @@ SCRIPT in 2.-METABOLOMICS/Rstudio/[7.1_Countreads_makematrix.R](bin/Rstudio/7.1_
 
       ![](outputs/4.1_barplot_images_SS.png)
       ![](outputs/4.1_barplot_images_conti.png)
-
-
-
-
-
-
-
-
-
-
-
-:file_folder: **`/bin`**
-
-This is a directory. It contains the scripts and html files results of the scripts.
-
-
-:file_folder: **`/data`**
-
-This is a directory. It contains a screenshot of my data, because the real data is very heavy.
-
-
-:file_folder: **`/metadata`**
-
-This is a directory. It contains .csv, .txt and other files to do the analysis.
-
-
-:file_folder: **`/outputs`**
-
-This is a directory. It contains files product of the scripts.
-
-:page_facing_up: **`/README.md`**
-
-This is a markdown file. It is a description file particular of this directory and analysis.
-
-:page_facing_up: **`/Discussion and conclusion.md`**
-
-This is a markdown file. It is a discussion particular of this section.
