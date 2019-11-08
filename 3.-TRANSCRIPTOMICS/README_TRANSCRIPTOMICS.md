@@ -56,7 +56,7 @@ Before starting the analysis here are the programs that need to be installed:
 |		+--outputs/
 |		+--README_genomics.md
 ```
-## GENOMICS content
+## TRANSCRIPTOMICS content
 
 :file_folder: **`/bin`**
 Here you will find the scripts that are needed to perform the analyses. The scripts must be used in the order specified.
@@ -70,7 +70,86 @@ Here you will find the scripts that are needed to perform the analyses. The scri
 :page_facing_up: **`/README_genomics`**
 
 
-# 1.0.-RUN de novo ASSEMBLY
+# 1.0.- Evaluar secuencias con fastqc
+
+
+* **INPUT**:
+   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
+
+* **OUTPUT**:
+   * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
+   * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
+
+```
+java -jar ../../Programas/Trimmomatic/Trimmomatic_bin/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 4 -phred33 ../../TRANSCRIPTOMICS_RAW/DPVR1_S179_L007_R1_001.fastq.gz ../../TRANSCRIPTOMICS_RAW/DPVR1_S179_L007_R2_001.fastq.gz Trimmer_DPVR1_S179_L007_R1_001_paired.fq.gz Trimmer_DPVR1_S179_L007_R1_001_unpaired.fq.gz Trimmer_DPVR1_S179_L007_R2_001_paired.fq.gz Trimmer_DPVR1_S179_L007_R2_001_unpaired.fq.gz ILLUMINACLIP:../../Programas/Trimmomatic/Trimmomatic_bin/Trimmomatic-0.36/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:28 TRAILING:28 SLIDINGWINDOW:10:28 MINLEN:50 HEADCROP:13
+
+```
+
+   **OUT: barplot_images.png**
+
+
+
+## 1.1.-Primero se tiene que obtener la frecuencia que tienen los loci
+
+
+
+
+# 2.0.- Cortar secuencias con Trimmomatic
+
+
+* **INPUT**:
+   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
+
+* **OUTPUT**:
+   * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
+   * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
+
+```
+
+```
+
+   **OUT: barplot_images.png**
+
+
+
+## 2.1.-Primero se tiene que obtener la frecuencia que tienen los loci
+
+# 3.0.- Mapeo con BWA
+
+
+* **INPUT**:
+   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
+
+* **OUTPUT**:
+   * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
+   * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
+
+```
+
+```
+
+   **OUT: barplot_images.png**
+
+
+
+## 3.1.-Mapeo con BWA
+
+
+
+
+
+
+
+
+
+
+SCRIPT in 2.-METABOLOMICS/Rstudio/[4.1.-Barplots](bin/Rstudio/4.1.-Barplots.R)
+
+   **OUT: barplot_images.png**
+
+   ![](outputs/4.1_barplot_images_SS.png)
+   ![](outputs/4.1_barplot_images_conti.png)
+
 
 
 :file_folder: **`/bin`**
