@@ -227,7 +227,7 @@ SCRIPT in 2.-METABOLOMICS/Rstudio/[6.1_Countreads_makematrix.R](bin/Rstudio/6.1_
 # 7.0.- Tabla de conteo de transcritos
 
    * **INPUT**:
-   * **allreadsgenes.txt**(allreadsgenes.txt)
+      * **allreadsgenes.txt**(allreadsgenes.txt)
 
    * **OUTPUT**:
       * **images.png**(images.png)
