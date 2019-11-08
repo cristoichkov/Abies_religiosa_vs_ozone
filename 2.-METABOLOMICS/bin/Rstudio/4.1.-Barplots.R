@@ -49,7 +49,7 @@ p + coord_flip() + facet_wrap(~ Factores) +
                                'alfa.Cubenene'= expression(alpha~'-Cubeneno'),
                                'delta.Cadinene' = expression(delta~'-Cadineno'),
                                'alfa.Muurolene' = expression(alpha~'-Muuroleno')))
-ggsave("../../outputs/barplot_images_SS.png")
+ggsave("../../outputs/4.1_barplot_images_SS.png")
 
 #CONTINGENCIA
 
@@ -77,5 +77,5 @@ p + coord_flip() + facet_wrap(~ Factores) +
                                      'alfa.Cubenene'= expression(alpha~'-Cubeneno'),
                                      'delta.Cadinene' = expression(delta~'-Cadineno'),
                                      'alfa.Muurolene' = expression(alpha~'-Muuroleno')))
-ggsave("../../outputs/barplot_images_conti.png")
+ggsave("../../outputs/4.1_barplot_images_conti.png")
 
