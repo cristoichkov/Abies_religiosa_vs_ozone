@@ -77,6 +77,7 @@ Se utilizó el siguiente script para calcular la cantidad de metabolitos
 ## 2.1.-Calculate_relative_abs
 
 SCRIPT in 2.-METABOLOMICS/Rstudio/[2.1-Calculate_relative_abs.R](bin/Rstudio/2.1-Calculate_relative_abs.R)
+
 **OUTPUT: calculate_relative_abs.txt**
 
 # 3.-Make ANOVA
@@ -108,6 +109,7 @@ compararla entre temporada, condicion y año de exposicion
 # 4.1.-Make barplots
 
 SCRIPT in 2.-METABOLOMICS/Rstudio/[4.1.-Barplots](bin/Rstudio/4.1.-Barplots)
+
 **OUT: barplot_images.png**
 
 ![](outputs/barplot_images_SS.png)
@@ -128,6 +130,7 @@ compararla entre temporada, condicion y año de exposicion
 # 5.1.-Make PCA
 
 SCRIPT in 2.-METABOLOMICS/Rstudio/[5.1.-PCA](bin/Rstudio/5.1.-PCA)
+
 **OUT: exp_table.csv, exp_table.txt**
 
 
