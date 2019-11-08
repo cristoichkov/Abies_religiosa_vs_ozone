@@ -7,9 +7,9 @@ Before starting the analysis here are the programs that need to be installed:
 ## SOFTWARE
 
 * [bwa](https://ipyrad.readthedocs.io/en/latest/)
+* [Trimmomatic-0.36](http://www.usadellab.org/cms/?page=trimmomatic)
 * [R](https://cran.r-project.org)
 * [Rstudio (optional)](https://rstudio.com)
-* [Trimmomatic-0.36](http://www.usadellab.org/cms/?page=trimmomatic)
 
 ## R packages
 
@@ -44,7 +44,7 @@ Before starting the analysis here are the programs that need to be installed:
 
 :file_folder: **`/bin`**
 
-
+This is a directory.
 
 :file_folder: **`/data`**
 
@@ -188,7 +188,6 @@ rm *.bam
 
 # 6.0.- Tabla de conteo de transcritos
 
-
 * **INPUT**:
    * **genesorder.txt**(DC01_15_sw10L50.genesorder.txt, DC02_15_sw10L50.genesorder.txt, DC03_15_sw10L50.genesorder.txt, etc.)
 
@@ -202,7 +201,6 @@ SCRIPT in 2.-METABOLOMICS/Rstudio/[6.1_Countreads_makematrix.R](bin/Rstudio/6.1_
 **OUT: allreadsgenes.txt**
 
 # 7.0.- Tabla de conteo de transcritos
-
 
    * **INPUT**:
    * **allreadsgenes.txt**(allreadsgenes.txt)
