@@ -24,13 +24,12 @@ Before starting the analysis here are the programs that need to be installed:
 |	+--2.-METABOLOMICS/
 |		+--bin/
 |	     +--Rstudio/
-|	   	    +--3.3_Without_SNPs_in_same_loci.R
-|	   	    +--4.2_Relatedness.R
-|	   	    +--5.1_Mantel_test.R
-|	   	    +--6.1_PCA.R
-|	   	    +--7.3_Admixture.R
-|	   	    +--8.2_Calculate_He.R
-|	     +--Software
+|	   	    +--1.1.-Make_df_allsamples_metabol.R
+|	   	    +--2.1.-Calculate_relative_abs.R
+|	   	    +--3.1.-ANOVA.R
+|	   	    +--4.1.-Barplots
+|	   	    +--5.1.-PCA.R
+|	   	    +--Load_html_files.R
 |		+--data/
 |		+--metadata/
 |		+--outputs/
@@ -76,7 +75,7 @@ Se utilizó el siguiente script para calcular la cantidad de metabolitos
 
 ## 2.1.-Calculate_relative_abs
 
-SCRIPT in 2.-METABOLOMICS/Rstudio/[2.1-Calculate_relative_abs.R](bin/Rstudio/2.1-Calculate_relative_abs.R)
+SCRIPT in 2.-METABOLOMICS/Rstudio/[2.1.-Calculate_relative_abs.R](bin/Rstudio/2.1.-Calculate_relative_abs.R)
 
 **OUTPUT: calculate_relative_abs.txt**
 
@@ -93,7 +92,7 @@ compararla entre temporada, condicion y año de exposicion
 
 # 3.1.-Make ANOVA
 
-SCRIPT in 2.-METABOLOMICS/Rstudio/[3.1-ANOVA.R](bin/Rstudio/3.1-ANOVA)
+SCRIPT in 2.-METABOLOMICS/Rstudio/[3.1.-ANOVA.R](bin/Rstudio/3.1.-ANOVA)
 
 # 4.-Make barplots
 
