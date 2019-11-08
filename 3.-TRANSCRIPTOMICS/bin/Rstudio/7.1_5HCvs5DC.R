@@ -1,4 +1,9 @@
 
+library(VennDiagram)
+library(limma)
+library(edgeR)
+library(DESeq2)
+
 # Convert dataframe to data matrix
 alldata<-read.delim("../Counts/bwa/allreadsgenes.txt")
 alldata <- as.data.frame(alldata)
@@ -39,8 +44,6 @@ dim(filtconteos)
 ##################################################################################################################
 ##################################################################################################################
 # EdgeR
-library(limma)
-library(edgeR)
 
 ## Clase DGEList
 d <- DGEList(counts = filtconteos[,1:10], group = targets$tratamiento) ## Normalización
@@ -64,7 +67,6 @@ abline(v=0.05, col="red",lwd=3)
 ##################################################################################################################
 ##################################################################################################################
 # DESeq2
-library(DESeq2)
 
 ### Clase DESeqDataSet
 dds <- DESeqDataSetFromMatrix(countData=filtconteos, colData= targets, design=~tratamiento)
@@ -136,7 +138,7 @@ head(genesDEcomunes)
 str(genesDEcomunes)
 
 ### Plotear diagrama de Venn
-library(VennDiagram)
+
 grid.newpage() #Para limpiar la ventana gráfica
 dim(resSig2)
 dim(topSig)

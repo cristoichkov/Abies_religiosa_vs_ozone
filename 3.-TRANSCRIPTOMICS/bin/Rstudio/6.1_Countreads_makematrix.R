@@ -2,7 +2,6 @@
 ## 15 Oct 2018
 ## Veronica Reyes
 
-
 # Load files
 DC01_15<-read.delim("../../metadata/genes_order/DC01_15_sw10L50.genesorder.txt", header= FALSE)
 DC02_15<-read.delim("../../metadata/genes_order/DC02_15_sw10L50.genesorder.txt", header= FALSE)

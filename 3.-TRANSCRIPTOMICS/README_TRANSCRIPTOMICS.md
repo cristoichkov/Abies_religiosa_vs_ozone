@@ -7,30 +7,16 @@ Before starting the analysis here are the programs that need to be installed:
 ## SOFTWARE
 
 * [bwa](https://ipyrad.readthedocs.io/en/latest/)
-* [PLINK](https://www.cog-genomics.org/plink2/)
-* [vcfTools](https://vcftools.github.io/man_latest.html)
 * [R](https://cran.r-project.org)
 * [Rstudio (optional)](https://rstudio.com)
+* [Trimmomatic-0.36](http://www.usadellab.org/cms/?page=trimmomatic)
 
 ## R packages
 
-* **readr**
-* **dplyr**
-* **tidyr**
-* **ggplot2**
-* **geosphere**
-* **gdsfmt**
-* **SNPRelate**
-* **MASS**
-* **psych**
-* **vegan**
-* **permute**
-* **lattice**
-* **magrittr**
-* **reshape**
-
-library(limma)
-library(edgeR)
+* **VennDiagram**
+* **limma**
+* **edgeR**
+* **DESeq2**
 
 ## TRASNCRIPTOMICS directory structure:
 
@@ -90,22 +76,18 @@ This is a markdown file. It is a description file particular of this directory a
    * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
    * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
 
+## 1.1.-Primero se tiene que obtener la frecuencia que tienen los loci
+
+SCRIPT in 3.-TRANSCRIPTOMICS/Software/[1.1_FastQC.sh](bin/Software/1.1_FastQC.sh)
+
 ```
 java -jar ../../Programas/Trimmomatic/Trimmomatic_bin/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 4 -phred33 ../../TRANSCRIPTOMICS_RAW/DPVR1_S179_L007_R1_001.fastq.gz ../../TRANSCRIPTOMICS_RAW/DPVR1_S179_L007_R2_001.fastq.gz Trimmer_DPVR1_S179_L007_R1_001_paired.fq.gz Trimmer_DPVR1_S179_L007_R1_001_unpaired.fq.gz Trimmer_DPVR1_S179_L007_R2_001_paired.fq.gz Trimmer_DPVR1_S179_L007_R2_001_unpaired.fq.gz ILLUMINACLIP:../../Programas/Trimmomatic/Trimmomatic_bin/Trimmomatic-0.36/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:28 TRAILING:28 SLIDINGWINDOW:10:28 MINLEN:50 HEADCROP:13
 
 ```
 
-   **OUT: barplot_images.png**
-
-
-
-## 1.1.-Primero se tiene que obtener la frecuencia que tienen los loci
-
-
-
+**OUT: barplot_images.png**
 
 # 2.0.- Cortar secuencias con Trimmomatic
-
 
 * **INPUT**:
    * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
@@ -115,6 +97,8 @@ java -jar ../../Programas/Trimmomatic/Trimmomatic_bin/Trimmomatic-0.36/trimmomat
    * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
 
 ## 2.1.-Primero se tiene que obtener la frecuencia que tienen los loci
+
+SCRIPT in 3.-TRANSCRIPTOMICS/Software/[2.1_Trimming.sh](bin/Software/2.1_Trimming.sh)
 
 ```
 #Do Trimmer  with Trimmomatic-0.36
@@ -131,7 +115,6 @@ fastqc *fq.gz
 
 # 3.0.- Mapeo con BWA
 
-
 * **INPUT**:
    * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
 
@@ -141,6 +124,7 @@ fastqc *fq.gz
 
 ## 3.1.-Hacer Index
 
+SCRIPT in 3.-TRANSCRIPTOMICS/Software/[3.1_index.sh](bin/Software/3.1_index.sh)
 
 ```
 bwa index -p ../metadata/INDEX/index_Areligiosa -a is ../metadata/Reference_Transcriptome/GCAT_AB-RNA-1.0.16.fa
@@ -149,12 +133,13 @@ bwa index -p ../metadata/INDEX/index_Areligiosa -a is ../metadata/Reference_Tran
 
 ## 3.2.-Mapeo en A. balsamea
 
+SCRIPT in 3.-TRANSCRIPTOMICS/Software/[3.2_Alignment_AbP_paired_sw10_L50](bin/Software/3.2_Alignment_AbP_paired_sw10_L50.sh)
+
 ```
 bwa mem ../metadata/index_GCAT_AB-RNA-1.0.16/index_Areligiosa ../data/TRIMMING/Trimm18s_sw10-28_ml50_28/Trimmer_DPVR1_S179_L007_R1_001_paired.fq.gz ../data/TRIMMING/Trimm18s_sw10-28_ml50_28/Trimmer_DPVR1_S179_L007_R2_001_paired.fq.gz > SC01_15_sw10L50_28.sam
 ```
 
 # 4.0.- Convertir SAM en BAM
-
 
 * **INPUT**:
    * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
@@ -165,13 +150,14 @@ bwa mem ../metadata/index_GCAT_AB-RNA-1.0.16/index_Areligiosa ../data/TRIMMING/T
 
 ## 4.1.- Convertir SAM en BAM
 
+SCRIPT in 3.-TRANSCRIPTOMICS/Software/[4.1_ConvertSamBam_sw10_L50](bin/Software/4.1_ConvertSamBam_sw10_L50.sh)
+
 ```
 for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L50_28 SS02_15_sw10L50_28 DC02_15_sw10L50_28 DC05_15_sw10L50_28 SC01_15_sw10L50_28 SC04_15_sw10L50_28 SS05_15_sw10L50_28 DC03_15_sw10L50_28 DS01_15_sw10L50_28 SC01_17_sw10L50_28 SC05_15_sw10L50_28 DC04_15_sw10L50_28 DS02_15_sw10L50_28 SC02_15_sw10L50_28 SS01_15_sw10L50_28; do samtools view -Sb ../data/SAM/$i.sam > ../data/BAM/$i.bam; done
 
 ```
 
 **OUT: barplot_images.png**
-
 
 # 5.0.- Contar genes en bam file
 
@@ -183,6 +169,8 @@ for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L5
    * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
 
 ## 5.1.-Mapeo con BWA
+
+SCRIPT in 3.-TRANSCRIPTOMICS/Software/[5.1_Count_genes_bamfile](bin/Software/5.1_Count_genes_bamfile.sh)
 
 ```
 cd ../data/BAM
@@ -207,36 +195,31 @@ rm *.bam
 
 
 * **INPUT**:
-   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
+   * **genesorder.txt**(DC01_15_sw10L50.genesorder.txt, DC02_15_sw10L50.genesorder.txt, DC03_15_sw10L50.genesorder.txt, etc.)
 
 * **OUTPUT**:
-   * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
-   * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
-
+   * **allreadsgenes.txt**(allreadsgenes.txt)
 
 ## 6.1.- Tabla de conteo de transcritos
 
-SCRIPT in 2.-METABOLOMICS/Rstudio/[7.1_Countreads_makematrix.R](bin/Rstudio/7.1_Countreads_makematrix.R)
+SCRIPT in 2.-METABOLOMICS/Rstudio/[6.1_Countreads_makematrix.R](bin/Rstudio/6.1_Countreads_makematrix.R)
 
-**OUT: barplot_images.png**
-
+**OUT: allreadsgenes.txt**
 
 # 7.0.- Tabla de conteo de transcritos
 
 
    * **INPUT**:
-      * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
+   * **allreadsgenes.txt**(allreadsgenes.txt)
 
    * **OUTPUT**:
-      * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
-      * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
-
+      * **images.png**(images.png)
 
 ## 7.1.- Tabla de conteo de transcritos
 
-   SCRIPT in 2.-METABOLOMICS/Rstudio/[8.1_5HCvs5DC.R](bin/Rstudio/8.1_5HCvs5DC.R)
+   SCRIPT in 2.-METABOLOMICS/Rstudio/[7.1_5HCvs5DC.R](bin/Rstudio/7.1_5HCvs5DC.R)
 
-   **OUT: barplot_images.png**
+   **OUT: images.png**
 
       ![](outputs/4.1_barplot_images_SS.png)
       ![](outputs/4.1_barplot_images_conti.png)

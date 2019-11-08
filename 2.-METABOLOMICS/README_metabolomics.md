@@ -139,7 +139,7 @@ compararla entre temporada, condicion y año de exposicion
 
 # 5.1.-Make PCA
 
-SCRIPT in 2.-METABOLOMICS/Rstudio/[5.1.-PCA](bin/Rstudio/5.1.-PCA)
+SCRIPT in 2.-METABOLOMICS/Rstudio/[5.1.-PCA](bin/Rstudio/5.1.-PCA.R)
 
 **OUT: exp_table.csv, exp_table.txt**
 
