@@ -118,7 +118,7 @@ compararla entre temporada, condicion y año de exposicion
 
 # 4.1.-Make barplots
 
-SCRIPT in 2.-METABOLOMICS/Rstudio/[4.1.-Barplots](bin/Rstudio/4.1.-Barplots)
+SCRIPT in 2.-METABOLOMICS/Rstudio/[4.1.-Barplots](bin/Rstudio/4.1.-Barplots.R)
 
 **OUT: barplot_images.png**
 

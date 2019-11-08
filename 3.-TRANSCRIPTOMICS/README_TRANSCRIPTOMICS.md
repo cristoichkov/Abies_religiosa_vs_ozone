@@ -6,7 +6,7 @@ Before starting the analysis here are the programs that need to be installed:
 
 ## SOFTWARE
 
-* [ipyrad](https://ipyrad.readthedocs.io/en/latest/)
+* [bwa](https://ipyrad.readthedocs.io/en/latest/)
 * [PLINK](https://www.cog-genomics.org/plink2/)
 * [vcfTools](https://vcftools.github.io/man_latest.html)
 * [R](https://cran.r-project.org)
