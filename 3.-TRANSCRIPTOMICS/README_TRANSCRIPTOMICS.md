@@ -220,7 +220,7 @@ rm *.bam
 
 ## 6.1.- Tabla de conteo de transcritos
 
-SCRIPT in 2.-METABOLOMICS/Rstudio/[6.1_Countreads_makematrix.R](bin/Rstudio/6.1_Countreads_makematrix.R)
+SCRIPT in 3.-TRANSCRIPTOMICS/Rstudio/[6.1_Countreads_makematrix.R](bin/Rstudio/6.1_Countreads_makematrix.R)
 
 **OUT: allreadsgenes.txt**
 
@@ -234,7 +234,7 @@ SCRIPT in 2.-METABOLOMICS/Rstudio/[6.1_Countreads_makematrix.R](bin/Rstudio/6.1_
 
 ## 7.1.- Tabla de conteo de transcritos
 
-   SCRIPT in 2.-METABOLOMICS/Rstudio/[7.1_5HCvs5DC.R](bin/Rstudio/7.1_5HCvs5DC.R)
+   SCRIPT in 3.-TRANSCRIPTOMICS/Rstudio/[7.1_5HCvs5DC.R](bin/Rstudio/7.1_5HCvs5DC.R)
 
    **OUT: images.png**
 
