@@ -1,8 +1,12 @@
 
+# Load libraries
+
 library(ggfortify)
 library(corrplot)
+library(lfda)
 
-
+library("mice")
+library("factoextra")
 
 # Load data
 
@@ -14,27 +18,113 @@ metabolites$PCA<-c(rep("SS15",5), rep("SS16",5),
                     rep("SD15",5),rep("SD16",5),
                     rep("CS15",5),rep("CS16",5),
                     rep("CD15",5),rep("CD16",5))
-
-
 #Exportar Data frame
 exp_table<-metabolites[,c(1,8:15)]
 write.csv(exp_table, file="../../metadata/exp_table.csv")
 write.table(exp_table, file="../../metadata/exp_table.txt")
 
 
-metabolitosSS<-metabolites[1:20,]
-metabolitosConti<-metabolites[21:40,]
+metabolitosSS<-metabolites[1:20,8:15]
+metabolitosConti<-metabolites[21:40,8:15]
 
 
 df <- metabolites[c(8:15)]
+df <- metabolitosSS
+df <- metabolitosConti
+
+#Buscar datos faltantes e imputarlos
+table(is.na(df))
+
+
+#Para generar matriz de correlaciones de Pearson
+matrizcor<-cor(df, method=c("pearson"))
+matrizcov<-cov(df)
+
+#C?lculo de componentes principales usando matriz R
+CP<-princomp(df, cor=T)
+summary(CP)
+eigen(matrizcor)
+CP$loadings
+
+vector_sdevs<-as.vector(CP$sdev)
+vector_sdevs
+lambdas<-vector_sdevs*vector_sdevs
+lambdas
+TrazaLAMBDA<-sum(lambdas)
+TrazaLAMBDA                          
+
+screeplot(CP, main="Gr?fica de codo")
+abline(h=1,col=4)
+
+#Biplot CP1 vs CP2
+biplot(CP, choices= c(1,2),cex=c(0.6,0.5), scale = 0, main="Biplot para componentes 1 y 2 con scale=0")
+abline(h=0, v=0, col = "lightgray", lty = 3)
+abline(h=0.2, v=0.2, col = "lightgray", lty = 3)
+abline(h=-0.2,  v=-0.2, col = "lightgray", lty = 3)
+abline(h=0.4, v=0.4, col = "lightgray", lty = 3)
+abline(h=-0.4, v=-0.4, col = "lightgray", lty = 3)
+
+
+#Base de datos originales
+Nocentrada_sF<-scale(df , center = FALSE, scale = FALSE)
+Nocentrada_sF[15,]
+
+
+#Base de datos centrada
+centrada_sF<-scale(df, center = TRUE, scale = FALSE)
+centrada_sF[15,]
+
+#Base de datos centrada y escalada
+centrada_sT<-scale(df , center = TRUE, scale = TRUE)
+centrada_sT[15,] 
+
+#Calculo de scores para UNAM en CP1
+sum(CP$loadings[,1]*  Nocentrada_sF[15,] )  #Usando datos originales                                 
+sum(CP$loadings[,1]*  centrada_sF[15,] )   #Usando datos centrados                                           
+sum(CP$loadings[,1]*  centrada_sT[15,] )   #Usando datos centrados y escalados                                
+
+
+sum(CP$loadings[,2]*  Nocentrada_sF[15,] )    #Usando datos originales                                 
+sum(CP$loadings[,2]*  centrada_sF[15,] )      #Usando datos centrados                                         
+sum(CP$loadings[,2]*  centrada_sT[15,] )      #Usando datos centrados y escalados                                     
+
+#C?lculo de scores UNAM para CP1 y CP2 con funci?n princomp
+CP$scores[15,1]
+CP$scores[15,2]
+
+
+PC2<-prcomp(df,scale=TRUE)
+fviz_eig(CP)
+fviz_pca_ind(CP, col.ind="cos2", gradient.cols=c(#00AFBB","#E7B800","#FC4E07"),repel=TRUE)
+)
+)
+fviz_pca_var(CP,col.var="contrib", gradient.cols=c(#00AFBB","#E7B800","#FC4E07"),repel=TRUE)
+)
+)
+fviz_pca_biplot(CP,col.var="#2E9FDF", col.ind="#696969")
+
+fviz_pca_biplot(CP,col.var="#2E9FDF", col.ind="#696969")
+
+CP
+
+autoplot(prcomp(CP$loadings), data = CP$loadings, colour = 'PCA',
+         loadings = TRUE, size = 3, loadings.colour = 'black',
+         loadings.label = TRUE, loadings.label.size = 4, loadings.label.colour = 'black',
+         frame = TRUE, frame.type = 'norm' )
+
+
+
+
+
+
 autoplot(prcomp(df))
 autoplot(prcomp(df), data = metabolites, colour = 'PCA', label = TRUE, label.size = 10)
 autoplot(prcomp(df), data = metabolites, colour = 'PCA', shape = FALSE, label.size = 3)
 autoplot(prcomp(df), data = metabolites, colour = 'PCA', loadings = TRUE)
 autoplot(prcomp(df), data = metabolites, colour = 'PCA',
          loadings = TRUE, loadings.colour = 'purple',
-         loadings.label = TRUE, loadings.label.size = 3)
-
+         loadings.label = TRUE, loadings.label.size = 3,
+         frame = TRUE, frame.type = 'norm')
 
 df2<- as.matrix(df)
 
@@ -59,7 +149,8 @@ corrplot(M, method = "color", col = col(200),
 df3<-scale(df2)
 autoplot(prcomp(df3), data = metabolites, colour = 'PCA',
          loadings = TRUE, loadings.colour = 'purple',
-         loadings.label = TRUE, loadings.label.size = 3)
+         loadings.label = TRUE, loadings.label.size = 3,
+         frame = TRUE, frame.type = 'norm')
 
 # PCA Todas
 
@@ -67,7 +158,8 @@ df <- metabolites[c(8:15)]
 dff<- df[c(1:4,6:8)]
 autoplot(prcomp(dff), data = metabolites, colour = 'PCA',
          loadings = TRUE, size = 3, loadings.colour = 'black',
-         loadings.label = TRUE, loadings.label.size = 4, loadings.label.colour = 'black' )
+         loadings.label = TRUE, loadings.label.size = 4, loadings.label.colour = 'black',
+         frame = TRUE, frame.type = 'norm' )
 
 
 # PCA SS
@@ -75,7 +167,8 @@ df <- metabolitosSS[c(8:15)]
 dff<- df[c(1:4,6:8)]
 autoplot(prcomp(dff), data = metabolitosSS, colour = 'PCA',
          loadings = TRUE, size = 3, loadings.colour = 'black',
-         loadings.label = TRUE, loadings.label.size = 4, loadings.label.colour = 'black' )
+         loadings.label = TRUE, loadings.label.size = 4, loadings.label.colour = 'black',
+         frame = TRUE, frame.type = 'norm' )
 dfSS<- as.matrix(df)
 
 
@@ -84,7 +177,25 @@ df <- metabolitosConti[c(8:15)]
 dff<- df[c(1:4,6:8)]
 autoplot(prcomp(dff), data = metabolitosConti, colour = 'PCA',
          loadings = TRUE, size = 3, loadings.colour = 'black',
-         loadings.label = TRUE, loadings.label.size = 4, loadings.label.colour = 'black' )
+         loadings.label = TRUE, loadings.label.size = 4, loadings.label.colour = 'black',
+         frame = TRUE, frame.type = 'norm' )
+
+library(klaR)
+partimat(Species ~ Sepal.Width + Sepal.Length + Petal.Length + Petal.Width,
+         data = iris, method = "lda", prec = 200,
+         image.colors = c("darkgoldenrod1", "snow2", "skyblue2"),
+         col.mean = "firebrick")
+
+library(klaR)
+library(MASS)
+partimat(PCA ~ beta.pinene + L.alfa.bornyl.acetate + beta.Caryophyllene.oxide,
+         data = metabolites, method = "lda", prec = 200,
+         image.colors = c("darkgoldenrod1", "snow2", "skyblue2"),
+         col.mean = "firebrick")
+summary(metabolites)
+beta.pinene + L.alfa.bornyl.acetate + beta.Caryophyllene.oxide + alfa.Caryophyllene + beta.Cubebene + alfa.Cubenene + delta.Cadinene + alfa.Muurolene
+
+iris
 
 #dfConti<- as.matrix(df)
 #autoplot(pam(metabolitosConti[-5], 3), frame = TRUE, frame.type = 'norm')
