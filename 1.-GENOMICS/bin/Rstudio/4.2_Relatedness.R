@@ -2,11 +2,13 @@
 #
 #
 
+library(ggplot2)
+
 # Cargar matriz de datos del calculo de relatedness
-pair_rel <- read.table("../data/relsnp_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.rel", as.is = T)
+pair_rel <- read.table("../../data/relatedness/relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.rel", as.is = T)
 
 #Crear una tabla con el nombre de las muestras pareadas y cargar ID de las muestras 
-ids <- read.table("../data/relsnp_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.rel.id", as.is = T)
+ids <- read.table("../../data/relatedness/relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.rel.id", as.is = T)
 colnames(pair_rel) <- ids$V2
 rownames(pair_rel) <- ids$V2
 
@@ -25,8 +27,6 @@ for(i in 1:nrow(x))
 
 x2 <- subset(x, POP1 == POP2)
 
-library(ggplot2)
-
 neworder <- c("Sierra Manantlán","Nevado de Colima", "Volcán Tancítaro","Puerta Garnica","Michoacan Alt","San Andrés" ,
               "Cerro Zamorano","Cerr oBlanco", "Nevado Toluca RG","Nevado Toluca NT","Nevado Toluca SB",
               "Santa Rosa Xochiac DAÑADAS","Santa Rosa Xochiac SANAS","Ajusco","Ixtapalucan","El Chico", 
@@ -35,11 +35,12 @@ neworder <- c("Sierra Manantlán","Nevado de Colima", "Volcán Tancítaro","Puer
 ggplot(x2,aes(x=rel))+
   geom_histogram(bins=25)+
   facet_wrap(~ POP1)+
-  xlab("Relación de parentesco")+
-  ylab("Conteo pareado")+
+  xlab("Relatedness")+
+  ylab("Pairwaise count")+
   theme(axis.title.y = element_text(size = rel(2.5), angle = 90))+
   theme(axis.title.x = element_text(size = rel(2.5), angle = 360))+
   theme(axis.text.x = element_text(hjust = 0.5, size=8, color="black"))+
   theme(axis.text.y = element_text(hjust = 0.5, size=8, color="black"))
 
+ggsave("../../outputs/4.2_Relatedness.png")
 

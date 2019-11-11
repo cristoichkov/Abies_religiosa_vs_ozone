@@ -5,9 +5,19 @@
 
 ## Load packages
 library(geosphere)
+library(gdsfmt) 
+library(SNPRelate)
+library(ggplot2)
+
+## Load packages
+require(MASS) 
+library(vegan)
+library(permute)
+library(lattice)
+library(psych)
 
 #Load metadata
-Coordenadas<-read.delim("../metadata/Ar_IBD2.txt")
+Coordenadas<-read.delim("../../metadata/Ar_IBD2.txt")
 
 # Convert dataframe to matrix
 matcoor<- as.data.frame(Coordenadas)
@@ -81,19 +91,15 @@ Ma<-distGeo(matcoor, c(-98.0433, 19.2372), a=6378137, f=1/298.257223563)
 allvectordist<- c(SM,Aj, SRX, EC, NC, NT,Ix, CB, PG, VT, MiAl,
                   SA, NTRG, NTSB, VA, CZ, Tl, Ma)
 
-## Load packages
-library(gdsfmt) 
-library(SNPRelate)
-library(ggplot2)
 
 ## Make ".gds" file
-vcf.fn <- "../data/89ind_maxmiss0.9_maf0.05.recode.vcf"
-snpgdsVCF2GDS(vcf.fn, "../outputs/89ind_maxmiss0.9_maf0.05.recode.gds", method="biallelic.only", verbose = TRUE)
-snpgdsSummary("../outputs/89ind_maxmiss0.9_maf0.05.recode.gds")
-genofile<-snpgdsOpen("../outputs/89ind_maxmiss0.9_maf0.05.recode.gds")
+vcf.fn <- "../../data/without_Dup_loci/snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.vcf"
+snpgdsVCF2GDS(vcf.fn, "../../outputs/snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.recode.gds", method="biallelic.only", verbose = TRUE)
+snpgdsSummary("../../outputs/snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.recode.gds")
+genofile<-snpgdsOpen("../../outputs/snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.recode.gds")
 
 # Load population data 
-pop_code <- read.delim("../metadata/FST_VCFTools_Ar89.txt", header=FALSE)
+pop_code <- read.delim("../../metadata/FST_VCFTools_Ar89.txt", header=FALSE)
 
 
 # Get sample id
@@ -2059,14 +2065,9 @@ allvectorfst<- c(SMvsSRX$Fst,SMvsSRX$Fst,SMvsEC$Fst,SMvsNC$Fst,SMvsNT$Fst,SMvsIx
                                                                                                                                                                                                           MavsCP$Fst
                  )
 
-IBD<-read.delim("../metadata/Ar_IBD_comparaciones.txt")
+IBD<-read.delim("../../metadata/Ar_IBD_comparations.txt")
 IBD$FST<-allvectorfst
 IBD$Dist<-allvectordist
-
-
-## Load packages
-require(MASS) 
-require(ggplot2)
 
 ## Draw IBD
 ggplot(data = IBD, aes(x = IBD$Dist, y = IBD$FST)) + 
@@ -2081,12 +2082,13 @@ ggplot(data = IBD, aes(x = IBD$Dist, y = IBD$FST)) +
   theme(axis.text.x = element_text(hjust = .5, size=10, color="black"))+
   theme(axis.text.y = element_text(hjust = .5, size=10, color="black"))
 
+ggsave("../../outputs/5.1_Mantel_test_NON_Linear.png")
 
 ## Make  mantel test
 pairs(x = IBD, lower.panel = NULL)
 
 ## Load packages
-library(psych)
+
 pairs.panels(x = IBD, ellipses = FALSE, lm = TRUE, method = "pearson")
 
 ## Make a matrix to mantel test
@@ -2116,6 +2118,8 @@ mat <- cbind(SierraManantlan,Ajusco, SantaRosaXochiac, ElChico,NevadoColima,Neva
              CerroZamorano,Tlaxco, Malinche,CofrePerote
              )
 
+mat2<- mat/(1-mat)
+
 Fst.dists<- as.matrix(mat)
 mountain.dists <- dist(cbind(x$Lon, x$Lat))
 mountain.dists <- as.matrix(mountain.dists)[1:19, 1:19]
@@ -2123,10 +2127,47 @@ mountain.dists <- as.matrix(mountain.dists)[1:19, 1:19]
 Fst.dists<- as.dist(mat)
 mountain.dists <-as.dist(mountain.dists)
 
-## Load packages
-library(vegan)
-library(permute)
-library(lattice)
 mantel(mountain.dists, Fst.dists, method="pearson", permutations=999)
+
+########################################################################################################################################################################
+
+# Linearize as suggested by Rousset (1997) for IBD using FST/(1 − FST)
+IBD$FST_liner<- IBD$FST/(1-IBD$FST)
+
+## Draw IBD using FST/(1 − FST)
+ggplot(data = IBD, aes(x = IBD$Dist, y = IBD$FST_liner)) + 
+  geom_point(colour = "#e60000") +
+  xlab("Distancia geográfica (m)")+
+  ylab("Distancia Genética")+
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))+
+  geom_smooth(method=lm)+
+  theme(axis.title.y = element_text(size = rel(1.5), angle = 90))+
+  theme(axis.title.x = element_text(size = rel(1.5), angle = 360))+
+  theme(axis.text.x = element_text(hjust = .5, size=10, color="black"))+
+  theme(axis.text.y = element_text(hjust = .5, size=10, color="black"))
+
+ggsave("../../outputs/5.1_Mantel_test_Linear.png")
+
+## Make  mantel test
+pairs(x = IBD, lower.panel = NULL)
+
+## Load packages
+
+pairs.panels(x = IBD, ellipses = FALSE, lm = TRUE, method = "pearson")
+
+## Make a matrix to mantel test
+mat2<- mat/(1-mat)
+
+Fst.dists<- as.matrix(mat2)
+mountain.dists <- dist(cbind(x$Lon, x$Lat))
+mountain.dists <- as.matrix(mountain.dists)[1:19, 1:19]
+
+Fst.dists<- as.dist(mat2)
+mountain.dists <-as.dist(mountain.dists)
+
+mantel(mountain.dists, Fst.dists, method="pearson", permutations=999)
+
+
 
 

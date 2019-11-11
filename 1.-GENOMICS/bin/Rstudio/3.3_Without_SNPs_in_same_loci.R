@@ -9,7 +9,7 @@ library(dplyr)
 library(tidyr)
 
 ## Load file with frequences calculated with vcfTools --freq 
-frecAreligiosa<- read.delim("../../data/freq_89ind_maxmiss0.9_maf0.05.frq")
+frecAreligiosa<- read.delim("../../data/freq_88ind_maxmiss0.9_maf0.05.frq")
 head(frecAreligiosa)
 
 # Identify duplicates and keep them all (not only the first as duplicate() alone does )

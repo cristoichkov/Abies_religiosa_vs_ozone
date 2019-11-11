@@ -64,7 +64,6 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	       +--snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.fam
 |	   	       +--snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.vcf
 |	   	    +--88ind_maxmiss0.9_maf0.05.recode.vcf
-|	   	    +--freq_88ind_maxmiss0.9_maf0.05.frq
 |	   	    +--samples_het_snp_withoutDupLoci_10ind_maxmiss0.9_maf0.05.het
 |	   	    +--OSF.md
 |		+--metadata/
@@ -77,6 +76,7 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	       +--HI.4558.003.Sebastian1_R1_fastqc.html
 |	   	    +--88_ind.txt
 |	   	    +--Ar_IBD_comparations.txt
+|	   	    +--freq_88ind_maxmiss0.9_maf0.05.frq
 |	   	    +--FST_VCFTools_Ar88.txt
 |	   	    +--logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.txt
 |	   	    +--PLACA_FINAL_89_samples.csv
