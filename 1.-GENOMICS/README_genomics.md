@@ -163,10 +163,10 @@ Se requiere sacar del ensamble general solamente a las muestras de *Abies religi
 
 * **INPUT**:
    * **file.vcf** (TMVB_5SNPrad.vcf)
-   * **ind.txt** (88_ind.txt)
+   * **ind.txt** (89_ind.txt)
 
 * **OUTPUT**:
-   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
+   * **fitered_file.vcf**(89ind_maxmiss0.9_maf0.05.recode.vcf)
 
 ## 2.1.-Check perfect missing data max for your samples
 
@@ -177,7 +177,7 @@ Se requiere sacar del ensamble general solamente a las muestras de *Abies religi
 SCRIPT in 1.-GENOMICS/Software/[2.3_Samples_missdata_maf.sh](bin/Software/2.3_Samples_missdata_maf.sh)
 
 ```
-vcftools --vcf ../data/TMVB_5SNPradlocus.vcf --keep ../metadata/88_ind.txt --max-missing 0.9 --maf 0.05 --recode --out ../data/88ind_maxmiss0.9_maf0.05
+vcftools --vcf ../data/TMVB_5SNPradlocus.vcf --keep ../metadata/89_ind.txt --max-missing 0.9 --maf 0.05 --recode --out ../data/89ind_maxmiss0.9_maf0.05
 ```
 **OUT: fitered_file.vcf**
 
@@ -185,17 +185,17 @@ vcftools --vcf ../data/TMVB_5SNPradlocus.vcf --keep ../metadata/88_ind.txt --max
 
 
 * **INPUT**:
-   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
+   * **fitered_file.vcf**(89ind_maxmiss0.9_maf0.05.recode.vcf)
 
 * **OUTPUT**:
-   * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
-   * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
-   * **fitered_file.bim**(88ind_maxmiss0.9_maf0.05.bim)
-   * **fitered_file.fam**(88ind_maxmiss0.9_maf0.05.fam)
-   * **positions.txt**(positions_s88_Ar0.9.txt)
-   * **snp_withoutDupLoci.bed**(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed)
-   * **snp_withoutDupLoci.bim**(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bim)
-   * **snp_withoutDupLoci.fam**(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.fam)
+   * **fitered_file.freq**(freq_89ind_maxmiss0.9_maf0.05.frq)
+   * **fitered_file.bed**(89ind_maxmiss0.9_maf0.05.bed)
+   * **fitered_file.bim**(89ind_maxmiss0.9_maf0.05.bim)
+   * **fitered_file.fam**(89ind_maxmiss0.9_maf0.05.fam)
+   * **positions.txt**(positions_s89_Ar0.9.txt)
+   * **snp_withoutDupLoci.bed**(snp_withoutDupLoci_89s_maxmiss0.9_maf0.05.bed)
+   * **snp_withoutDupLoci.bim**(snp_withoutDupLoci_89s_maxmiss0.9_maf0.05.bim)
+   * **snp_withoutDupLoci.fam**(snp_withoutDupLoci_89s_maxmiss0.9_maf0.05.fam)
 
 ## 3.1.-Primero se tiene que obtener la frecuencia que tienen los loci
 
@@ -204,7 +204,7 @@ SCRIPT in 1.-GENOMICS/Software/[3.1_Calculate_frequences.sh](bin/Software/3.1_Ca
 Para descartar SNPs de un mismo locus necesitamos calcular las frecuencias de cada SNP. Utilizamos la flag --freq. Este comando nos arroja los datos en un archivo que podemos leer como .txt en la terminal de R
 
 ```
-vcftools --vcf ../data/88ind_maxmiss0.9_maf0.05.recode.vcf --freq --out ../data/freq_88ind_maxmiss0.9_maf0.05
+vcftools --vcf ../data/89ind_maxmiss0.9_maf0.05.recode.vcf --freq --out ../data/freq_89ind_maxmiss0.9_maf0.05
 
 ```
 
@@ -222,7 +222,7 @@ Para descartar SNPs de un mismo locus necesitamos transformar el archivo .vcf a 
 SCRIPT in 1.-GENOMICS/Software/[3.2_ConvertFiles_vcf_to_plink.sh](bin/Software/3.2_ConvertFiles_vcf_to_plink.sh)
 
 ```
-vcftools --vcf ../data/88ind_maxmiss0.9_maf0.05.recode.vcf --plink --out ../data/88ind_maxmiss0.9_maf0.05
+vcftools --vcf ../data/89ind_maxmiss0.9_maf0.05.recode.vcf --plink --out ../data/89ind_maxmiss0.9_maf0.05
 ```
 **OUT: fitered_file.freq, fitered_file.bed, fitered_file.bim**
 
@@ -241,7 +241,7 @@ El archivo .txt producto del paso 3.3 se requiere para formar un nuevo archivo.v
 
 SCRIPT in 1.-GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Extract_positions_HM.sh)
 ```
-./plink --file ../data/88ind_maxmiss0.9_maf0.05 --extract ../metadata/positions_s88_Ar0.9.txt  --make-bed --out ../data/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
+./plink --file ../data/89ind_maxmiss0.9_maf0.05 --extract ../metadata/positions_s89_Ar0.9.txt  --make-bed --out ../data/snp_withoutDupLoci_89s_maxmiss0.9_maf0.05
 ```
 **OUT: snp_withoutDupLoci.bed, snp_withoutDupLoci.bim, snp_withoutDupLoci.fam**
 
@@ -264,9 +264,9 @@ SCRIPT in 1.-GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Ex
 
 SCRIPT in 1.-GENOMICS/Software/[4.1_Calculate_relatedness.sh](bin/Software/4.1_Calculate_relatedness.sh)
 ```
-./plink --bfile ../data/snp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --make-rel square --make-bed --out ../data/relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
-./plink --bfile ../data/relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode --out ../data/relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
-./plink --file ../data/relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05 --recode vcf --out ../data/relsnp_withoutDupLoci_without_duplicates88s_maxmiss0.9_maf0.05
+./plink --bfile ../data/snp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05 --make-rel square --make-bed --out ../data/relsnp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05
+./plink --bfile ../data/relsnp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05 --recode --out ../data/relsnp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05
+./plink --file ../data/relsnp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05 --recode vcf --out ../data/relsnp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05
 
 ```
 **OUT: relsnp_snp_withoutDupLoci.rel, relsnp_snp_withoutDupLoci.id, relsnp_snp_withoutDupLoci.bim, relsnp_snp_withoutDupLoci.bed, relsnp_snp_withoutDupLoci.fam**
@@ -282,12 +282,12 @@ SCRIPT in 1.-GENOMICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
 
 * **INPUT**:
   * **Loc_Long_Lat.txt**(Ar_IBD2.txt)
-  * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
-  * **namesample_pops**(FST_VCFTools_Ar88.txt)
+  * **fitered_file.vcf**(89ind_maxmiss0.9_maf0.05.recode.vcf)
+  * **namesample_pops**(FST_VCFTools_Ar89.txt)
   * **pops_paired**(Ar_IBD_comparaciones.txt)
 
 * **OUTPUT**:
-  * **file.gds**(88ind_maxmiss0.9_maf0.05.recode.gds)
+  * **file.gds**(89ind_maxmiss0.9_maf0.05.recode.gds)
   * **Mantel_test_images**
 
 
@@ -300,6 +300,9 @@ SCRIPT in 1.-GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
 
 
 # 6.0.-Estructura genética de las poblaciones con PCA
+
+PAra este paso se deben de haber descartado los individuos que se sospeche que sean clones. En el caso de este proyecto de elimino una sola muestra por lo cual el analisis se hizo con 88 individuos. Se repitieron los pasos 2 y 3 con sus respectivos subpasos para tener un archivo vcf filtrado con 88 muestras. Una vez obtenido este archivo vcf podemos continuar con el paso 6.
+
 
 * **INPUT**:
   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)

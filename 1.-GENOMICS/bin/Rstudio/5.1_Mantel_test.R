@@ -2069,10 +2069,14 @@ IBD<-read.delim("../../metadata/Ar_IBD_comparations.txt")
 IBD$FST<-allvectorfst
 IBD$Dist<-allvectordist
 
+# Add Distance in Km.
+
+IBD$Dist_km <- IBD$Dist/1000
+
 ## Draw IBD
-ggplot(data = IBD, aes(x = IBD$Dist, y = IBD$FST)) + 
+ggplot(data = IBD, aes(x = IBD$Dist_km, y = IBD$FST)) + 
   geom_point(colour = "#e60000") +
-  xlab("Distancia geográfica (m)")+
+  xlab("Distancia geográfica (Km)")+
   ylab("Distancia Genética")+
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5))+
@@ -2134,10 +2138,15 @@ mantel(mountain.dists, Fst.dists, method="pearson", permutations=999)
 # Linearize as suggested by Rousset (1997) for IBD using FST/(1 − FST)
 IBD$FST_liner<- IBD$FST/(1-IBD$FST)
 
+# Add Distance in Km.
+
+IBD$Dist_km <- IBD$Dist/1000
+
+
 ## Draw IBD using FST/(1 − FST)
-ggplot(data = IBD, aes(x = IBD$Dist, y = IBD$FST_liner)) + 
+ggplot(data = IBD, aes(x = IBD$Dist_km, y = IBD$FST_liner)) + 
   geom_point(colour = "#e60000") +
-  xlab("Distancia geográfica (m)")+
+  xlab("Distancia geográfica (Km)")+
   ylab("Distancia Genética")+
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5))+
