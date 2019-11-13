@@ -61,25 +61,34 @@ Here you will find the scripts that are needed to perform the analyses. The scri
 
 # 1.- Load data by GC-MS
 
-pk (pico), RT (tiempo de retención), Area % (porcentaje de área) CAS# (número CAS) y Qual (valor)
+Los archivos ".htm" se cargaron en una tabla que incluyo los datos:
+
+* pk (pico)
+* RT (tiempo de retención)
+* Area % (porcentaje de área)
+* CAS# (número CAS)
+* Qual (valor)
 
 * **INPUT**:
+  * **Load_html_files.R**(Load_html_files.R)
   * **LibSrch_#.htm**(LibSrch_3.htm, LibSrch_4.htm, etc.)
 
 * **OUTPUT**:
   * **htm_df.txt**(htm_df.txt)
 
-## 1.1.-plot Relatedness
+## 1.1.-Make data frame with all metabolites samples
 SCRIPT in 2.-METABOLOMICS/Rstudio/[1.1.-Make_df_allsamples_metabol.R](bin/Rstudio/1.1.-Make_df_allsamples_metabol.R)
+
+**INPUT: LibSrch_#.htm, source("Load_html_files.R")**
 
 **OUT: htm_df.txt**
 
-# 2.- Calculate_relative_abs
+# 2.- Calculate relative concentration absolute
 
-Se utilizó el siguiente script para calcular la cantidad de metabolitos
+Se utilizó el siguiente script para calcular la concentracion absoluta de metabolitos.
 
 * **INPUT**:
-  * **metabolitos.csv**(metabolitos_Tesis_Vero.csv)
+  * **metabolitos.csv/htm_df.txt**(metabolitos_Tesis_Vero.csv)
 
 * **OUTPUT**:
   * **calculate_relative_abs.txt**(calculate_relative_abs.txt)
@@ -88,11 +97,15 @@ Se utilizó el siguiente script para calcular la cantidad de metabolitos
 
 SCRIPT in 2.-METABOLOMICS/Rstudio/[2.1.-Calculate_relative_abs.R](bin/Rstudio/2.1.-Calculate_relative_abs.R)
 
+**INPUT**:
+
+**metabolitos.csv/htm_df.txt**(metabolitos_Tesis_Vero.csv)
+
 **OUTPUT: calculate_relative_abs.txt**
 
 # 3.-Make ANOVA
 
-compararla entre temporada, condicion y año de exposicion
+Hacer analisis de ANOVA para comparar efecto entre temporada, condicion y año de exposicion
 
 * **INPUT**:
   * **calculate_relative_abs.txt**(calculate_relative_abs.txt)

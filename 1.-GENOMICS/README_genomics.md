@@ -296,7 +296,7 @@ SCRIPT in 1.-GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
 
 **OUT: Mantel_test_images**
 
-![](outputs/5.1_Mantel_test.png)
+![](outputs/5.1_Mantel_test_Linear.png)
 
 
 # 6.0.-Estructura genética de las poblaciones con PCA

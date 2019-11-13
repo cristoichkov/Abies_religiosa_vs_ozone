@@ -76,10 +76,3 @@ beta.Cubebene<- summary(fmbeta.Cubebene)
 alfa.Cubenene<- summary(fmalfa.Cubenene)
 delta.Cadinene<- summary(fmdelta.Cadinene)
 alfa.Muurolene<- summary(fmalfa.Muurolene)
-
-
-
-
-
-
-
