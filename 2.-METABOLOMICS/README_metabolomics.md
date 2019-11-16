@@ -154,8 +154,10 @@ compararla entre temporada, condicion y año de exposicion
 
 SCRIPT in 2.-METABOLOMICS/Rstudio/[5.1.-PCA](bin/Rstudio/5.1.-PCA.R)
 
-**OUT: exp_table.csv, exp_table.txt**
+**OUT: exp_table.csv, exp_table.txt, PCA_images.png****
 
+![](outputs/5.1_PCA_moderated_HvsD.png)
+![](outputs/5.1_PCA_conti_HvsD.png)
 
 # ANEXO 1.-
 
