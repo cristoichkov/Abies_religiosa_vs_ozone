@@ -34,13 +34,30 @@ df_sd <- melt(metabolites_sd, id.vars=c("Factores"), variable.name = "metabolito
 
 limits <- aes(ymax = df_mean[,"value"] + df_sd[,"value"], ymin=df_mean[,"value"] - df_sd[,"value"])
 
+
+df_mean$labelss <- c("C. moderada Dañadas 2015","C. moderada Dañadas 2016",
+                    "C. moderada Sanas 2015","C. moderada Sanas 2016",
+                    "C. moderada Dañadas 2015","C. moderada Dañadas 2016",
+                    "C. moderada Sanas 2015","C. moderada Sanas 2016",
+                    "C. moderada Dañadas 2015","C. moderada Dañadas 2016",
+                    "C. moderada Sanas 2015","C. moderada Sanas 2016",
+                    "C. moderada Dañadas 2015","C. moderada Dañadas 2016",
+                    "C. moderada Sanas 2015","C. moderada Sanas 2016",
+                    "C. moderada Dañadas 2015","C. moderada Dañadas 2016",
+                    "C. moderada Sanas 2015","C. moderada Sanas 2016",
+                    "C. moderada Dañadas 2015","C. moderada Dañadas 2016",
+                    "C. moderada Sanas 2015","C. moderada Sanas 2016",
+                    "C. moderada Dañadas 2015","C. moderada Dañadas 2016",
+                    "C. moderada Sanas 2015","C. moderada Sanas 2016",
+                    "C. moderada Dañadas 2015","C. moderada Dañadas 2016",
+                    "C. moderada Sanas 2015","C. moderada Sanas 2016")
+
 p <- ggplot(df_mean, aes(metabolito, value, fill = Factores)) +
   geom_bar(position="dodge", stat="identity") + geom_errorbar(limits, position="dodge")
 print(p)
 p + coord_flip() + facet_wrap(~ Factores) +
-  scale_fill_manual(breaks = c("Concentración moderada Dañada 2015", "Concentración moderada Dañada 2016",
-                               "Concentración moderada Sana 2015", "Concentración moderada Sana 2016"),
-                    values= c( "#c6003a", "#e98382", "#00901e","#b1e787"))+
+  scale_fill_manual(values= c( "#c6003a", "#e98382", "#00901e","#b1e787"))+
+  facet_wrap(~ labelss)+
   scale_x_discrete (labels = c('beta.pinene' = expression(beta~'-Pineno'),
                                'L.alfa.bornyl.acetate' = expression('L-'~ alpha ~'-Acetato de Bornilo'),
                                'beta.Caryophyllene.oxide'= expression(beta~'-Óxido de Cariofileno'),
@@ -48,7 +65,9 @@ p + coord_flip() + facet_wrap(~ Factores) +
                                'beta.Cubebene'= expression(beta~'-Cubebeno'),
                                'alfa.Cubenene'= expression(alpha~'-Cubeneno'),
                                'delta.Cadinene' = expression(delta~'-Cadineno'),
-                               'alfa.Muurolene' = expression(alpha~'-Muuroleno')))
+                               'alfa.Muurolene' = expression(alpha~'-Muuroleno')))+
+  labs(x="Metabolito",y="g/100g de tejido")
+
 ggsave("../../outputs/4.1_barplot_images_SS.png")
 
 #CONTINGENCIA
@@ -60,21 +79,38 @@ metabolites_sd <- aggregate(metabolites4[,8:15], by=list(Factores=metabolites4$C
 df_mean <- melt(metabolites_mean, id.vars=c("Factores"), variable.name = "metabolito", value.name="value")
 df_sd <- melt(metabolites_sd, id.vars=c("Factores"), variable.name = "metabolito", value.name="value")
 
+df_mean$labelss <- c("Contingencia Dañadas 2015","Contingencia Dañadas 2016",
+                     "Contingencia Sanas 2015","Contingencia Sanas 2016",
+                     "Contingencia Dañadas 2015","Contingencia Dañadas 2016",
+                     "Contingencia Sanas 2015","Contingencia Sanas 2016",
+                     "Contingencia Dañadas 2015","Contingencia Dañadas 2016",
+                     "Contingencia Sanas 2015","Contingencia Sanas 2016",
+                     "Contingencia Dañadas 2015","Contingencia Dañadas 2016",
+                     "Contingencia Sanas 2015","Contingencia Sanas 2016",
+                     "Contingencia Dañadas 2015","Contingencia Dañadas 2016",
+                     "Contingencia Sanas 2015","Contingencia Sanas 2016",
+                     "Contingencia Dañadas 2015","Contingencia Dañadas 2016",
+                     "Contingencia Sanas 2015","Contingencia Sanas 2016",
+                     "Contingencia Dañadas 2015","Contingencia Dañadas 2016",
+                     "Contingencia Sanas 2015","Contingencia Sanas 2016",
+                     "Contingencia Dañadas 2015","Contingencia Dañadas 2016",
+                     "Contingencia Sanas 2015","Contingencia Sanas 2016")
 
-limits <- aes(ymax = df_mean[,"value"] + df_sd[,"value"], ymin=df_mean[,"value"] - df_sd[,"value"])
 p <- ggplot(df_mean, aes(metabolito, value, fill = Factores)) +
   geom_bar(position="dodge", stat="identity") + geom_errorbar(limits, position="dodge")
 print(p)
 p + coord_flip() + facet_wrap(~ Factores) +
-  scale_fill_manual(breaks = c("Concentración moderada Dañada 2015", "Concentración moderada Dañada 2016",
-                               "Concentración moderada Sana 2015", "Concentración moderada Sana 2016"),
-                    values= c( "#c6003a", "#e98382", "#00901e","#b1e787"))+
+  scale_fill_manual(values= c( "#c6003a", "#e98382", "#00901e","#b1e787"))+
+  facet_wrap(~ labelss)+
   scale_x_discrete (labels = c('beta.pinene' = expression(beta~'-Pineno'),
-                                     'L.alfa.bornyl.acetate' = expression('L-'~ alpha ~'-Acetato de Bornilo'),
-                                     'beta.Caryophyllene.oxide'= expression(beta~'-Óxido de Cariofileno'),
-                                     'alfa.Caryophyllene' = expression(alpha~'-Cariofileno'),
-                                     'beta.Cubebene'= expression(beta~'-Cubebeno'),
-                                     'alfa.Cubenene'= expression(alpha~'-Cubeneno'),
-                                     'delta.Cadinene' = expression(delta~'-Cadineno'),
-                                     'alfa.Muurolene' = expression(alpha~'-Muuroleno')))
+                               'L.alfa.bornyl.acetate' = expression('L-'~ alpha ~'-Acetato de Bornilo'),
+                               'beta.Caryophyllene.oxide'= expression(beta~'-Óxido de Cariofileno'),
+                               'alfa.Caryophyllene' = expression(alpha~'-Cariofileno'),
+                               'beta.Cubebene'= expression(beta~'-Cubebeno'),
+                               'alfa.Cubenene'= expression(alpha~'-Cubeneno'),
+                               'delta.Cadinene' = expression(delta~'-Cadineno'),
+                               'alfa.Muurolene' = expression(alpha~'-Muuroleno')))+
+  labs(x="Metabolito",y="g/100g de tejido")
+
 ggsave("../../outputs/4.1_barplot_images_conti.png")
+

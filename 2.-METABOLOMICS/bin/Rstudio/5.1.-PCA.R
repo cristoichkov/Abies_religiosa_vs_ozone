@@ -24,8 +24,8 @@ write.csv(exp_table, file="../../metadata/exp_table.csv")
 write.table(exp_table, file="../../metadata/exp_table.txt")
 
 
-metabolitosSS<-metabolites[1:20,8:15]
-metabolitosConti<-metabolites[21:40,8:15]
+metabolitesSS<-metabolites[1:20,8:16]
+metabolitesConti<-metabolites[21:40,8:16]
 
 
 df <- metabolites[c(8:15)]
@@ -113,7 +113,19 @@ autoplot(prcomp(CP$loadings), data = CP$loadings, colour = 'PCA',
          frame = TRUE, frame.type = 'norm' )
 
 
-
+ggplot(tab, aes(x=EV1, y=EV2))+
+  geom_point(aes(color=Condicion, shape=Poblacion), size =5) + 
+  scale_color_manual(values = pobcol) +
+  theme(legend.title = element_text(size=15))+
+  theme(legend.text = element_text(size = 15))+
+  xlab(paste0("Eigenvector 1 explicando ", round(pc.percent, 2)[1], "%")) +
+  ylab(paste0("Eigenvector 2 explicando ", round(pc.percent, 2)[2], "%"))+
+  theme(axis.title.y = element_text(size = rel(2), angle = 90))+
+  theme(axis.title.x = element_text(size = rel(2), angle = 360))+
+  theme(axis.text.x = element_text(hjust = .5, size=13, color="black"))+
+  theme(axis.text.y = element_text(hjust = .5, size=13, color="black"))+
+  geom_point(alpha = 1/20)+
+  scale_shape_manual(values=c(0,1,2,3,4,5,6,7,8,11,13,15,16,17,18,35,38,43,64))
 
 
 
@@ -214,6 +226,47 @@ iris
 # Local Fisher Discriminant Analysis (LFDA)
 #model <- lfda(metabolitosConti[-c(1:7,25),], metabolitosConti[, 25], 4, metric="plain")
 #autoplot(model, data = iris, frame = TRUE, frame.colour = 'Species')
+
+row.names(metabolitesSS) <- paste(metabolitesSS$PCA, row.names(metabolitesSS), sep="_") 
+metabolitesSS$PCA <- NULL
+
+head(metabolitesSS)
+df_pca <- prcomp(metabolitesSS)
+plot(df_pca$x[,1], df_pca$x[,2])
+
+df_out <- as.data.frame(df_pca$x)
+df_out$group <- sapply( strsplit(as.character(row.names(metabolitesSS)), "_"), "[[", 1 )
+head(df_out)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+
+p<-ggplot(df_out,aes(x=PC1,y=PC2,color=group ))
+p<-p+geom_point()
+p
+theme<-theme(panel.background = element_blank(),panel.border=element_rect(fill=NA),panel.grid.major = element_blank(),panel.grid.minor = element_blank(),strip.background=element_blank(),axis.text.x=element_text(colour="black"),axis.text.y=element_text(colour="black"),axis.ticks=element_line(colour="black"),plot.margin=unit(c(1,1,1,1),"line"))
+p<-ggplot(df_out,aes(x=PC1,y=PC2,color=group ))
+p<-p+geom_point()+theme
+p
+p<-ggplot(df_out,aes(x=PC1,y=PC2,color=group, label=row.names(metabolitesSS) ))
+p<-p+geom_point()+ geom_text(size=3)+theme
+p
+
+percentage <- round(df_pca$sdev / sum(df_pca$sdev) * 100, 2)
+percentage <- paste( colnames(df_out), "(", paste( as.character(percentage), "%", ")", sep="") )
+
+p<-ggplot(df_out,aes(x=PC1,y=PC2,color=group ))
+p<-p+geom_point()+theme + xlab(percentage[1]) + ylab(percentage[2])
+p
+
+df_out$group <- factor(df_out$group, levels = c("SD15", "SD16", "SS15", "SS16"))
+
+p<-ggplot(df_out,aes(x=PC1,y=PC2,color=group ))
+p<-p+geom_point()+theme + xlab(percentage[1]) + ylab(percentage[2]) + scale_color_manual(values=c("#c65999",
+                                                                                                  "#7aa456",
+                                                                                                  "#777acd",
+                                                                                                  "#c96d44"))
+p
 
 
 

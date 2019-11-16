@@ -1,21 +1,12 @@
 
 # Load libraries
 library (ggplot2)
-library(ggfortify)
-library(corrplot)
-library(lfda)
-
-library("mice")
-library("factoextra")
+library("devtools")
+library("ggbiplot")
 
 # Load data
 #Dar nombre a la base de datos y adjuntarla
 metabolites<-read.delim("../../metadata/calculate_relative_abs.txt")
-
-metabolites$PCA<-c(rep("SS15",5), rep("SS16",5), 
-                   rep("SD15",5),rep("SD16",5),
-                   rep("CS15",5),rep("CS16",5),
-                   rep("CD15",5),rep("CD16",5))
 
 rownames(metabolites)<-c("SS15_1", "SS15_2", "SS15_3", "SS15_4", "SS15_5",
                          "SS16_1", "SS16_2", "SS16_3", "SS16_4", "SS16_5", 
@@ -26,136 +17,130 @@ rownames(metabolites)<-c("SS15_1", "SS15_2", "SS15_3", "SS15_4", "SS15_5",
                          "CD15_1", "CD15_2", "CD15_3", "CD15_4", "CD15_5",
                          "CD16_1", "CD16_2", "CD16_3", "CD16_4" ,"CD16_5")
 
-metabolitesSS<-metabolites[1:20,8:15]
+beta <- intToUtf8(946)
+alfa <-intToUtf8(945)
+delta<-intToUtf8(948)
+beta.pinene <- paste0(beta,"-Pineno") 
+L.alfa.bornyl.acetate <- paste0("L-",alfa,"-Acetato de Bornilo") 
+beta.Caryophyllene.oxide <- paste0("Óxido de ",beta,"-Cariofileno") 
+alfa.Caryophyllene <- paste0(alfa,"-Cariofileno") 
+beta.Cubebene <- paste0(beta,"-Cubebeno") 
+alfa.Cubebene <- paste0(alfa,"-Cubebeno") 
+delta.Cadinene <- paste0(delta,"-Cadineno") 
+alfa.Muurolene <- paste0(alfa,"-Muuroleno") 
 
-attach(metabolitesSS)
-str(metabolitesSS)
+#moderated period HvsD
 
-metabolitesConti<-metabolites[21:40,8:15]
+metabolitesSS<-metabolites[1:20,8:14]
+colnames(metabolitesSS)<-c(beta.pinene,L.alfa.bornyl.acetate,beta.Caryophyllene.oxide,
+                           alfa.Caryophyllene,beta.Cubebene,alfa.Cubebene,delta.Cadinene)
 
-attach(metabolitesConti)
-str(metabolitesConti)
+metabol_SS.pca <- prcomp(metabolitesSS ,scale.=TRUE)
+summary(metabol_SS.pca)
+str(metabol_SS.pca)
+summary(metabol_SS.pca)
+sum<-summary(metabol_SS.pca)
+metabolites.PCA<-c(rep("SS15",5), rep("SS16",5), 
+                   rep("SD15",5),rep("SD16",5))
+metabolites.condition<-c(rep("sana",10), rep("dañada",10))
 
+ggbiplot(metabol_SS.pca,ellipse=TRUE,obs.scale = 1, var.scale = 1,var.axes=FALSE,   labels=rownames(metabolitesSS), groups=metabolites.PCA)+
+  scale_color_manual(name="temporada/condición/año", values=c("#c6003a", "#e98382", "#00901e","#b1e787"))
+ggbiplot(metabol_SS.pca,ellipse=TRUE,obs.scale = 1, var.scale = 1,  labels=rownames(metabolitesSS), groups=metabolites.PCA)+
+  scale_color_manual(name="temporada/condición/año", values=c("#c6003a", "#e98382", "#00901e","#b1e787"))
 
-#Exportar Data frame
-exp_table<-metabolites[,c(1,8:15)]
-write.csv(exp_table, file="../../metadata/exp_table.csv")
-write.table(exp_table, file="../../metadata/exp_table.txt")
+ggbiplot(metabol_SS.pca,choices = c(1,2),ellipse=TRUE,obs.scale = 1, var.scale = 1,  groups=metabolites.PCA)+
+  scale_color_manual(name="Año de exposición",labels = c("2015", "2016", "2015", "2016"), values=c("#c6003a", "#e98382", "#00901e","#b1e787"))+
+  scale_shape_manual(name="Condición", values=c(15,16)) +
+  geom_point(aes(colour=metabolites.PCA, shape=metabolites.condition), size = 3)+
+  xlab(paste0("Eigenvector 1 explicando ", sum$importance[2,1]*100, "%")) +
+  ylab(paste0("Eigenvector 2 explicando ", sum$importance[2,2]*100, "%"))
 
+ggsave("../../outputs/5.1_PCA_moderated_HvsD.png")
 
-#Para generar matriz de correlaciones de Pearson
-matrizcorSS<-cor(metabolitesSS, method=c("pearson"))
-matrizcovSS<-cov(metabolitesSS)
+# #Contingency period HvsD
 
-matrizcorConti<-cor(metabolitesConti, method=c("pearson"))
-matrizcovConti<-cov(metabolitesConti)
+metabolitesConti<-metabolites[21:40,8:14]
+colnames(metabolitesConti)<-c(beta.pinene,L.alfa.bornyl.acetate,beta.Caryophyllene.oxide,
+                           alfa.Caryophyllene,beta.Cubebene,alfa.Cubebene,delta.Cadinene)
 
+metabol_Conti.pca <- prcomp(metabolitesConti ,scale.=TRUE)
+summary(metabol_Conti.pca)
+str(metabol_Conti.pca)
+summary(metabol_Conti.pca)
+sum<-summary(metabol_Conti.pca)
+metabolites.PCA<-c(rep("CS15",5), rep("CS16",5), 
+                   rep("CD15",5),rep("CD16",5))
+metabolites.condition<-c(rep("sana",10), rep("dañada",10))
 
-#C?lculo de componentes principales usando matriz R
-CP_SS<-princomp(metabolitesSS, cor=T)
-summary(CP_SS)
-eigen(matrizcorSS)
-CP_SS$loadings
+ggbiplot(metabol_Conti.pca,ellipse=TRUE,obs.scale = 1, var.scale = 1,  labels=rownames(metabolitesConti), groups=metabolites.PCA)+
+  scale_color_manual(name="metabolites.PCA", values=c("#c6003a", "#e98382", "#00901e","#b1e787"))
+ggbiplot(metabol_Conti.pca,ellipse=TRUE,obs.scale = 1, var.scale = 1,var.axes=FALSE,   labels=rownames(metabolitesConti), groups=metabolites.PCA)+
+  scale_color_manual(name="metabolites.PCA", values=c("#c6003a", "#e98382", "#00901e","#b1e787"))
 
-vector_sdevs_SS<-as.vector(CP_SS$sdev)
-vector_sdevs_SS
-lambdas_SS<-vector_sdevs_SS*vector_sdevs_SS
-lambdas_SS
-TrazaLAMBDA_SS<-sum(lambdas_SS)
-TrazaLAMBDA_SS                          
+ggbiplot(metabol_Conti.pca,choices = c(1,2),ellipse=TRUE,obs.scale = 1, var.scale = 1,  groups=metabolites.PCA)+
+  scale_color_manual(name="Año de exposición",labels = c("2015", "2016", "2015", "2016"), values=c("#c6003a", "#e98382", "#00901e","#b1e787"))+
+  scale_shape_manual(name="Condición", values=c(15,16)) +
+  geom_point(aes(colour=metabolites.PCA, shape=metabolites.condition), size = 3)+
+  xlab(paste0("Eigenvector 1 explicando ", sum$importance[2,1]*100, "%")) +
+  ylab(paste0("Eigenvector 2 explicando ", sum$importance[2,2]*100, "%"))
 
-screeplot(CP_SS, main="Gr?fica de codo")
-abline(h=1,col=4)
+ggsave("../../outputs/5.1_PCA_conti_HvsD.png")
 
+#Healthy moderated period vs contingency period
 
+metaboliteshelthy<-metabolites[c(1:10, 21:30),8:14]
+colnames(metabolitesConti)<-c(beta.pinene,L.alfa.bornyl.acetate,beta.Caryophyllene.oxide,
+                              alfa.Caryophyllene,beta.Cubebene,alfa.Cubebene,delta.Cadinene)
 
-CP_Conti<-princomp(metabolitesConti, cor=T)
-summary(CP_Conti)
-eigen(matrizcorConti)
-CP_Conti$loadings
+metabolhelthy.pca <- prcomp(metaboliteshelthy ,scale.=TRUE)
+summary(metabolhelthy.pca)
+str(metabolhelthy.pca)
+summary(metabolhelthy.pca)
+sum<-summary(metabolhelthy.pca)
+metabolites.PCA<-c(rep("SS15",5), rep("SS16",5), 
+                   rep("CS15",5),rep("CS16",5))
+metabolites.condition<-c(rep("C. moderada",10), rep("Contingencia",10))
 
-vector_sdevs_Conti<-as.vector(CP_Conti$sdev)
-vector_sdevs_Conti
-lambdas_Conti<-vector_sdevs_Conti*vector_sdevs_Conti
-lambdas_Conti
-TrazaLAMBDA_Conti<-sum(lambdas_Conti)
-TrazaLAMBDA_Conti                          
+ggbiplot(metabolhelthy.pca,ellipse=TRUE,obs.scale = 1, var.scale = 1,  labels=rownames(metaboliteshelthy), groups=metabolites.PCA)+
+  scale_color_manual(name="metabolites.PCA", values=c("#b8cf5c","#5f7f40","#64cb6a","#a6d09e"))
+ggbiplot(metabolhelthy.pca,ellipse=TRUE,obs.scale = 1, var.scale = 1,var.axes=FALSE,   labels=rownames(metaboliteshelthy), groups=metabolites.PCA)+
+  scale_color_manual(name="metabolites.PCA", values=c("#b8cf5c","#5f7f40","#64cb6a","#a6d09e"))
 
-screeplot(CP_Conti, main="Gr?fica de codo")
-abline(h=1,col=4)
+ggbiplot(metabolhelthy.pca,choices = c(1,2),ellipse=TRUE,obs.scale = 1, var.scale = 1,  groups=metabolites.PCA)+
+  scale_color_manual(name="Año de exposición",labels = c("2015", "2016", "2015", "2016"), values=c("#6cb643","#b4a945","#53b483","#617835"))+
+  scale_shape_manual(name="Temporada", values=c(15,16)) +
+  geom_point(aes(colour=metabolites.PCA, shape=metabolites.condition), size = 3)+
+  xlab(paste0("Eigenvector 1 explicando ", sum$importance[2,1]*100, "%")) +
+  ylab(paste0("Eigenvector 2 explicando ", sum$importance[2,2]*100, "%"))
 
+ggsave("../../outputs/5.1_PCA_healthy_modevscont.png")
 
+#Damaged moderated period vs contingency period
 
-#Biplot CP1 vs CP2
-biplot(CP_SS, choices= c(1,2),cex=c(0.6,0.5), scale = 0, main="Biplot para componentes 1 y 2 con scale=0")
-abline(h=0, v=0, col = "lightgray", lty = 3)
-abline(h=0.2, v=0.2, col = "lightgray", lty = 3)
-abline(h=-0.2,  v=-0.2, col = "lightgray", lty = 3)
-abline(h=0.4, v=0.4, col = "lightgray", lty = 3)
-abline(h=-0.4, v=-0.4, col = "lightgray", lty = 3)
+metabolitesdamaged<-metabolites[c(11:20, 31:40),8:14]
+colnames(metabolitesdamaged)<-c(beta.pinene,L.alfa.bornyl.acetate,beta.Caryophyllene.oxide,
+                              alfa.Caryophyllene,beta.Cubebene,alfa.Cubebene,delta.Cadinene)
+metaboldamaged.pca <- prcomp(metabolitesdamaged ,scale.=TRUE)
+summary(metaboldamaged.pca)
+str(metaboldamaged.pca)
+summary(metaboldamaged.pca)
+sum<-summary(metaboldamaged.pca)
+metabolites.PCA<-c(rep("SD15",5), rep("SD16",5), 
+                   rep("CD15",5),rep("CD16",5))
+metabolites.condition<-c(rep("C. moderada",10), rep("Contingencia",10))
 
+ggbiplot(metaboldamaged.pca,ellipse=TRUE,obs.scale = 1, var.scale = 1,  labels=rownames(metabolitesdamaged), groups=metabolites.PCA)+
+  scale_color_manual(name="metabolites.PCA", values=c("#dd5035","#d7ac43","#c2455e","#a95f2e"))
+ 
+ggbiplot(metaboldamaged.pca,ellipse=TRUE,obs.scale = 1, var.scale = 1,  labels=rownames(metabolitesdamaged), groups=metabolites.PCA)+
+  scale_color_manual(name="metabolites.PCA", values=c("#dd5035","#d7ac43","#c2455e","#a95f2e"))
 
-PC2<-prcomp(metabolitesSS,scale=TRUE)
-fviz_eig(CP_SS)
-fviz_pca_ind(CP_SS, col.ind="cos2", gradient.cols=c(#00AFBB","#E7B800","#FC4E07"),repel=TRUE)
-)
-)
-fviz_pca_var(CP_SS,col.var="contrib", gradient.cols=c(#00AFBB","#E7B800","#FC4E07"),repel=TRUE)
-)
-)
-fviz_pca_biplot(CP_SS,col.var="#2E9FDF", col.ind="#696969")
+ggbiplot(metaboldamaged.pca,choices = c(1,2),ellipse=TRUE,obs.scale = 1, var.scale = 1,  groups=metabolites.PCA)+
+  scale_color_manual(name="Año de exposición",labels = c("2015", "2016", "2015", "2016"), values=c("#dd5035","#d7ac43","#c2455e","#a95f2e"))+
+  scale_shape_manual(name="Temporada", values=c(15,16)) +
+  geom_point(aes(colour=metabolites.PCA, shape=metabolites.condition), size = 3)+
+  xlab(paste0("Eigenvector 1 explicando ", sum$importance[2,1]*100, "%")) +
+  ylab(paste0("Eigenvector 2 explicando ", sum$importance[2,2]*100, "%"))
 
-fviz_pca_biplot(CP_SS,col.var="#2E9FDF", col.ind="#696969")
-
-
-
-
-biplot(CP_Conti, choices= c(1,2),cex=c(0.6,0.5), scale = 0, main="Biplot para componentes 1 y 2 con scale=0")
-abline(h=0, v=0, col = "lightgray", lty = 3)
-abline(h=0.2, v=0.2, col = "lightgray", lty = 3)
-abline(h=-0.2,  v=-0.2, col = "lightgray", lty = 3)
-abline(h=0.4, v=0.4, col = "lightgray", lty = 3)
-abline(h=-0.4, v=-0.4, col = "lightgray", lty = 3)
-
-
-PC2<-prcomp(metabolitesConti,scale=TRUE)
-fviz_eig(CP_Conti)
-fviz_pca_ind(CP_Conti, col.ind="cos2", gradient.cols=c(#00AFBB","#E7B800","#FC4E07"),repel=TRUE)
-)
-)
-fviz_pca_var(CP_Conti,col.var="contrib", gradient.cols=c(#00AFBB","#E7B800","#FC4E07"),repel=TRUE)
-)
-)
-fviz_pca_biplot(CP_Conti,col.var="#2E9FDF", col.ind="#696969")
-
-fviz_pca_biplot(CP_Conti,col.var="#2E9FDF", col.ind="#696969")
-
-
-# Local Fisher Discriminant Analysis (LFDA)
-
-metabolitesSS<-metabolites[1:20,8:15]
-
-metabolitesConti<-metabolites[21:40,8:15]
-
-metabolites_2_SS<-metabolites[1:20,8:16]
-  
-metabolites_2_Conti<-metabolites[21:40,8:16]
-
-model <- lfda(metabolites_2_SS[-9], metabolites_2_SS[, 9], 4, metric="plain")
-autoplot(model, data = metabolites_2_SS, frame = TRUE, frame.colour = 'PCA')
-
-X <- metabolites_2_SS[,-9]
-y <- metabolites_2_SS[, 9]
-
-X$xnew <- (metabolites_2_SS[, 9]=="SS15")
-
-result <- lfda(X, y, r=3, metric="plain")
-
-
-library(lfda)
-
-# Local Fisher Discriminant Analysis (LFDA)
-model <- lfda(iris[-5], iris[, 5], 4, metric="plain")
-autoplot(model, data = iris, frame = TRUE, frame.colour = 'Species')
-
-
+ggsave("../../outputs/5.1_PCA_damaged_modevscont.png")
