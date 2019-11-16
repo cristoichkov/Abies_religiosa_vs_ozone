@@ -1,15 +1,15 @@
 # Reyes Galindo Verónica
 # 12 Febrero 2019
 
-### This script delete a SNPs in the same loci 
+### This script delete a SNPs in the same loci
 
 ## Load libraries
 library(readr)
 library(dplyr)
 library(tidyr)
 
-## Load file with frequences calculated with vcfTools --freq 
-frecAreligiosa<- read.delim("../../data/freq_88ind_maxmiss0.9_maf0.05.frq")
+## Load file with frequences calculated with vcfTools --freq
+frecAreligiosa<- read.delim("../../data/freq_89ind_maxmiss0.9_maf0.05.frq")
 head(frecAreligiosa)
 
 # Identify duplicates and keep them all (not only the first as duplicate() alone does )
@@ -37,7 +37,5 @@ dataorder<-selected.loci[order(match(selected.loci$CHROM, frecAreligiosa$CHROM))
 data_exportAr<-as.data.frame(dataorder[1:2])
 
 #Export in list
-write.table(data_exportAr, file = "../metadata/positions_s88_Ar0.9.txt", quote = FALSE,
+write.table(data_exportAr, file = "../metadata/positions_s89_Ar0.9.txt", quote = FALSE,
             row.names = FALSE, col.names = FALSE)
-
-

@@ -168,13 +168,8 @@ Se requiere sacar del ensamble general solamente a las muestras de *Abies religi
 * **OUTPUT**:
    * **fitered_file.vcf**(89ind_maxmiss0.9_maf0.05.recode.vcf)
 
-## 2.1.-Check perfect missing data max for your samples
-
-
-## 2.2.-Check perfect maf for your samples
-
-## 2.3.-Selected samples, missing data and maf. Only 89 *Abies religiosa* samples with missing data max 10% and maf 0.05
-SCRIPT in 1.-GENOMICS/Software/[2.3_Samples_missdata_maf.sh](bin/Software/2.3_Samples_missdata_maf.sh)
+## 2.1.-Selected samples, missing data and maf. Only 89 *Abies religiosa* samples with missing data max 10% and maf 0.05
+SCRIPT in 1.-GENOMICS/Software/[2.1_Samples_missdata_maf.sh](bin/Software/2.1_Samples_missdata_maf.sh)
 
 ```
 vcftools --vcf ../data/TMVB_5SNPradlocus.vcf --keep ../metadata/89_ind.txt --max-missing 0.9 --maf 0.05 --recode --out ../data/89ind_maxmiss0.9_maf0.05

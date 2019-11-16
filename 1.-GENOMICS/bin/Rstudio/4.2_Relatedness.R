@@ -5,10 +5,10 @@
 library(ggplot2)
 
 # Cargar matriz de datos del calculo de relatedness
-pair_rel <- read.table("../../data/relatedness/relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.rel", as.is = T)
+pair_rel <- read.table("../../data/relatedness/relsnp_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.rel", as.is = T)
 
-#Crear una tabla con el nombre de las muestras pareadas y cargar ID de las muestras 
-ids <- read.table("../../data/relatedness/relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.rel.id", as.is = T)
+#Crear una tabla con el nombre de las muestras pareadas y cargar ID de las muestras
+ids <- read.table("../../data/relatedness/relsnp_snp_withoutDupLoci_89ind_maxmiss0.9_maf0.05.rel.id", as.is = T)
 colnames(pair_rel) <- ids$V2
 rownames(pair_rel) <- ids$V2
 
@@ -29,7 +29,7 @@ x2 <- subset(x, POP1 == POP2)
 
 neworder <- c("Sierra Manantlán","Nevado de Colima", "Volcán Tancítaro","Puerta Garnica","Michoacan Alt","San Andrés" ,
               "Cerro Zamorano","Cerr oBlanco", "Nevado Toluca RG","Nevado Toluca NT","Nevado Toluca SB",
-              "Santa Rosa Xochiac DAÑADAS","Santa Rosa Xochiac SANAS","Ajusco","Ixtapalucan","El Chico", 
+              "Santa Rosa Xochiac DAÑADAS","Santa Rosa Xochiac SANAS","Ajusco","Ixtapalucan","El Chico",
               "Tlaxco","Volcán Atlitzin","Malinche","Cofre de Perote")
 
 ggplot(x2,aes(x=rel))+
@@ -43,4 +43,3 @@ ggplot(x2,aes(x=rel))+
   theme(axis.text.y = element_text(hjust = 0.5, size=8, color="black"))
 
 ggsave("../../outputs/4.2_Relatedness.png")
-

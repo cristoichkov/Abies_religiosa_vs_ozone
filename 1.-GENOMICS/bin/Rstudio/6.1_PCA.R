@@ -5,21 +5,21 @@
 
 
 ## Load packages
-library(gdsfmt) 
+library(gdsfmt)
 library(SNPRelate)
 library(ggplot2)
 
 #Load data file (".vcf")
-vcf.fn <- "../data/89ind_maxmiss0.9_maf0.05.recode.vcf"
+vcf.fn <- "../data/88ind_maxmiss0.9_maf0.05.recode.vcf"
 
 ## Reformat to ".gds" file
-snpgdsVCF2GDS(vcf.fn, "../outputs/snp_withoutDupLoci_89s_maxmiss0.9_maf0.05_pca.gds", method="biallelic.only", verbose = TRUE)
+snpgdsVCF2GDS(vcf.fn, "../outputs/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05_pca.gds", method="biallelic.only", verbose = TRUE)
 
 ## Get summary ".gds" file
-snpgdsSummary("../outputs/snp_withoutDupLoci_89s_maxmiss0.9_maf0.05_pca.gds")
+snpgdsSummary("../outputs/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05_pca.gds")
 
 ## Open ".gds" file
-genofile <- snpgdsOpen("../outputs/snp_withoutDupLoci_89s_maxmiss0.9_maf0.05_pca.gds")
+genofile <- snpgdsOpen("../outputs/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05_pca.gds")
 
 ## Run PCA
 pca<-snpgdsPCA(genofile,remove.monosnp=TRUE, num.thread=2)
@@ -29,14 +29,14 @@ pc.percent <- pca$varprop*100
 head(round(pc.percent, 2))
 
 ## Make a data.frame with eigenvects values
-tab <- data.frame(sample.id = pca$sample.id, EV1 = pca$eigenvect[,1],    # the first eigenvector,  
+tab <- data.frame(sample.id = pca$sample.id, EV1 = pca$eigenvect[,1],    # the first eigenvector,
                   EV2 = pca$eigenvect[,2],    # the second eigenvector
                   stringsAsFactors = FALSE)
 
 ## Load metadata file
 fullmat<-read.csv("../metadata/PLACA_FINAL_89_samples.csv", header = TRUE, sep = ",")
 
-## Match metadata info with eigenvectors values 
+## Match metadata info with eigenvectors values
 tab$Poblacion<-fullmat$Localidad[match(tab$sample.id, fullmat$key_comun)]
 
 ## Choose nice colors and ozone condition
@@ -58,7 +58,7 @@ tab$Condicion<- c("otro","otro","otro","otro",
 
 ## Draw PCA with ozone condition
 ggplot(tab, aes(x=EV1, y=EV2))+
-  geom_point(aes(color=Condicion, shape=Poblacion), size =5) + 
+  geom_point(aes(color=Condicion, shape=Poblacion), size =5) +
   scale_color_manual(values = pobcol) +
   theme(legend.title = element_text(size=15))+
   theme(legend.text = element_text(size = 15))+
@@ -74,7 +74,7 @@ ggplot(tab, aes(x=EV1, y=EV2))+
 ## Draw a zoom with same values of PCA with ozone condition
 tab2<- tab[-c(1:3,21:25,41:43,44:47,48:50,51:55,71:74,84:88), ]
 ggplot(tab2, aes(x=EV1, y=EV2))+
-  geom_point(aes(color=Condicion, shape=Poblacion), size =5) + 
+  geom_point(aes(color=Condicion, shape=Poblacion), size =5) +
   scale_color_manual(values = pobcol) +
   theme(legend.title = element_text(size=15))+
   theme(legend.text = element_text(size = 15))+
@@ -91,7 +91,7 @@ ggplot(tab2, aes(x=EV1, y=EV2))+
 tab$PLACA<-fullmat$PLACA[match(tab$sample.id, fullmat$key_comun)]
 pobcol<- c(  "#FF00FF","#99CC33",  "#9999FF", "#33CCFF", "#0066FF", "#33CCFF","#9933FF", "#FF99FF", "#FF0000", "#FF9933", "#FFCC33", "#FF00FF", "#CC9900", "#666666", "#000000", "#FF7A12", "#FF42B3" )
 ggplot(tab, aes(x=EV1, y=EV2))+
-  geom_point(aes(color=PLACA), size =1) + 
+  geom_point(aes(color=PLACA), size =1) +
   scale_color_manual(values = pobcol) +
   theme(legend.title = element_text(size=13))+
   theme(legend.text = element_text(size = 12))+
