@@ -252,5 +252,5 @@ SCRIPT in 3.-TRANSCRIPTOMICS/Rstudio/[8.1_Volcanoplot.R](bin/Rstudio/8.1_Volcano
 
 **OUT: images.png**
 
-![](outputs/8.1_VPSol_DESeq2.png)
-![](outputs/8.1_VPSol_edge.png)
+![](outputs/4.1_barplot_images_SS.png)
+![](outputs/4.1_barplot_images_conti.png)
