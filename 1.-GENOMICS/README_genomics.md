@@ -95,8 +95,7 @@ Before starting the analysis here are the programs that need to be installed:
 ## GENOMICS content
 
 :file_folder: **`/bin`**
-Here you will find the scripts that are needed to perform the analyses. There is a folder for scripts that run in Rstudio and another one for those that run in another program through the terminal and command line.
-
+Here you will find the scripts that are needed to perform the analyses. There is a folder for scripts that run in [Rstudio](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS/bin/Rstudio) and another one for those that run in another program through the [terminal](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS/bin/Software) and command line.
 
 :file_folder: **`/data`**
 Here are the product files of the sequencing and analysis of them.
@@ -340,7 +339,7 @@ SCRIPT in 1.-GENOMICS/Rstudio/[6.1_PCA.R](bin/Rstudio/6.1_PCA.R)
 
 # 7.0.-Genetic structure of populations with admixture
 
-**Other options to perform this analysis is** [STRUCTURE](https://web.stanford.edu/group/pritchardlab/structure.html) **and** [fastStructure](https://rajanil.github.io/fastStructure/)**
+**Other options to perform this analysis is** [STRUCTURE](https://web.stanford.edu/group/pritchardlab/structure.html) **and** [fastStructure](https://rajanil.github.io/fastStructure/)
 
 You will need [admixture](http://software.genetics.ucla.edu/admixture/), [R](https://cran.r-project.org) and [Rstudio (optional)](https://rstudio.com)
 
