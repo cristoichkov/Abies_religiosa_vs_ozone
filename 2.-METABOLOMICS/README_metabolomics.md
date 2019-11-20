@@ -36,14 +36,23 @@ Before starting the analysis here are the programs that need to be installed:
 |                 +--LibSrch_5.htm
 |          +--metadata/
 |              +--Tablas_datos/
-|                 +--htm_df.txt
-|                 +--exp_table.txt
-|                 +--exp_table.csv
-|                 +--calculate_relative_abs.txt
+|                 +--Metabolites_GC-MS_ALL.xls
+|                 +--Metabolites_GC-MS_orderbyCAS.xls
+|                 +--Metabolitos_con_menor_presencia.xls
+|                 +--Metabolitos_mayor_presencia_1.xls
+|                 +--Metabolitos-Tesis-Vero.csv
+|                 +--Metabolitos-Tesis-Vero.xls
+|                 +--Metabolitos-Tesis-Vero.xlsx
+|              +--|htm_df.txt
+|              +--|exp_table.txt
+|              +--|exp_table.csv
+|              +--|calculate_relative_abs.txt
 |          +--outputs/
-|              +--barplot_images_conti.png
-|              +--barplot_images_SS.png
-|          +--README_genomics.md
+|              +--4.1_barplot_images_conti.png
+|              +--4.1_barplot_images_SS.png
+|              +--5.1_PCA_conti_HvsD.png
+|              +--5.1_PCA_moderated_HvsD.png
+|          +--README_metabolomics.md
 ```
 
 ## METABOLOMICS content
@@ -165,7 +174,7 @@ SCRIPT in 2.-METABOLOMICS/Rstudio/[5.1.-PCA](bin/Rstudio/5.1.-PCA.R)
 ![](outputs/5.1_PCA_moderated_HvsD.png)
 ![](outputs/5.1_PCA_conti_HvsD.png)
 
-# ANEXO 1
+# ANEXX 1
 
 GC-MS data were obtained in lists for each sample.
 
@@ -196,7 +205,7 @@ Once organized by CAS, the CAS number was converted to the ID of each metabolite
 Two Tables were generated: One with the metabolites present in at least half of the samples / plus their related metabolites and another with minor presences.
 
 ```
-Tablas_datos/Metabolitos con menor presencia.xlsxs/Metabolitos_GC-MS_orderbyCAS.xlsx
+Tablas_datos/Metabolitos con menor presencia.xlsxs
 ```
 In the one with the greatest presence, several filters were made to discard metabolites with lower presences
 ```
