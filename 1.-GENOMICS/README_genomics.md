@@ -66,9 +66,9 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	       +--snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.vcf
 |	   	       +--snp_withoutDupLoci_89s_maxmiss0.9_maf0.05.vcf
 |	   	 +--88ind_maxmiss0.9_maf0.05.recode.vcf
-|	     +--89ind_maxmiss0.9_maf0.05.recode.vcf
+|	   	 +--89ind_maxmiss0.9_maf0.05.recode.vcf
 |	   	 +--samples_het_snp_withoutDupLoci_10ind_maxmiss0.9_maf0.05.het
-|	     +--OSF.md
+|	   	 +--OSF.md
 |   +--metadata/
 |	   	 +--admixture_PQ_files/
 |	   	       +--snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.1.P
