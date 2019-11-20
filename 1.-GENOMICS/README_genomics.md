@@ -7,6 +7,7 @@ Before starting the analysis here are the programs that need to be installed:
 ## SOFTWARE
 
 * [ipyrad](https://ipyrad.readthedocs.io/en/latest/)
+* [admixture](http://software.genetics.ucla.edu/admixture/)
 * [PLINK](https://www.cog-genomics.org/plink2/)
 * [vcfTools](https://vcftools.github.io/man_latest.html)
 * [R](https://cran.r-project.org)
@@ -94,20 +95,24 @@ Before starting the analysis here are the programs that need to be installed:
 ## GENOMICS content
 
 :file_folder: **`/bin`**
-Here you will find the scripts that are needed to perform the analyses. The scripts must be used in the order specified.
+Here you will find the scripts that are needed to perform the analyses. There is a folder for scripts that run in Rstudio and another one for those that run in another program through the terminal and command line.
 
-:file_folder: **`/data`** Aqui se encuentran los archivos producto de la secuenciacion y el analisis de ellos
 
-:file_folder: **`/metadata`** Aqui se encuentran
+:file_folder: **`/data`**
+Here are the product files of the sequencing and analysis of them.
 
-:file_folder: **`/outputs`**
+:file_folder: **`/metadata`** Here are tables and data that complement the omicos data. Such as name of samples, coordinates, concentration of compounds, name of genes, name of sequences.
 
-:page_facing_up: **`/README_genomics`**
+:file_folder: **`/outputs`** Here are outs product of the analysis of the data that do not serve as input for another analysis. In the same way, the figures from Rstudio are stored here.
+
+:page_facing_up: **`/README_genomics`** This is a readme that describes the steps to perform the data analysis. It is organized numerically. It is explained that input is necessary and what outputs are obtained from each step.
 
 
 # 1.0.-RUN de novo ASSEMBLY
+Because my project is part of another great project, we had to do a lax assembly that would allow us to have the same coordinates for each SNP in the different species.
 
-Relaxed assembly ipyrad with *Abies flinckii* and *Abies religiosa*
+**So this step allows you to have a relaxed assembly ipyrad with two species**
+You will need [ipyrad](https://ipyrad.readthedocs.io/en/latest/)
 
 * **INPUT**:
    * Archivos de la secuenciación **files.fq.gz**
@@ -157,9 +162,10 @@ p, s, v, k, n, g               ## [27] [output_formats]: Output formats (see doc
 ```
 
 # 2.0.-Strict assembly vcfTools and PLINK
-I used 79 samples of my research group to understand were is the providence of my 10 samples. So, I do my assembly with 89 samples.
-This assembly was made relaxed because we want found SNPs with same ID reference in every sequences.
-Se requiere sacar del ensamble general solamente a las muestras de *Abies religiosa* (88 individuals)
+
+**To solve my genomics objective. Select 89 exhibits of A. religiosa. 10 are those collected in my study site and 79 belong to the distribution of A. religiosa along the transmexican volcanic belt.
+Therefore, this step allows us to extract samples that we want to keep in a .vcf file, applying MAF filter and maximum missing data**
+You will need [vcfTools](https://vcftools.github.io/man_latest.html)
 
 * **INPUT**:
    * **file.vcf** (TMVB_5SNPrad.vcf)
@@ -178,6 +184,9 @@ vcftools --vcf ../data/TMVB_5SNPradlocus.vcf --keep ../metadata/89_ind.txt --max
 
 # 3.0.-Make LD linkage desequilibrium (delete a SNPs in the same loci)
 
+**This step allows us to make a linkage desequilibrium filter. Because our assembly is from a very large genome (~ 15Gb), we rule out less variant SNPs in the same sequence.**
+
+You will need [vcfTools](https://vcftools.github.io/man_latest.html), [PLINK](https://www.cog-genomics.org/plink2/),[R](https://cran.r-project.org) and [Rstudio (optional)](https://rstudio.com)
 
 * **INPUT**:
    * **fitered_file.vcf**(89ind_maxmiss0.9_maf0.05.recode.vcf)
@@ -192,11 +201,11 @@ vcftools --vcf ../data/TMVB_5SNPradlocus.vcf --keep ../metadata/89_ind.txt --max
    * **snp_withoutDupLoci.bim**(snp_withoutDupLoci_89s_maxmiss0.9_maf0.05.bim)
    * **snp_withoutDupLoci.fam**(snp_withoutDupLoci_89s_maxmiss0.9_maf0.05.fam)
 
-## 3.1.-Primero se tiene que obtener la frecuencia que tienen los loci
+## 3.1.-First you have to get how often the loci have
 
 SCRIPT in 1.-GENOMICS/Software/[3.1_Calculate_frequences.sh](bin/Software/3.1_Calculate_frequences.sh)
 
-Para descartar SNPs de un mismo locus necesitamos calcular las frecuencias de cada SNP. Utilizamos la flag --freq. Este comando nos arroja los datos en un archivo que podemos leer como .txt en la terminal de R
+To rule out SNPs from the same locus we need to calculate the frequencies of each SNP. We use the flag --freq. This command throws us the data in a file that we can read as .txt in the R terminal
 
 ```
 vcftools --vcf ../data/89ind_maxmiss0.9_maf0.05.recode.vcf --freq --out ../data/freq_89ind_maxmiss0.9_maf0.05
@@ -205,14 +214,15 @@ vcftools --vcf ../data/89ind_maxmiss0.9_maf0.05.recode.vcf --freq --out ../data/
 
 **OUT: fitered_file.freq**
 
-Modificar el archivo .freq sustituyendo los " " por ":". De esta manera podremos cargar el archivo .freq en R
+Modify the .freq file by replacing the "space" with ":". This way we can load the .freq file in R
 
+Example:
 locus_13 8
 locus_13:8
 
-## 3.2.-Convertir archivos vcf en plink
+## 3.2.-Convert vcf files to plink
 
-Para descartar SNPs de un mismo locus necesitamos transformar el archivo .vcf a .bam/.bim/.fam
+To discard SNPs from the same locus we need to transform the .vcf file to .bam / .bim / .fam
 
 SCRIPT in 1.-GENOMICS/Software/[3.2_ConvertFiles_vcf_to_plink.sh](bin/Software/3.2_ConvertFiles_vcf_to_plink.sh)
 
@@ -230,9 +240,9 @@ SCRIPT in 1.-GENOMICS/Rstudio/[3.3_Without_SNPs_in_same_loci.R](bin/Rstudio/3.3_
 
 **OUT: positions_s88_Ar0.9.txt**
 
-## 3.4.-Extraer posisiones en archivos plink con el outfile del paso 3.3
+## 3.4.-Extract positions in plink files with the outfile from step 3.3
 
-El archivo .txt producto del paso 3.3 se requiere para formar un nuevo archivo.vcf sin loci con mas de un SNP.
+The .txt file product of step 3.3 is required to form a new .vcf file without loci with more than one SNP.
 
 SCRIPT in 1.-GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Extract_positions_HM.sh)
 ```
@@ -240,7 +250,10 @@ SCRIPT in 1.-GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Ex
 ```
 **OUT: snp_withoutDupLoci.bed, snp_withoutDupLoci.bim, snp_withoutDupLoci.fam**
 
-# 4.0.-Calcular coeficiente de relación (relatedness)
+# 4.0.-Calculate relationship coefficient (relatedness)
+
+**This step lets you know if individuals are highly related (siblings, clones) or if there are inbred populations.It is important to know it so as not to misunderstand the admxture analysis.**
+You will need [PLINK](https://www.cog-genomics.org/plink2/),[R](https://cran.r-project.org) and [Rstudio (optional)](https://rstudio.com)
 
 * **INPUT**:
   * **snp_withoutDupLoci.bed**(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed)
@@ -255,7 +268,7 @@ SCRIPT in 1.-GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Ex
   * **relsnp_snp_withoutDupLoci.bed**(relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.rel.bed)
   * **relsnp_snp_withoutDupLoci.fam**(relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.rel.fam)
 
-## 4.1.-Se calcula con PLINK1.9, los archivos se convierten a plink y a vcf, utilizando los siguientes comandos:
+## 4.1.-The resulting files are converted to .plink and .vcf format, using the following commands:
 
 SCRIPT in 1.-GENOMICS/Software/[4.1_Calculate_relatedness.sh](bin/Software/4.1_Calculate_relatedness.sh)
 ```
@@ -267,6 +280,13 @@ SCRIPT in 1.-GENOMICS/Software/[4.1_Calculate_relatedness.sh](bin/Software/4.1_C
 **OUT: relsnp_snp_withoutDupLoci.rel, relsnp_snp_withoutDupLoci.id, relsnp_snp_withoutDupLoci.bim, relsnp_snp_withoutDupLoci.bed, relsnp_snp_withoutDupLoci.fam**
 
 ## 4.2.-plot Relatedness
+
+To run the script, you will need replace the sample name by population name in the first column
+```
+Example:
+ArDlD5	ArDlD5	0	0	0	-9
+SantaRosaXochiac	ArDlD5	0	0	0	-9
+```
 SCRIPT in 1.-GENOMICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
 
 **OUT: Relatedness_images**
@@ -274,6 +294,9 @@ SCRIPT in 1.-GENOMICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
 ![](outputs/4.2_Relatedness.png)
 
 # 5.0.-Mantel test
+
+**This analysis is performed to determine if there is a relationship between genetic distance vs geography.It is important to consider the influence of geographical patterns on the genetic structure.**
+You will need [R](https://cran.r-project.org) and [Rstudio (optional)](https://rstudio.com)
 
 * **INPUT**:
   * **Loc_Long_Lat.txt**(Ar_IBD2.txt)
@@ -286,7 +309,7 @@ SCRIPT in 1.-GENOMICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
   * **Mantel_test_images**
 
 
-## 5.1.-
+## 5.1.-Correlation between genetic distance and geographical distance
 SCRIPT in 1.-GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
 
 **OUT: Mantel_test_images**
@@ -296,8 +319,8 @@ SCRIPT in 1.-GENOMICS/Rstudio/[5.1_Mantel_test.R](bin/Rstudio/5.1_Mantel_test.R)
 
 # 6.0.-Estructura genética de las poblaciones con PCA
 
-PAra este paso se deben de haber descartado los individuos que se sospeche que sean clones. En el caso de este proyecto de elimino una sola muestra por lo cual el analisis se hizo con 88 individuos. Se repitieron los pasos 2 y 3 con sus respectivos subpasos para tener un archivo vcf filtrado con 88 muestras. Una vez obtenido este archivo vcf podemos continuar con el paso 6.
-
+**For this step, individuals suspected of being clones must have been ruled out. In the case of this project, a single sample was eliminated, so the analysis was done with 88 individuals. Steps 2 and 3 were repeated with their respective sub-steps to have a vcf file filtered with 88 samples. Once this .vcf file is obtained we can continue with step 6.**
+You will need [R](https://cran.r-project.org) and [Rstudio (optional)](https://rstudio.com)
 
 * **INPUT**:
   * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
@@ -315,7 +338,11 @@ SCRIPT in 1.-GENOMICS/Rstudio/[6.1_PCA.R](bin/Rstudio/6.1_PCA.R)
 
 ![](outputs/6.1_PCA.png)
 
-# 7.0.-Estructura genética de las poblaciones con admixture
+# 7.0.-Genetic structure of populations with admixture
+
+**Other options to perform this analysis is** [STRUCTURE](https://web.stanford.edu/group/pritchardlab/structure.html) **and** [fastStructure](https://rajanil.github.io/fastStructure/)**
+
+You will need [admixture](http://software.genetics.ucla.edu/admixture/), [R](https://cran.r-project.org) and [Rstudio (optional)](https://rstudio.com)
 
 * **INPUT**:
   * **logall.txt**(logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.txt)
@@ -331,7 +358,6 @@ SCRIPT in 1.-GENOMICS/Rstudio/[6.1_PCA.R](bin/Rstudio/6.1_PCA.R)
   * **Admixture_images**
 
 ## 7.1.-Run admixture
-Cada vez que corro un admixture debo cambiar de lugar los archivos, de lo contrario se sobreescriben
 
 SCRIPT in 1.-GENOMICS/Software/[7.1_Calculate_CV_Admixture.sh](bin/Software/7.1_Calculate_CV_Admixture.sh)
 ```
@@ -340,14 +366,15 @@ do ./admixture --cv=20 ../data/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed $K 
 grep -h CV log*.out > ../metadata/logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05
 ```
 
-## 7.2.-Modificar el logall.txt y el archivo .fam
-
+## 7.2.-Modify the logall.txt and the .fam file
 ```
+logall.txt: yo will need  replace K=1 K=2 K=3, etc by 01 02 03 in the first column
 CV error (K=1): 0.44124
 01	0.86369
 
-fam file
+fam file: you will need replace the sample name by population name in the first column
 
+Example:
 ArDlD5	ArDlD5	0	0	0	-9
 SantaRosaXochiac	ArDlD5	0	0	0	-9
 ```
@@ -361,6 +388,8 @@ SCRIPT in 1.-GENOMICS/Rstudio/[7.3_Admixture.R](bin/Rstudio/7.3_Admixture.R)
 ![](outputs/7.3_Admixture_2.png)
 
 # 8.0.-Calculate Heterocigozity
+**This step is important for my analysis, since high heterozygosis have been reported in healthy individuals vs. those damaged by ozone**
+You will need [vcfTools](https://vcftools.github.io/man_latest.html), [R](https://cran.r-project.org) and [Rstudio (optional)](https://rstudio.com)
 
 * **INPUT**:
   * **snp_withoutDupLoci.vcf**(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.vcf)
@@ -368,11 +397,12 @@ SCRIPT in 1.-GENOMICS/Rstudio/[7.3_Admixture.R](bin/Rstudio/7.3_Admixture.R)
 * **OUTPUT**:
   * **het.het**(samples_het_snp_withoutDupLoci_10ind_maxmiss0.9_maf0.05.het)
 
-## 8.1.- Calculate_Heterozigozity in PLINK
+## 8.1.- Calculate Heterozigozity step 1
 
 SCRIPT in 1.-GENOMICS/Software/[8.1_Calculate_Heterozigozity.sh](bin/Software/8.1_Calculate_Heterozigozity.sh)
 ```
 vcftools --vcf ../data/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.vcf --keep ../metadata/samples_het_relat.txt --het --out ../data/samples_he_snp_withoutDupLoci_10ind_maxmiss0.9_maf0.05.het
 ```
-## 8.2.- Calculate_Heterozigozity
+## 8.2.- Calculate_Heterozigozity step 2
+
 SCRIPT in R 1.-GENOMICS/Rstudio/[8.2_Calculate_He.R](bin/Rstudio/8.2_Calculate_He.R)
