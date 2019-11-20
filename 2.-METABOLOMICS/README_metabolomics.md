@@ -188,7 +188,7 @@ Once organized by CAS, the CAS number was converted to the ID of each metabolite
 ```
  	Tablas_datos/Metabolitos_GC-MS_orderbyCAS.xlsx
 ```
-![Lista metabolitos] (../5.-wonderful_images/Tabla_GC-MS_orderbyCAS.png)
+![Lista metabolitos](../5.-wonderful_images/Tabla_GC-MS_orderbyCAS.png)
 
 Two Tables were generated: One with the metabolites present in at least half of the samples / plus their related metabolites and another with minor presences.
 
@@ -205,4 +205,4 @@ The final table is:
 ```
 Tablas_datos/Metabolitos-Tesis-Vero.xlsx
 ```
-![Lista metabolitos] (../5.-wonderful_images/Tabla_final.png)
+![Lista metabolitos](../5.-wonderful_images/Tabla_final.png)
