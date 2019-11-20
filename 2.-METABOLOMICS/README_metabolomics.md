@@ -102,9 +102,7 @@ The following script was used to calculate the relative concentration of metabol
 
 SCRIPT in 2.-METABOLOMICS/Rstudio/[2.1.-Calculate_relative_abs.R](bin/Rstudio/2.1.-Calculate_relative_abs.R)
 
-**INPUT**:
-
-**metabolitos.csv/htm_df.txt**(metabolitos_Tesis_Vero.csv)
+**INPUT**:**metabolitos.csv/htm_df.txt**(metabolitos_Tesis_Vero.csv)
 
 **OUTPUT: calculate_relative_abs.txt**
 
@@ -116,13 +114,14 @@ Do ANOVA analysis to compare effect between season, condition and year of exposu
   * **calculate_relative_abs.txt**(calculate_relative_abs.txt)
 
 * **OUTPUT**:
-  * **ANOVA tables**
+  * **ANOVA_tables**
 
 
 # 3.1.-Make ANOVA
 
 SCRIPT in 2.-METABOLOMICS/Rstudio/[3.1.-ANOVA.R](bin/Rstudio/3.1.-ANOVA.R)
 
+* **OUTPUT: ANOVA_tables.png**
 ![ANOVA](../5.-wonderful_images/ANOVA_IW.png)
 
 # 4.-Make barplots
@@ -170,7 +169,7 @@ SCRIPT in 2.-METABOLOMICS/Rstudio/[5.1.-PCA](bin/Rstudio/5.1.-PCA.R)
 
 GC-MS data were obtained in lists for each sample.
 
-![Lista metabolitos] (images/List-GC-MS.png)
+![Lista metabolitos](../5.-wonderful_images/List-GC-MS.png)
 
 Each pk (peak), RT (retention time), Area% (percentage of area) CAS # (CAS number) and Qual (value) of all samples is recorded in an excel table.
 
