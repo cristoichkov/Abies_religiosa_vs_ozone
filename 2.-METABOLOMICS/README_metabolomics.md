@@ -43,10 +43,10 @@ Before starting the analysis here are the programs that need to be installed:
 |                 +--Metabolitos-Tesis-Vero.csv
 |                 +--Metabolitos-Tesis-Vero.xls
 |                 +--Metabolitos-Tesis-Vero.xlsx
-|              +--|htm_df.txt
-|              +--|exp_table.txt
-|              +--|exp_table.csv
-|              +--|calculate_relative_abs.txt
+|              +--htm_df.txt
+|              +--exp_table.txt
+|              +--exp_table.csv
+|              +--calculate_relative_abs.txt
 |          +--outputs/
 |              +--4.1_barplot_images_conti.png
 |              +--4.1_barplot_images_SS.png
