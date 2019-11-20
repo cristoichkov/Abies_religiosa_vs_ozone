@@ -1,3 +1,7 @@
+:page_facing_up:  **`/Sem_TB.pptx`**
+
+PowerPoint about my seminar (BWA) in [pptx file]
+
 :page_facing_up:  **`/Transcriptomic_analysis_about tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf`**
 
 PowerPoint about my project in [PDF file](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/4.-INFO_PROJECT/Transcriptomic_analysis_about%20tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf)
