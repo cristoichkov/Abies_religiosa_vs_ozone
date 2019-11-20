@@ -1,6 +1,6 @@
 # README GENOMICS
 
-## Pre-requisitos
+## Pre-requirements
 
 Before starting the analysis here are the programs that need to be installed:
 
@@ -49,7 +49,7 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	    +--3.1_Calculate_frequences.sh
 |	   	    +--3.2_ConvertFiles_vcf_to_plink.sh
 |	   	    +--3.4_Extract_positions_HM.sh
-|	   	    +--5.1_Calculate_relatedness.sh
+|	   	    +--4.1_Calculate_relatedness.sh
 |	   	    +--7.1_Calculate_CV_Admixture.sh
 |	   	    +--8.1_Calculate_Heterozigozity.sh
 |		+--data/
@@ -64,32 +64,36 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	       +--snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bim
 |	   	       +--snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.fam
 |	   	       +--snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.vcf
+|	   	       +--snp_withoutDupLoci_89s_maxmiss0.9_maf0.05.vcf
 |	   	    +--88ind_maxmiss0.9_maf0.05.recode.vcf
+|	   	    +--89ind_maxmiss0.9_maf0.05.recode.vcf
 |	   	    +--samples_het_snp_withoutDupLoci_10ind_maxmiss0.9_maf0.05.het
 |	   	    +--OSF.md
 |		+--metadata/
 |	   	    +--admixture_PQ_files/
 |	   	       +--snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.1.P
 |	   	       +--snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.1.Q
+|	   	       +--logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.txt
 |	   	    +--barcodes/
 |	   	       +--Barcodes_1.txt
 |	   	    +--fastqc_before_trimm/
 |	   	       +--HI.4558.003.Sebastian1_R1_fastqc.html
 |	   	    +--88_ind.txt
+|	   	    +--Ar_IBD2.txt
 |	   	    +--Ar_IBD_comparations.txt
-|	   	    +--freq_88ind_maxmiss0.9_maf0.05.frq
-|	   	    +--FST_VCFTools_Ar88.txt
-|	   	    +--logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.txt
+|	   	    +--FST_VCFTools_Ar89.txt
 |	   	    +--PLACA_FINAL_89_samples.csv
 |	   	    +--positions_s88_Ar0.9.txt
+|	   	    +--positions_s89_Ar0.9.txt
 |	   	    +--samples_het_relat.txt
 |		+--outputs/
 |	   	    +--files_gds.gds
 |	   	    +--4.2_Relatedness.png
-|	   	    +--5.1_Mantel_test
-|	   	    +--6.1_PCA
-|	   	    +--7.3_Admixture
-|	   	    +--7.3_Admixture_2
+|	   	    +--5.1_Mantel_test_NON_Linear.png
+|	   	    +--5.1_Mantel_test_Linear.png
+|	   	    +--6.1_PCA.png
+|	   	    +--7.3_Admixture.png
+|	   	    +--7.3_Admixture_2.png
 |		+--README_genomics.md
 ```
 ## GENOMICS content
@@ -190,7 +194,7 @@ You will need [vcfTools](https://vcftools.github.io/man_latest.html), [PLINK](ht
 * **INPUT**:
    * **fitered_file.vcf**(89ind_maxmiss0.9_maf0.05.recode.vcf)
 
-* **OUTPUT**:
+* **OUTPUT**:   
    * **fitered_file.freq**(freq_89ind_maxmiss0.9_maf0.05.frq)
    * **fitered_file.bed**(89ind_maxmiss0.9_maf0.05.bed)
    * **fitered_file.bim**(89ind_maxmiss0.9_maf0.05.bim)
@@ -231,9 +235,9 @@ vcftools --vcf ../data/89ind_maxmiss0.9_maf0.05.recode.vcf --plink --out ../data
 **OUT: fitered_file.freq, fitered_file.bed, fitered_file.bim**
 
 
-## 3.3.-Utilizar el archivo .freq para extraer solamente SNPs con valores de maf altos
+## 3.3.-Use the .freq file to extract only SNPs with high maf values
 
-Con este script se descartan locus con más de un SNP. El archivo .txt resultante contiene las posisiones de SNPs que deseamos conservar en los siguentes archivos.
+With this script, locus with more than one SNP is discarded. The resulting .txt file contains the positions of SNPs that we want to keep in the following files.
 
 SCRIPT in 1.-GENOMICS/Rstudio/[3.3_Without_SNPs_in_same_loci.R](bin/Rstudio/3.3_Without_SNPs_in_same_loci.R)
 

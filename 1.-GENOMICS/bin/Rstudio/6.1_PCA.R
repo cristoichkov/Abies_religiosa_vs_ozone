@@ -10,16 +10,16 @@ library(SNPRelate)
 library(ggplot2)
 
 #Load data file (".vcf")
-vcf.fn <- "../data/88ind_maxmiss0.9_maf0.05.recode.vcf"
+vcf.fn <- "../../data/without_Dup_loci/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.vcf"
 
 ## Reformat to ".gds" file
-snpgdsVCF2GDS(vcf.fn, "../outputs/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05_pca.gds", method="biallelic.only", verbose = TRUE)
+snpgdsVCF2GDS(vcf.fn, "../../outputs/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05_pca.gds", method="biallelic.only", verbose = TRUE)
 
 ## Get summary ".gds" file
-snpgdsSummary("../outputs/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05_pca.gds")
+snpgdsSummary("../../outputs/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05_pca.gds")
 
 ## Open ".gds" file
-genofile <- snpgdsOpen("../outputs/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05_pca.gds")
+genofile <- snpgdsOpen("../../outputs/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05_pca.gds")
 
 ## Run PCA
 pca<-snpgdsPCA(genofile,remove.monosnp=TRUE, num.thread=2)
@@ -34,7 +34,7 @@ tab <- data.frame(sample.id = pca$sample.id, EV1 = pca$eigenvect[,1],    # the f
                   stringsAsFactors = FALSE)
 
 ## Load metadata file
-fullmat<-read.csv("../metadata/PLACA_FINAL_89_samples.csv", header = TRUE, sep = ",")
+fullmat<-read.csv("../../metadata/PLACA_FINAL_89_samples.csv", header = TRUE, sep = ",")
 
 ## Match metadata info with eigenvectors values
 tab$Poblacion<-fullmat$Localidad[match(tab$sample.id, fullmat$key_comun)]
@@ -70,6 +70,8 @@ ggplot(tab, aes(x=EV1, y=EV2))+
   theme(axis.text.y = element_text(hjust = .5, size=13, color="black"))+
   geom_point(alpha = 1/20)+
   scale_shape_manual(values=c(0,1,2,3,4,5,6,7,8,11,13,15,16,17,18,35,38,43,64))
+
+ggsave("../../outputs/6.1_PCA.png")
 
 ## Draw a zoom with same values of PCA with ozone condition
 tab2<- tab[-c(1:3,21:25,41:43,44:47,48:50,51:55,71:74,84:88), ]

@@ -35,7 +35,6 @@
 0	locus_638563:2	0	2	A	G
 0	locus_639572:2	0	2	T	C
 0	locus_23307:3	0	3	C	G
-0	locus_24421:3	0	3	T	C
 0	locus_128675:3	0	3	A	G
 0	locus_176300:3	0	3	T	A
 0	locus_214382:3	0	3	T	C
@@ -86,13 +85,13 @@
 0	locus_294492:5	0	5	A	T
 0	locus_336188:5	0	5	T	A
 0	locus_337892:5	0	5	T	C
+0	locus_421923:5	0	5	T	C
 0	locus_422671:5	0	5	A	T
 0	locus_423165:5	0	5	C	T
 0	locus_427490:5	0	5	T	C
 0	locus_488220:5	0	5	T	A
 0	locus_495532:5	0	5	G	C
 0	locus_514606:5	0	5	A	C
-0	locus_522188:5	0	5	G	A
 0	locus_525224:5	0	5	C	T
 0	locus_19681:6	0	6	T	C
 0	locus_23515:6	0	6	A	G
@@ -150,6 +149,7 @@
 0	locus_311499:9	0	9	A	G
 0	locus_329533:9	0	9	G	T
 0	locus_360903:9	0	9	C	T
+0	locus_425213:9	0	9	T	A
 0	locus_456442:9	0	9	T	G
 0	locus_480097:9	0	9	T	A
 0	locus_515396:9	0	9	T	G
@@ -210,6 +210,7 @@
 0	locus_287779:12	0	12	T	A
 0	locus_307254:12	0	12	G	A
 0	locus_338195:12	0	12	T	G
+0	locus_425112:12	0	12	A	G
 0	locus_426122:12	0	12	T	C
 0	locus_511221:12	0	12	A	T
 0	locus_557334:12	0	12	C	A
@@ -221,9 +222,11 @@
 0	locus_88032:13	0	13	C	T
 0	locus_102949:13	0	13	T	C
 0	locus_125176:13	0	13	A	G
+0	locus_139221:13	0	13	A	C
 0	locus_210473:13	0	13	C	T
 0	locus_363849:13	0	13	T	C
 0	locus_417011:13	0	13	G	C
+0	locus_453879:13	0	13	T	A
 0	locus_454097:13	0	13	A	G
 0	locus_494361:13	0	13	T	C
 0	locus_504671:13	0	13	G	A
@@ -302,7 +305,6 @@
 0	locus_639112:16	0	16	T	A
 0	locus_23034:17	0	17	C	T
 0	locus_77962:17	0	17	T	A
-0	locus_102999:17	0	17	A	G
 0	locus_105620:17	0	17	A	G
 0	locus_115280:17	0	17	C	A
 0	locus_168451:17	0	17	C	T
@@ -323,6 +325,7 @@
 0	locus_635541:17	0	17	C	T
 0	locus_4791:18	0	18	C	T
 0	locus_82056:18	0	18	C	T
+0	locus_86612:18	0	18	C	G
 0	locus_88004:18	0	18	C	T
 0	locus_103836:18	0	18	T	G
 0	locus_108894:18	0	18	T	C
@@ -360,6 +363,7 @@
 0	locus_253732:20	0	20	A	G
 0	locus_357587:20	0	20	C	G
 0	locus_371826:20	0	20	G	A
+0	locus_454131:20	0	20	C	T
 0	locus_480206:20	0	20	T	G
 0	locus_494120:20	0	20	A	G
 0	locus_514342:20	0	20	T	G
@@ -433,6 +437,7 @@
 0	locus_20729:24	0	24	A	C
 0	locus_21940:24	0	24	C	T
 0	locus_23443:24	0	24	C	T
+0	locus_23662:24	0	24	G	A
 0	locus_81771:24	0	24	T	C
 0	locus_86506:24	0	24	T	C
 0	locus_107661:24	0	24	A	G
@@ -515,6 +520,7 @@
 0	locus_314236:28	0	28	G	A
 0	locus_347380:28	0	28	T	C
 0	locus_593031:28	0	28	T	C
+0	locus_608733:28	0	28	T	C
 0	locus_610595:28	0	28	C	T
 0	locus_18739:29	0	29	G	A
 0	locus_81669:29	0	29	C	A
@@ -718,6 +724,7 @@
 0	locus_23912:41	0	41	G	C
 0	locus_60642:41	0	41	C	T
 0	locus_87515:41	0	41	G	C
+0	locus_102999:41	0	41	C	A
 0	locus_105159:41	0	41	C	T
 0	locus_142794:41	0	41	A	G
 0	locus_166710:41	0	41	A	G
@@ -727,7 +734,6 @@
 0	locus_287685:41	0	41	T	A
 0	locus_290669:41	0	41	T	C
 0	locus_373574:41	0	41	A	C
-0	locus_453921:41	0	41	A	T
 0	locus_457433:41	0	41	A	G
 0	locus_458078:41	0	41	G	A
 0	locus_479489:41	0	41	A	G
@@ -753,7 +759,6 @@
 0	locus_5779:43	0	43	T	G
 0	locus_24568:43	0	43	T	C
 0	locus_79396:43	0	43	T	G
-0	locus_86612:43	0	43	T	G
 0	locus_86874:43	0	43	A	G
 0	locus_87625:43	0	43	A	T
 0	locus_214167:43	0	43	A	G
@@ -770,6 +775,7 @@
 0	locus_23696:44	0	44	G	A
 0	locus_24013:44	0	44	A	T
 0	locus_104523:44	0	44	A	G
+0	locus_112052:44	0	44	T	A
 0	locus_128382:44	0	44	G	A
 0	locus_291854:44	0	44	A	T
 0	locus_309715:44	0	44	A	G
@@ -895,7 +901,6 @@
 0	locus_291536:51	0	51	G	C
 0	locus_358481:51	0	51	C	T
 0	locus_414628:51	0	51	A	G
-0	locus_416159:51	0	51	G	T
 0	locus_429484:51	0	51	C	T
 0	locus_429932:51	0	51	A	T
 0	locus_463993:51	0	51	A	G
@@ -986,6 +991,7 @@
 0	locus_247348:57	0	57	A	G
 0	locus_290130:57	0	57	T	G
 0	locus_334635:57	0	57	T	C
+0	locus_335896:57	0	57	A	T
 0	locus_426987:57	0	57	A	C
 0	locus_429806:57	0	57	A	G
 0	locus_430029:57	0	57	C	T
@@ -1060,7 +1066,6 @@
 0	locus_487513:61	0	61	A	C
 0	locus_516108:61	0	61	T	C
 0	locus_519539:61	0	61	A	G
-0	locus_540410:61	0	61	A	T
 0	locus_567345:61	0	61	G	A
 0	locus_640475:61	0	61	G	A
 0	locus_65131:62	0	62	A	T
@@ -1135,7 +1140,6 @@
 0	locus_172056:66	0	66	T	C
 0	locus_213728:66	0	66	A	G
 0	locus_221285:66	0	66	G	A
-0	locus_222356:66	0	66	A	T
 0	locus_288570:66	0	66	G	A
 0	locus_312411:66	0	66	C	A
 0	locus_340647:66	0	66	A	T
@@ -1198,7 +1202,6 @@
 0	locus_286917:69	0	69	A	C
 0	locus_287765:69	0	69	T	G
 0	locus_338811:69	0	69	C	G
-0	locus_454473:69	0	69	T	A
 0	locus_480777:69	0	69	C	T
 0	locus_524396:69	0	69	G	T
 0	locus_77994:70	0	70	A	T
@@ -1238,8 +1241,8 @@
 0	locus_87833:72	0	72	T	G
 0	locus_130951:72	0	72	C	T
 0	locus_138663:72	0	72	G	T
+0	locus_290966:72	0	72	C	T
 0	locus_371411:72	0	72	A	C
-0	locus_417153:72	0	72	T	C
 0	locus_422751:72	0	72	T	G
 0	locus_428870:72	0	72	A	T
 0	locus_460950:72	0	72	A	C
@@ -1357,6 +1360,7 @@
 0	locus_537789:78	0	78	G	A
 0	locus_134561:79	0	79	T	A
 0	locus_135123:79	0	79	C	G
+0	locus_171029:79	0	79	G	A
 0	locus_221256:79	0	79	C	A
 0	locus_375445:79	0	79	T	C
 0	locus_425234:79	0	79	T	C
@@ -1405,6 +1409,7 @@
 0	locus_304314:81	0	81	T	C
 0	locus_346089:81	0	81	A	G
 0	locus_372023:81	0	81	A	G
+0	locus_422916:81	0	81	G	A
 0	locus_475753:81	0	81	C	T
 0	locus_479104:81	0	81	C	T
 0	locus_487141:81	0	81	T	C
@@ -1472,6 +1477,7 @@
 0	locus_210151:85	0	85	G	A
 0	locus_214304:85	0	85	A	C
 0	locus_222426:85	0	85	C	A
+0	locus_227018:85	0	85	G	A
 0	locus_291909:85	0	85	G	C
 0	locus_347085:85	0	85	A	T
 0	locus_428782:85	0	85	C	A
@@ -1538,7 +1544,6 @@
 0	locus_87128:89	0	89	T	C
 0	locus_172924:89	0	89	C	T
 0	locus_233602:89	0	89	C	T
-0	locus_259106:89	0	89	T	C
 0	locus_287728:89	0	89	T	A
 0	locus_463486:89	0	89	C	T
 0	locus_464257:89	0	89	A	T

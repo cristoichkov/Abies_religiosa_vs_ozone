@@ -10,7 +10,7 @@ library(reshape)
 library(ggplot2)
 
 ## Load data cross validation
-log <- read.table("../data/admixture/logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.txt")
+log <- read.table("../../metadata/admixture_PQ_files//logall_snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.txt")
 ggplot(data=log, aes(x= V1, y= V2))+
   geom_point(colour = "#33CCFF") +
   geom_line(colour = "#33CCFF") +  
@@ -20,6 +20,7 @@ ggplot(data=log, aes(x= V1, y= V2))+
   theme(axis.title.y = element_text(size = rel(1.3)))+
   theme(axis.text.x = element_text(hjust = .5, size=11, color="black"))+
   theme(axis.text.y = element_text(hjust = .5, size=11, color="black"))  
+ggsave("../../outputs/7.3_Admixture.png")
 
 structureplot <- function(str_out,pops,k,xlab = F)
 {
@@ -197,7 +198,7 @@ structureplot_popord <- function(str_out,pops,k,xlab = T, target_order)
 
 
 ## Load data about family
-famfile <- read.table("../data/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.fam")
+famfile <- read.table("../../data/without_Dup_loci/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.fam")
 par(mfrow=c(4,1))
 
 
@@ -209,19 +210,19 @@ z<-c("SierraManantlan","NevadoColima","VolcanTancitaro","PuertaGarnica","Michoac
      "ElChico","Tlaxco","VolcanAtlitzin","Malinche","CofrePerote")
 
 # K2
-qfile <- read.table("../data/admixture/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.2.Q")
+qfile <- read.table("../../metadata/admixture_PQ_files/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.2.Q")
 structureplot_popord(str_out = qfile, pops = famfile, k = 2, xlab = T, target_order=z)
 
 # K3
-qfile <- read.table("../data/admixture/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.3.Q")
+qfile <- read.table("../../metadata/admixture_PQ_files/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.3.Q")
 structureplot_popord(str_out = qfile,pops = famfile,k = 3, xlab = T, target_order =z)
 
 # K4
-qfile <- read.table("../data/admixture/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.4.Q")
+qfile <- read.table("../../metadata/admixture_PQ_files/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.4.Q")
 structureplot_popord(str_out = qfile,pops = famfile,k = 4, xlab = T, target_order =z)
 
 # K5
-qfile <- read.table("../data/admixture/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.5.Q")
+qfile <- read.table("../../metadata/admixture_PQ_files/snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.5.Q")
 structureplot_popord(str_out = qfile,pops = famfile,k = 5, xlab = T, target_order =z)
 
-
+ggsave("../../outputs/7.3_Admixture_2.png")
