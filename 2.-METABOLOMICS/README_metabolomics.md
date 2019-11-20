@@ -1,6 +1,6 @@
 # README METABOLOMICS
 
-## Pre-requisitos
+## Pre-requirements
 
 Before starting the analysis here are the programs that need to be installed:
 
@@ -49,25 +49,28 @@ Before starting the analysis here are the programs that need to be installed:
 ## METABOLOMICS content
 
 :file_folder: **`/bin`**
-Here you will find the scripts that are needed to perform the analyses. The scripts must be used in the order specified.
+Here you will find the scripts that are needed to perform the analyses. There is a folder for scripts that run in [Rstudio](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/2.-METABOLOMICS/bin/Rstudio).
 
-:file_folder: **`/data`** Aqui se encuentran los archivos producto de la secuenciacion y el analisis de ellos
+:file_folder: **`/data`**
+Here are the product files of the Gas chromatography–mass spectrometry (GC-MS).
 
-:file_folder: **`/metadata`** Aqui se encuentran
+:file_folder: **`/metadata`** Here are tables and data that complement the omics data. Such as name of samples, name of genes, name of sequences.
 
-:file_folder: **`/outputs`**
+:file_folder: **`/outputs`** The figures from Rstudio are stored here.
 
-:page_facing_up: **`/README_metabolomics`**
+:page_facing_up: **`/README_metabolomics`** This is a README that describes the steps to perform the data analysis. It is organized numerically. It is explained that input is necessary and what outputs are obtained from each step.
+
 
 # 1.- Load data by GC-MS
 
-Los archivos ".htm" se cargaron en una tabla que incluyo los datos:
+The ".htm" files were loaded into a table that included the data:
 
-* pk (pico)
-* RT (tiempo de retención)
-* Area % (porcentaje de área)
-* CAS# (número CAS)
-* Qual (valor)
+* pk (peak)
+* RT (retention time)
+* Area% (percentage of area)
+* CAS # (CAS number)
+* Qual (value)
+
 
 * **INPUT**:
   * **Load_html_files.R**(Load_html_files.R)
@@ -85,7 +88,7 @@ SCRIPT in 2.-METABOLOMICS/Rstudio/[1.1.-Make_df_allsamples_metabol.R](bin/Rstudi
 
 # 2.- Calculate relative concentration absolute
 
-Se utilizó el siguiente script para calcular la concentracion absoluta de metabolitos.
+The following script was used to calculate the absolute concentration of metabolites.
 
 * **INPUT**:
   * **metabolitos.csv/htm_df.txt**(metabolitos_Tesis_Vero.csv)
@@ -105,7 +108,7 @@ SCRIPT in 2.-METABOLOMICS/Rstudio/[2.1.-Calculate_relative_abs.R](bin/Rstudio/2.
 
 # 3.-Make ANOVA
 
-Hacer analisis de ANOVA para comparar efecto entre temporada, condicion y año de exposicion
+Do ANOVA analysis to compare effect between season, condition and year of exposure
 
 * **INPUT**:
   * **calculate_relative_abs.txt**(calculate_relative_abs.txt)
@@ -120,7 +123,7 @@ SCRIPT in 2.-METABOLOMICS/Rstudio/[3.1.-ANOVA.R](bin/Rstudio/3.1.-ANOVA.R)
 
 # 4.-Make barplots
 
-compararla entre temporada, condicion y año de exposicion
+Compare it between season, condition and year of exposure
 
 * **INPUT**:
   * **calculate_relative_abs.txt**(calculate_relative_abs.txt)
@@ -159,20 +162,20 @@ SCRIPT in 2.-METABOLOMICS/Rstudio/[5.1.-PCA](bin/Rstudio/5.1.-PCA.R)
 ![](outputs/5.1_PCA_moderated_HvsD.png)
 ![](outputs/5.1_PCA_conti_HvsD.png)
 
-# ANEXO 1.-
+# ANEXO 1
 
-Los datos del GC-MS se obtuvieron en listas para cada muestra.
+GC-MS data were obtained in lists for each sample.
 
 ![Lista metabolitos] (images/List-GC-MS.png)
 
-Cada dato pk (pico), RT (tiempo de retención), Area % (porcentaje de área) CAS# (número CAS) y Qual (valor) de todas las muestras se registro en una tabla en excel.
+Each pk (peak), RT (retention time), Area% (percentage of area) CAS # (CAS number) and Qual (value) of all samples is recorded in an excel table.
 
 ```
  	Tablas_datos/Metabolites_GC-MS_ALL.xls
 ```
 ![Lista metabolitos] (images/Tabla_GC-MS_ALL.png)
 
-Posteriormente, se ordenó cada metabolito presente en las muestras de acuerdo al CAS#. La primer opción de CAS se tomó para ordenar los metabolitos.
+Subsequently, each metabolite present in the samples was ordered according to CAS #. The first CAS option was taken to order the metabolites.
 
 
 ```
@@ -180,27 +183,26 @@ Posteriormente, se ordenó cada metabolito presente en las muestras de acuerdo a
 ```
 ![Lista metabolitos] (images/Tabla_orderCAS.png)
 
-Una vez organizados por CAS se conviertió el número CAS al ID de cada metabolito según la página NSI y el nombre Library/ID dado por el equipo
+Once organized by CAS, the CAS number was converted to the ID of each metabolite according to the NSI page and the name Library / ID given by the team
 
 ```
  	Tablas_datos/Metabolitos_GC-MS_orderbyCAS.xlsx
 ```
-![Lista metabolitos] (images/Tabla_GC-MS_orderbyCAS.png)
+![Lista metabolitos] (../5.-wonderful_images/Tabla_GC-MS_orderbyCAS.png)
 
-Se generaron 2 Tablas: Una con los metabolitos presentes en al menos la mitad de las muestras/mas sus metabolitos relacionados y otro con presencias menores.
+Two Tables were generated: One with the metabolites present in at least half of the samples / plus their related metabolites and another with minor presences.
 
 ```
 Tablas_datos/Metabolitos con menor presencia.xlsxs/Metabolitos_GC-MS_orderbyCAS.xlsx
 ```
-En la de mayor presencia se hicieron varios filtros paradescartarmetabolitos con menores presencias
+In the one with the greatest presence, several filters were made to discard metabolites with lower presences
 ```
 Tablas_datos/Metabolitos_mayor_presencia_1.xlsx
 ```
 
-Se mantuvieron los metabolitos con Qual mayor a 80 y se volvieron a descartar metabolitos con precencias menores.
-
-La tabla final es:
+Metabolites were maintained with Qual greater than 80 and metabolites were again discarded with lower precedence.
+The final table is:
 ```
 Tablas_datos/Metabolitos-Tesis-Vero.xlsx
 ```
-![Lista metabolitos] (images/Tabla_final.png)
+![Lista metabolitos] (../5.-wonderful_images/Tabla_final.png)
