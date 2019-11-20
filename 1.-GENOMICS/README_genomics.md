@@ -35,7 +35,7 @@ Before starting the analysis here are the programs that need to be installed:
 ```
 +--- Abies_religiosa_vs_ozone/
 |+--1.-GENOMICS/
-|		+--bin/
+|  +--bin/
 |	     +--Rstudio/
 |	   	    +--3.3_Without_SNPs_in_same_loci.R
 |	   	    +--4.2_Relatedness.R
@@ -52,7 +52,7 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	    +--4.1_Calculate_relatedness.sh
 |	   	    +--7.1_Calculate_CV_Admixture.sh
 |	   	    +--8.1_Calculate_Heterozigozity.sh
-|		+--data/
+|  +--data/
 |	   	    +--relatedness/
 |	   	       +--relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.bed
 |	   	       +--relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.bim
@@ -69,7 +69,7 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	    +--89ind_maxmiss0.9_maf0.05.recode.vcf
 |	   	    +--samples_het_snp_withoutDupLoci_10ind_maxmiss0.9_maf0.05.het
 |	   	    +--OSF.md
-|		+--metadata/
+|  +--metadata/
 |	   	    +--admixture_PQ_files/
 |	   	       +--snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.1.P
 |	   	       +--snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.1.Q
@@ -86,7 +86,7 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	    +--positions_s88_Ar0.9.txt
 |	   	    +--positions_s89_Ar0.9.txt
 |	   	    +--samples_het_relat.txt
-|		+--outputs/
+|  +--outputs/
 |	   	    +--files_gds.gds
 |	   	    +--4.2_Relatedness.png
 |	   	    +--5.1_Mantel_test_NON_Linear.png
@@ -94,7 +94,7 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	    +--6.1_PCA.png
 |	   	    +--7.3_Admixture.png
 |	   	    +--7.3_Admixture_2.png
-|		+--README_genomics.md
+|  +--README_genomics.md
 ```
 ## GENOMICS content
 
