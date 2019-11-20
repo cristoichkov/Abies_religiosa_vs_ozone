@@ -67,26 +67,18 @@ Before starting the analysis here are the programs that need to be installed:
 ## TRANSCRIPTOMICS content
 
 :file_folder: **`/bin`**
-
-This is a directory.
+Here you will find the scripts that are needed to perform the analyses. There is a folder for scripts that run in [Rstudio](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS/bin/Rstudio) and another one for those that run in another program through the [terminal](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS/bin/Software) and command line.
 
 :file_folder: **`/data`**
+Here are the product files of the sequencing and analysis of them (bam, sam, and fastqc.zip files).
 
-This is a directory. It contains a screenshot of my data, because the real data is very heavy.
+:file_folder: **`/metadata`** Here are tables and data that complement the omics data. Such as name of samples, count per genes, name of genes, name of sequences, index, reference transcriptome, etc.
 
-:file_folder: **`/metadata`**
+:file_folder: **`/outputs`** The figures from Rstudio are stored here.
 
-This is a directory. It contains .csv, .txt and other files to do the analysis.
+:page_facing_up: **`/README_transcriptomics`** This is a README that describes the steps to perform the data analysis. It is organized numerically. It is explained that input is necessary and what outputs are obtained from each step.
 
-:file_folder: **`/outputs`**
-
-This is a directory. It contains files product of the scripts.
-
-:page_facing_up: **`/README_transcriptomics.md`**
-
-This is a markdown file. It is a description file particular of this directory and analysis.
-
-# 1.0.- Evaluar secuencias con fastqc
+# 1.0.- Evaluate sequences with fastqc
 
 * **INPUT**:
    * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
@@ -95,18 +87,18 @@ This is a markdown file. It is a description file particular of this directory a
    * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
    * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
 
-## 1.1.-Primero se tiene que obtener la frecuencia que tienen los loci
+## 1.1.-You have to get how often the loci have
 
 SCRIPT in 3.-TRANSCRIPTOMICS/Software/[1.1_FastQC.sh](bin/Software/1.1_FastQC.sh)
 
 ```
-java -jar ../../Programas/Trimmomatic/Trimmomatic_bin/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 4 -phred33 ../../TRANSCRIPTOMICS_RAW/DPVR1_S179_L007_R1_001.fastq.gz ../../TRANSCRIPTOMICS_RAW/DPVR1_S179_L007_R2_001.fastq.gz Trimmer_DPVR1_S179_L007_R1_001_paired.fq.gz Trimmer_DPVR1_S179_L007_R1_001_unpaired.fq.gz Trimmer_DPVR1_S179_L007_R2_001_paired.fq.gz Trimmer_DPVR1_S179_L007_R2_001_unpaired.fq.gz ILLUMINACLIP:../../Programas/Trimmomatic/Trimmomatic_bin/Trimmomatic-0.36/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:28 TRAILING:28 SLIDINGWINDOW:10:28 MINLEN:50 HEADCROP:13
+
 
 ```
 
 **OUT: barplot_images.png**
 
-# 2.0.- Cortar secuencias con Trimmomatic
+# 2.0.- Cut sequences with Trimmomatic
 
 * **INPUT**:
    * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
@@ -115,7 +107,7 @@ java -jar ../../Programas/Trimmomatic/Trimmomatic_bin/Trimmomatic-0.36/trimmomat
    * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
    * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
 
-## 2.1.-Primero se tiene que obtener la frecuencia que tienen los loci
+## 2.1.-
 
 SCRIPT in 3.-TRANSCRIPTOMICS/Software/[2.1_Trimming.sh](bin/Software/2.1_Trimming.sh)
 
@@ -124,15 +116,11 @@ SCRIPT in 3.-TRANSCRIPTOMICS/Software/[2.1_Trimming.sh](bin/Software/2.1_Trimmin
 
 java -jar ../../Programas/Trimmomatic/Trimmomatic_bin/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 4 -phred33 ../data/RAW/DPVR1_S179_L007_R1_001.fastq.gz ../data/RAW/DPVR1_S179_L007_R2_001.fastq.gz Trimmer_DPVR1_S179_L007_R1_001_paired.fq.gz Trimmer_DPVR1_S179_L007_R1_001_unpaired.fq.gz Trimmer_DPVR1_S179_L007_R2_001_paired.fq.gz Trimmer_DPVR1_S179_L007_R2_001_unpaired.fq.gz ILLUMINACLIP:../../Programas/Trimmomatic/Trimmomatic_bin/Trimmomatic-0.36/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:28 TRAILING:28 SLIDINGWINDOW:10:28 MINLEN:50 HEADCROP:13
 
-# Do fastqc
-
-fastqc *fq.gz
-
 ```
 
-**OUT: barplot_images.png**
+**OUT:Trimmer_fastqc.png**
 
-# 3.0.- Mapeo con BWA
+# 3.0.- BWA mapping
 
 * **INPUT**:
    * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
@@ -141,24 +129,25 @@ fastqc *fq.gz
    * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
    * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
 
-## 3.1.-Hacer Index
+## 3.1.- Do Index
 
 SCRIPT in 3.-TRANSCRIPTOMICS/Software/[3.1_index.sh](bin/Software/3.1_index.sh)
 
 ```
-bwa index -p ../metadata/INDEX/index_Areligiosa -a is ../metadata/Reference_Transcriptome/GCAT_AB-RNA-1.0.16.fa
+bwa index -p ../../metadata/INDEX/index_Areligiosa -a is ../../metadata/Reference_Transcriptome/GCAT_AB-RNA-1.0.16.fa
 ```
-**OUT: barplot_images.png**
+**OUT: index_Areligiosa.amb, .ann, .bwt, .pac, .sa**
 
-## 3.2.-Mapeo en A. balsamea
+## 3.2.- Mapeo en A. balsamea
 
 SCRIPT in 3.-TRANSCRIPTOMICS/Software/[3.2_Alignment_AbP_paired_sw10_L50](bin/Software/3.2_Alignment_AbP_paired_sw10_L50.sh)
 
 ```
-bwa mem ../metadata/index_GCAT_AB-RNA-1.0.16/index_Areligiosa ../data/TRIMMING/Trimm18s_sw10-28_ml50_28/Trimmer_DPVR1_S179_L007_R1_001_paired.fq.gz ../data/TRIMMING/Trimm18s_sw10-28_ml50_28/Trimmer_DPVR1_S179_L007_R2_001_paired.fq.gz > SC01_15_sw10L50_28.sam
+bwa mem ../../metadata/index_GCAT_AB-RNA-1.0.16/index_Areligiosa ../../data/TRIMMING/Trimm18s_sw10-28_ml50_28/Trimmer_DPVR1_S179_L007_R1_001_paired.fq.gz ../../data/TRIMMING/Trimm18s_sw10-28_ml50_28/Trimmer_DPVR1_S179_L007_R2_001_paired.fq.gz > ../../data/SAM/SC01_15_sw10L50_28.sam
 ```
+**OUT: files.sam**
 
-# 4.0.- Convertir SAM en BAM
+# 4.0.- Convert SAM to BAM
 
 * **INPUT**:
    * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
@@ -167,18 +156,22 @@ bwa mem ../metadata/index_GCAT_AB-RNA-1.0.16/index_Areligiosa ../data/TRIMMING/T
    * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
    * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
 
-## 4.1.- Convertir SAM en BAM
+## 4.1.-
 
 SCRIPT in 3.-TRANSCRIPTOMICS/Software/[4.1_ConvertSamBam_sw10_L50](bin/Software/4.1_ConvertSamBam_sw10_L50.sh)
 
 ```
-for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L50_28 SS02_15_sw10L50_28 DC02_15_sw10L50_28 DC05_15_sw10L50_28 SC01_15_sw10L50_28 SC04_15_sw10L50_28 SS05_15_sw10L50_28 DC03_15_sw10L50_28 DS01_15_sw10L50_28 SC01_17_sw10L50_28 SC05_15_sw10L50_28 DC04_15_sw10L50_28 DS02_15_sw10L50_28 SC02_15_sw10L50_28 SS01_15_sw10L50_28; do samtools view -Sb ../data/SAM/$i.sam > ../data/BAM/$i.bam; done
+cd ../../data/sam
+
+for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L50_28 SS02_15_sw10L50_28 DC02_15_sw10L50_28 DC05_15_sw10L50_28 SC01_15_sw10L50_28 SC04_15_sw10L50_28 SS05_15_sw10L50_28 DC03_15_sw10L50_28 DS01_15_sw10L50_28 SC01_17_sw10L50_28 SC05_15_sw10L50_28 DC04_15_sw10L50_28 DS02_15_sw10L50_28 SC02_15_sw10L50_28 SS01_15_sw10L50_28; do samtools view -Sb ../../data/SAM/$i.sam > ../../data/BAM/$i.bam; done
+
+cd ../../bin/Software
 
 ```
 
-**OUT: barplot_images.png**
+**OUT: files.bam**
 
-# 5.0.- Contar genes en bam file
+# 5.0.- Count genes in bam file
 
 * **INPUT**:
    * **fitered_file.vcf**(88ind_maxmiss0.9_maf0.05.recode.vcf)
@@ -187,30 +180,32 @@ for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L5
    * **fitered_file.freq**(freq_88ind_maxmiss0.9_maf0.05.frq)
    * **fitered_file.bed**(88ind_maxmiss0.9_maf0.05.bed)
 
-## 5.1.-Mapeo con BWA
+## 5.1.-
 
 SCRIPT in 3.-TRANSCRIPTOMICS/Software/[5.1_Count_genes_bamfile](bin/Software/5.1_Count_genes_bamfile.sh)
 
 ```
-cd ../data/BAM
+cd ../../data/BAM
 
-for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L50_28 SS02_15_sw10L50_28 DC02_15_sw10L50_28 DC05_15_sw10L50_28 SC01_15_sw10L50_28 SC04_15_sw10L50_28 SS05_15_sw10L50_28 DC03_15_sw10L50_28 DS01_15_sw10L50_28 SC01_17_sw10L50_28 SC05_15_sw10L50_28 DC04_15_sw10L50_28 DS02_15_sw10L50_28 SC02_15_sw10L50_28 SS01_15_sw10L50_28; do samtools view ../data/BAM/$i.bam > $i.seqgenes_28.txt; done
-
-for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L50_28 SS02_15_sw10L50_28 DC02_15_sw10L50_28 DC05_15_sw10L50_28 SC01_15_sw10L50_28 SC04_15_sw10L50_28 SS05_15_sw10L50_28 DC03_15_sw10L50_28 DS01_15_sw10L50_28 SC01_17_sw10L50_28 SC05_15_sw10L50_28 DC04_15_sw10L50_28 DS02_15_sw10L50_28 SC02_15_sw10L50_28 SS01_15_sw10L50_28; do cut -f 3 $i.seqgenes_28.txt > $i.allgenes_28.txt; done
-
-for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L50_28 SS02_15_sw10L50_28 DC02_15_sw10L50_28 DC05_15_sw10L50_28 SC01_15_sw10L50_28 SC04_15_sw10L50_28 SS05_15_sw10L50_28 DC03_15_sw10L50_28 DS01_15_sw10L50_28 SC01_17_sw10L50_28 SC05_15_sw10L50_28 DC04_15_sw10L50_28 DS02_15_sw10L50_28 SC02_15_sw10L50_28 SS01_15_sw10L50_28; do sort $i.allgenes_28.txt | uniq -c > $i.countgenes_28.txt; done
-
-for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L50_28 SS02_15_sw10L50_28 DC02_15_sw10L50_28 DC05_15_sw10L50_28 SC01_15_sw10L50_28 SC04_15_sw10L50_28 SS05_15_sw10L50_28 DC03_15_sw10L50_28 DS01_15_sw10L50_28 SC01_17_sw10L50_28 SC05_15_sw10L50_28 DC04_15_sw10L50_28 DS02_15_sw10L50_28 SC02_15_sw10L50_28 SS01_15_sw10L50_28; do awk '{ sub(/^[ \t]+/, ""); print }' $i.genesorder_28.txt | sed 's/ /\t/' >; done
-
-rm *.bam
+for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L50_28 SS02_15_sw10L50_28 DC02_15_sw10L50_28 DC05_15_sw10L50_28 SC01_15_sw10L50_28 SC04_15_sw10L50_28 SS05_15_sw10L50_28 DC03_15_sw10L50_28 DS01_15_sw10L50_28 SC01_17_sw10L50_28 SC05_15_sw10L50_28 DC04_15_sw10L50_28 DS02_15_sw10L50_28 SC02_15_sw10L50_28 SS01_15_sw10L50_28; do mv ../../metadata/seq_genes/$i.seqgenes_28.txt ../../TRANSCRIPTOMICS_MAP/Count/Map_REFTransSNP; done
+for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L50_28 SS02_15_sw10L50_28 DC02_15_sw10L50_28 DC05_15_sw10L50_28 SC01_15_sw10L50_28 SC04_15_sw10L50_28 SS05_15_sw10L50_28 DC03_15_sw10L50_28 DS01_15_sw10L50_28 SC01_17_sw10L50_28 SC05_15_sw10L50_28 DC04_15_sw10L50_28 DS02_15_sw10L50_28 SC02_15_sw10L50_28 SS01_15_sw10L50_28; do mv ../../metadata/all_genes/$i.allgenes_28.txt ../../TRANSCRIPTOMICS_MAP/Count/Map_REFTransSNP; done
+for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L50_28 SS02_15_sw10L50_28 DC02_15_sw10L50_28 DC05_15_sw10L50_28 SC01_15_sw10L50_28 SC04_15_sw10L50_28 SS05_15_sw10L50_28 DC03_15_sw10L50_28 DS01_15_sw10L50_28 SC01_17_sw10L50_28 SC05_15_sw10L50_28 DC04_15_sw10L50_28 DS02_15_sw10L50_28 SC02_15_sw10L50_28 SS01_15_sw10L50_28; do mv ../../metadata/count_genes/$i.countgenes_28.txt ../../TRANSCRIPTOMICS_MAP/Count/Map_REFTransSNP; done
+for i in DC01_15_sw10L50_28 DC04_17_sw10L50_28 DS04_15_sw10L50_28 SC03_15_sw10L50_28 SS02_15_sw10L50_28 DC02_15_sw10L50_28 DC05_15_sw10L50_28 SC01_15_sw10L50_28 SC04_15_sw10L50_28 SS05_15_sw10L50_28 DC03_15_sw10L50_28 DS01_15_sw10L50_28 SC01_17_sw10L50_28 SC05_15_sw10L50_28 DC04_15_sw10L50_28 DS02_15_sw10L50_28 SC02_15_sw10L50_28 SS01_15_sw10L50_28; do mv ../../metadata/genes_order/$i.genesorder_28.txt ../../TRANSCRIPTOMICS_MAP/Count/Map_REFTransSNP; done
 
 ```
 
-**OUT: barplot_images.png**
+**OUT:**
 
 ## 5.2.-Statistics con BWA
 
-# 6.0.- Tabla de conteo de transcritos
+
+SCRIPT in 3.-TRANSCRIPTOMICS/Software/[5.2_Statistics_map](bin/Software/5.2_Statistics_map.sh)
+
+```
+./samtools flagstat ../../data/BAM/DC01_15_sw10L50_TR.bam > ../../metadata/Statistics_map/DC01_15_sw10L50_TR.txt
+```
+
+# 6.0.- Table of transcript counts
 
 * **INPUT**:
    * **genesorder.txt**(DC01_15_sw10L50.genesorder.txt, DC02_15_sw10L50.genesorder.txt, DC03_15_sw10L50.genesorder.txt, etc.)
@@ -218,25 +213,44 @@ rm *.bam
 * **OUTPUT**:
    * **allreadsgenes.txt**(allreadsgenes.txt)
 
-## 6.1.- Tabla de conteo de transcritos
+## 6.1.- Table of transcript counts
 
 SCRIPT in 3.-TRANSCRIPTOMICS/Rstudio/[6.1_Countreads_makematrix.R](bin/Rstudio/6.1_Countreads_makematrix.R)
 
 **OUT: allreadsgenes.txt**
 
-# 7.0.- Tabla de conteo de transcritos
+![count_Table](../5.-wonderful_images/Count_table.png)
 
-   * **INPUT**:
-      * **allreadsgenes.txt**(allreadsgenes.txt)
+# 7.0.- DGE analysis
 
-   * **OUTPUT**:
-      * **images.png**(images.png)
+* **INPUT**:
+  * **allreadsgenes.txt**(allreadsgenes.txt)
 
-## 7.1.- Tabla de conteo de transcritos
+* **OUTPUT**:
+  * **images.png**(images.png)
 
-   SCRIPT in 3.-TRANSCRIPTOMICS/Rstudio/[7.1_5HCvs5DC.R](bin/Rstudio/7.1_5HCvs5DC.R)
+## 7.1.- DGE analysis
 
-   **OUT: images.png**
+SCRIPT in 3.-TRANSCRIPTOMICS/Rstudio/[7.1_5HCvs5DC.R](bin/Rstudio/7.1_5HCvs5DC.R)
 
-      ![](outputs/4.1_barplot_images_SS.png)
-      ![](outputs/4.1_barplot_images_conti.png)
+**OUT: images.png**
+
+![](outputs/4.1_barplot_images_SS.png)
+![](outputs/4.1_barplot_images_conti.png)
+
+# 8.0.- Volcano plot
+
+* **INPUT**:
+  * **allreadsgenes.txt**(allreadsgenes.txt)
+
+* **OUTPUT**:
+  * **images.png**(images.png)
+
+## 8.1.- Volcano plot
+
+SCRIPT in 3.-TRANSCRIPTOMICS/Rstudio/[8.1_Volcanoplot.R](bin/Rstudio/8.1_Volcanoplot.R)
+
+**OUT: images.png**
+
+![](outputs/4.1_barplot_images_SS.png)
+![](outputs/4.1_barplot_images_conti.png)
