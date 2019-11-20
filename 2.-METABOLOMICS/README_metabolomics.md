@@ -173,7 +173,7 @@ Each pk (peak), RT (retention time), Area% (percentage of area) CAS # (CAS numbe
 ```
  	Tablas_datos/Metabolites_GC-MS_ALL.xls
 ```
-![Lista metabolitos] (images/Tabla_GC-MS_ALL.png)
+![Lista metabolitos](../5.-wonderful_images/Tabla_GC-MS_ALL.png)
 
 Subsequently, each metabolite present in the samples was ordered according to CAS #. The first CAS option was taken to order the metabolites.
 
@@ -181,7 +181,7 @@ Subsequently, each metabolite present in the samples was ordered according to CA
 ```
  	Tablas_datos/Metabolitos_orderCAS.xlsx
 ```
-![Lista metabolitos] (images/Tabla_orderCAS.png)
+![Lista metabolitos](../5.-wonderful_images/Tabla_orderCAS.png)
 
 Once organized by CAS, the CAS number was converted to the ID of each metabolite according to the NSI page and the name Library / ID given by the team
 
