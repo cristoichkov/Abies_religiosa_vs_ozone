@@ -63,7 +63,9 @@ Here are the product files of the Gas chromatography–mass spectrometry (GC-MS)
 
 # 1.- Load data by GC-MS
 
-The ".htm" files were loaded into a table that included the data:
+The data can be processed manually as shown in ANNEX 1 of this section or can be uploaded to an R table as explained below.
+
+The .htm files were loaded into a table that included the data:
 
 * pk (peak)
 * RT (retention time)
@@ -73,7 +75,7 @@ The ".htm" files were loaded into a table that included the data:
 
 
 * **INPUT**:
-  * **Load_html_files.R**(Load_html_files.R)
+  * **FUNCTION:Load_html_files.R**(Load_html_files.R)
   * **LibSrch_#.htm**(LibSrch_3.htm, LibSrch_4.htm, etc.)
 
 * **OUTPUT**:
@@ -82,13 +84,13 @@ The ".htm" files were loaded into a table that included the data:
 ## 1.1.-Make data frame with all metabolites samples
 SCRIPT in 2.-METABOLOMICS/Rstudio/[1.1.-Make_df_allsamples_metabol.R](bin/Rstudio/1.1.-Make_df_allsamples_metabol.R)
 
-**INPUT: LibSrch_#.htm, source("Load_html_files.R")**
+**INPUT: LibSrch_#.htm, function("Load_html_files.R")**
 
 **OUT: htm_df.txt**
 
-# 2.- Calculate relative concentration absolute
+# 2.- Calculate relative concentration
 
-The following script was used to calculate the absolute concentration of metabolites.
+The following script was used to calculate the relative concentration of metabolites.
 
 * **INPUT**:
   * **metabolitos.csv/htm_df.txt**(metabolitos_Tesis_Vero.csv)
@@ -114,16 +116,18 @@ Do ANOVA analysis to compare effect between season, condition and year of exposu
   * **calculate_relative_abs.txt**(calculate_relative_abs.txt)
 
 * **OUTPUT**:
-  * ****()
+  * **ANOVA tables**
 
 
 # 3.1.-Make ANOVA
 
 SCRIPT in 2.-METABOLOMICS/Rstudio/[3.1.-ANOVA.R](bin/Rstudio/3.1.-ANOVA.R)
 
+![ANOVA](../5.-wonderful_images/ANOVA_IW.png)
+
 # 4.-Make barplots
 
-Compare it between season, condition and year of exposure
+Compare metabolites between season, condition and year of exposure
 
 * **INPUT**:
   * **calculate_relative_abs.txt**(calculate_relative_abs.txt)
@@ -143,7 +147,7 @@ SCRIPT in 2.-METABOLOMICS/Rstudio/[4.1.-Barplots](bin/Rstudio/4.1.-Barplots.R)
 
 # 5.-Make PCA
 
-compararla entre temporada, condicion y año de exposicion
+Compare metabolites between season, condition and year of exposure
 
 * **INPUT**:
   * **calculate_relative_abs.txt**(calculate_relative_abs.txt)
