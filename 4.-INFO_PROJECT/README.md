@@ -1,6 +1,6 @@
 :page_facing_up:  **`/Sem_TB.pptx`**
 
-PowerPoint about my seminar (BWA) in [pptx file]
+PowerPoint about my seminar (BWA) in pptx file
 
 :page_facing_up:  **`/Transcriptomic_analysis_about tropospheric_ozone_tolerance_in_Abies_religiosa_TB.pdf`**
 
