@@ -36,6 +36,7 @@ samples<-c("DC1", "DC2","DC3","DC4","DC5",
            "HC1","HC2","HC3","HC4","HC5")
 targets<- data.frame(tratamiento,label,samples)
 rownames(targets)<- label
+
 targets
 
 ### Filtering genes 
@@ -143,37 +144,13 @@ plotMA(res, main="MA-plot DESeq2", ylim=c(-5,5))
 ########
 # edgeR
 ########
-topSig <- top[top$table$FDR < 1, ]
+topSig <- top[top$table$PValue < 1, ]
 dim(topSig)
 genesDEedgeR <- rownames(topSig)
 genesDEedgeR
 topSig_export<-topSig
 topSig_export$ID<-genesDEedgeR
-write.table(topSig_export, "../../metadata/DGE/EdgeR_HvsD170ppb_FDR_1.txt", sep="\t", row.names=FALSE)
-topSig <- top[top$table$FDR < 0.1, ]
-topSig <- topSig[topSig$table$PValue < 0.05, ]
-dim(topSig)
-genesDEedgeR <- rownames(topSig)
-genesDEedgeR
-topSig_export<-topSig
-topSig_export$ID<-genesDEedgeR
-write.table(topSig_export, "../../metadata/DGE/EdgeR_HvsD170ppb_FDR_0.1_PValue_0.05.txt", sep="\t", row.names=FALSE)
-topSig <- top[top$table$FDR < 0.05, ]
-topSig <- topSig[topSig$table$PValue <= 0.05, ]
-dim(topSig)
-genesDEedgeR <- rownames(topSig)
-genesDEedgeR
-topSig_export<-topSig
-topSig_export$ID<-genesDEedgeR
-write.table(topSig_export, "../../metadata/DGE/EdgeR_HvsD170ppb_FDR_0.0.05_PValue_0.05.txt", sep="\t", row.names=FALSE)
-topSig <- topSig[topSig$table$PValue < 0.1, ]
-dim(topSig)
-genesDEedgeR <- rownames(topSig)
-genesDEedgeR
-topSig_export<-topSig
-topSig_export$ID<-genesDEedgeR
-write.table(topSig_export, "../../metadata/DGE/EdgeR_HvsD170ppb_PValue_0.1.txt", sep="\t", row.names=FALSE)
-
+write.table(topSig_export, "../../metadata/DGE/EdgeR_HvsD170ppb_Pvalue_1.txt", sep="\t", row.names=FALSE)
 
 ########
 # DESeq2
@@ -182,27 +159,14 @@ write.table(topSig_export, "../../metadata/DGE/EdgeR_HvsD170ppb_PValue_0.1.txt",
 resOrdered <- res[order(res$padj),]
 # Only DEG
 xx <-res[order(res$padj,na.last=NA),] 
-resSig2 <- xx[xx$padj < 0.1, ]
+resSig2 <- xx[xx$pvalue < 1, ]
 dim(resSig2)
 genesDEDESeq2 <- rownames(resSig2)
 genesDEDESeq2 
 resSig2_export<-resSig2
 resSig2_export$ID<-resSig2_export
-write.table(resSig2_export, "../../metadata/DGE/DESeq2_HvsD170ppb_FDR_0.1.txt", sep="\t", row.names=FALSE)
-resSig2 <- xx[xx$padj < 0.05, ]
-dim(resSig2)
-genesDEDESeq2 <- rownames(resSig2)
-genesDEDESeq2
-resSig2_export<-resSig2
-resSig2_export$ID<-resSig2_export
-write.table(resSig2_export, "../../metadata/DGE/DESeq2_HvsD170ppb_FDR_0.05.txt", sep="\t", row.names=FALSE)
-resSig2 <- xx[xx$pvalue <= 0.05, ]
-dim(resSig2)
-genesDEDESeq2 <- rownames(resSig2)
-genesDEDESeq2
-resSig2_export<-resSig2
-resSig2_export$ID<-resSig2_export
-write.table(resSig2_export, "../../metadata/DGE/DESeq2_HvsD170ppb_PValue_0.05.txt", sep="\t", row.names=FALSE)
+write.table(resSig2_export, "../../metadata/DGE/DESeq2_HvsD170ppb_pvalue_1.txt", sep="\t", row.names=FALSE)
+
 ###################################################
 ### How many common DE genes exist edgeR vs DESeq2
 ###################################################
@@ -221,6 +185,4 @@ plot2 <- draw.pairwise.venn(22,20,7,category = c("DESeq2","edgeR"),
                             lty = "blank", 
                             fill = c("cyan3", "hotpink2"))
 genesDEcomunes
-
-ggsave("../../outputs/HvsD_170ppb_VennDiagr.png")
 

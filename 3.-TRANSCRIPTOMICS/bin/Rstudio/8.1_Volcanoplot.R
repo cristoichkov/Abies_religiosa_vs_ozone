@@ -7,8 +7,8 @@ library(ggbiplot)
 library (ggplot2)
 
 #Load data
-results_DESeq2<- read.delim("../../metadata/DGE/DESeq2_HvsD170ppb_FDR_0.1.txt")
-results_Edge<- read.delim("../../metadata/DGE/EdgeR_HvsD170ppb_FDR_1.txt")
+results_DESeq2<- read.delim("../../metadata/DGE/DESeq2_HvsD170ppb_pvalue_1.txt")
+results_Edge<- read.delim("../../metadata/DGE/EdgeR_HvsD170ppb_Pvalue_1.txt")
 
 #Indicate data to plot##
 results_DESeq2$sig <- -log10(results_DESeq2$padj) ##Create a column with aditional info of FDR (padj)##
@@ -72,32 +72,32 @@ VPSol_edge <- data.frame(results_Edge$logFC, results_Edge$sig, row.names = rowna
 
 ##Rename the columns to simplify the dataframe##
 
-colnames(VPSol_DESeq2) <- c("FoldChange", "p_value")
+colnames(VPSol_DESeq2) <- c("FoldChange", "sig")
 
-colnames(VPSol_edge) <- c("FoldChange", "p_value")
+colnames(VPSol_edge) <- c("FoldChange", "sig")
 
 ##Create a column with colors depending on the value of Fold Change and p-value##  
 
-VPSol_DESeq2$color <- ifelse((VPSol_DESeq2$FoldChange > 1) & (VPSol_DESeq2$p_value < 0.05), "Col_1",
-                      ifelse((VPSol_DESeq2$FoldChange < -1) & (VPSol_DESeq2$p_value < 0.05), "Col_2",
-                             ifelse((VPSol_DESeq2$FoldChange > 1) & (VPSol_DESeq2$p_value > 0.05), "Col_3",
-                                    ifelse((VPSol_DESeq2$FoldChange < -1) & (VPSol_DESeq2$p_value > 0.05), "Col_4",
-                                           ifelse((VPSol_DESeq2$FoldChange < 1) & (VPSol_DESeq2$p_value > 0.05), "Col_5", "Col_6")))))
+VPSol_DESeq2$color <- ifelse((VPSol_DESeq2$FoldChange > 1) & (VPSol_DESeq2$sig < 0.05), "Col_1",
+                      ifelse((VPSol_DESeq2$FoldChange < -1) & (VPSol_DESeq2$sig  < 0.05), "Col_2",
+                             ifelse((VPSol_DESeq2$FoldChange > 1) & (VPSol_DESeq2$sig  > 0.05), "Col_3",
+                                    ifelse((VPSol_DESeq2$FoldChange < -1) & (VPSol_DESeq2$sig  > 0.05), "Col_4",
+                                           ifelse((VPSol_DESeq2$FoldChange < 1) & (VPSol_DESeq2$sig  > 0.05), "Col_5", "Col_6")))))
 
 
-VPSol_edge$color <- ifelse((VPSol_edge$FoldChange > 1) & (VPSol_edge$p_value < 0.05), "Col_1",
-                      ifelse((VPSol_edge$FoldChange < -1) & (VPSol_edge$p_value < 0.05), "Col_2",
-                             ifelse((VPSol_edge$FoldChange > 1) & (VPSol_edge$p_value > 0.05), "Col_3",
-                                    ifelse((VPSol_edge$FoldChange < -1) & (VPSol_edge$p_value > 0.05), "Col_4",
-                                           ifelse((VPSol_edge$FoldChange < 1) & (VPSol_edge$p_value > 0.05), "Col_5", "Col_6")))))
+VPSol_edge$color <- ifelse((VPSol_edge$FoldChange > 1) & (VPSol_edge$sig  < 0.05), "Col_1",
+                      ifelse((VPSol_edge$FoldChange < -1) & (VPSol_edge$sig  < 0.05), "Col_2",
+                             ifelse((VPSol_edge$FoldChange > 1) & (VPSol_edge$sig  > 0.05), "Col_3",
+                                    ifelse((VPSol_edge$FoldChange < -1) & (VPSol_edge$sig  > 0.05), "Col_4",
+                                           ifelse((VPSol_edge$FoldChange < 1) & (VPSol_edge$sig  > 0.05), "Col_5", "Col_6")))))
 
 
 ##Create plot##
-ggplot(VPSol_DESeq2, aes(x=FoldChange, y=p_value)) +
+ggplot(VPSol_DESeq2, aes(x=FoldChange, y=sig)) +
   geom_point(aes(colour = color ))
-ggsave("../../outputs/VPSol_DESeq2.png")
+ggsave("../../outputs/8.1_VPSol_DESeq2.png")
 
-ggplot(VPSol_edge, aes(x=FoldChange, y=p_value)) +
+ggplot(VPSol_edge, aes(x=FoldChange, y=sig)) +
   geom_point(aes(colour = color))
-ggsave("../../outputs/VPSol_edge.png")
+ggsave("../../outputs/8.1_VPSol_edge.png")
 
