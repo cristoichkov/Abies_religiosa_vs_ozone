@@ -1,15 +1,15 @@
-#The concentration of ß-Pinene in healthy individuals is consistent with the phase of tissue recovery, after O3 stress.
+# The concentration of ß-Pinene in healthy individuals is consistent with the phase of tissue recovery, after O3 stress.
 
 Our analyzes detected a greater number of sesquiterpenes (C15; seven different) than monoterpenes (C10; one) in individuals, healthy and damaged. The increase in these compounds after exposure to O3 is consistent with that found in hybrid poplar clones (Populus deltoides x maximowiczii) (exposure to 80 nmol mol-1 O3 for 5hr / day; Pellegrini et al., 2012) and in individuals of Eucalyptus globulus exposed to O3 (Kanagendran, Pazouki, & Niinemets, 2018). These observations are interesting, since sesquiterpenes react with reactive oxygen species (ROS) and are known to increase in the presence of abiotic stress (Vickers, Gershenzon, Lerdau, & Loreto, 2009).
 The eight metabolites detected in most samples have already been reported with differences in trees exposed to different concentrations of O3 (Kanagendran et al., 2018). The production of metabolic compounds, such as volatiles, can remove ROS before they cause severe cell damage (Loreto & Fares, 2007). This is consistent with our results, since we obtained higher concentrations of metabolites in healthy individuals compared to those damaged (Fig. 1 and 2).
 
 ![](../2.-METABOLOMICS/outputs/4.1_barplot_images_SS.png)
 
-Fig. 1: Barplot of healthy individuals
+**Fig. 1: Barplot of healthy individuals**
 
 ![](../2.-METABOLOMICS/outputs/4.1_barplot_images_conti.png)
 
-Fig. 2: Barplot of damaged individuals
+**Fig. 2: Barplot of damaged individuals**
 
 ![](../2.-METABOLOMICS/outputs/5.1_PCA_conti_HvsD.png)
 
@@ -17,11 +17,11 @@ In particular δ-Cadineno, ß-Caryophylene oxide, L-α-Bornyl Acetate and ß-Pin
 Similarly, healthy individuals produced a greater amount of ß-Pinene compared to those damaged in both seasons (Fig. 3 and 4). This increase in β-Pineno has been related to the stimulation of stress-induced antioxidant mechanisms to O3 in Quercus index (Loreto et al., 2004). In addition ß-Pineno belongs to the group of monoterpenes, which can favor resistance to O3 (Pellegrini et al., 2012). Likewise, there are significant differences of α-Muurolene, which, like ß-Pineno, has previously been related to the recovery phase of the plant after being induced at high concentrations of O3 in Nicotiana tabacum (Kanagendran, Pazouki, & Niinemets, 2018).
 In our sampling site it is common for O3 levels to be high (Alvarado-Rosales et al., 2017), exceeding 100 ppb most of the year (SEDEMA, 2018). Likewise, it is known that the detrimental effect of O3 at 150 ppb depends on the chemical structure of the compounds. Therefore, saturated terpenoids such as L-α-Bornyl Acetate are not equally affected by O3 than terpenes with double CC bond (pinenes) or those with more than double bonds (karyophilenes) (Calogirou et al., 1996). 
 
-Fig. 3: PCA analysis with healthy vs damaged individuals (170ppb)
+**Fig. 3: PCA analysis with healthy vs damaged individuals (170ppb)**
 
 ![](../2.-METABOLOMICS/outputs/5.1_PCA_moderated_HvsD.png)
 
-Fig. 4: PCA analysis with healthy vs damaged individuals (87ppb)
+**Fig. 4: PCA analysis with healthy vs damaged individuals (87ppb)**
 
 REFERENCES
 
