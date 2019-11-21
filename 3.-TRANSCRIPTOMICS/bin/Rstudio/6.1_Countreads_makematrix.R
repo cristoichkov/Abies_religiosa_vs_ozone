@@ -135,6 +135,6 @@ nrow(all[all$HS_1 == 0,])
 nrow(all[all$HS_2 == 0,])
 nrow(all[all$HS_5 == 0,])
 
-# Export table to .txt format 
-write.table(all, file="../../metadata/allreadsgenes.txt", sep = "\t", eol = "\n", dec = ".", 
+# Export table to .txt format
+write.table(all, file="../../metadata/all_genes/allreadsgenes.txt", sep = "\t", eol = "\n", dec = ".",
             row.names = TRUE, col.names = TRUE)

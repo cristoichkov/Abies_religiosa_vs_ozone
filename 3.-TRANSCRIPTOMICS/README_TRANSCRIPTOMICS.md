@@ -7,9 +7,11 @@ Before starting the analysis here are the programs that need to be installed:
 ## SOFTWARE
 
 * [bwa](http://bio-bwa.sourceforge.net)
+* [samtools](http://www.htslib.org)
 * [Trimmomatic-0.36](http://www.usadellab.org/cms/?page=trimmomatic)
 * [R](https://cran.r-project.org)
 * [Rstudio (optional)](https://rstudio.com)
+
 
 ## R packages
 
@@ -27,6 +29,7 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	    +--Rstudio/
 |	   	       +--6.1_Countreads_makematrix.R
 |	   	       +--7.1_5HCvs5DC.R
+|	   	       +--8.1_Volcanoplot.R
 |	   	    +--Software/
 |	   	       +--1.1_FastQC.sh
 |	   	       +--2.1_Trimming.sh
@@ -34,20 +37,26 @@ Before starting the analysis here are the programs that need to be installed:
 |	   	       +--3.2_Alignment_AbP_paired_sw10_L50.sh
 |	   	       +--4.1_ConvertSamBam_sw10_L50.sh
 |	   	       +--5.1_Count_genes_bamfile.sh
+|	   	       +--5.2_Statistics_map.sh
 |		+--data/
 |	   	    +--BAM/
-|	   	       +--
+|	   	       +--file.bam
 |	   	    +--RAW/
 |	   	       +--DPVR1_S179_L007_R1_001_fastqc.zip
 |	   	    +--SAM/
+|	   	       +--file.sam
 |	   	    +--TRIMMING/
 |	   	       +--Trimm18s_sw10-28_ml50_28/
 |	   	           +--Trimmer_DPVR1_S179_L007_R1_001_paired_fastqc.zip
 |	   	    +--OSF.md
 |		+--metadata/
 |	   	    +--all_genes/
+|	   	       +--allreadsgenes.txt
 |	   	    +--count_genes/
-|	   	    +--estadisticos_mapeo/
+|	   	    +--DGE/
+|	   	       +--DESeq2_HvsD170ppb_FDR_0.05.txt
+|	   	       +--EdgeR_HvsD170ppb_FDR_0.05.txt
+|	   	    +--Statistics_map/
 |	   	       +--flagstat_DC01_15_sw10L50.txt
 |	   	    +--fastqc_before_trimm/
 |	   	       +--DPVR1_S179_L007_R1_001_fastqc.html
