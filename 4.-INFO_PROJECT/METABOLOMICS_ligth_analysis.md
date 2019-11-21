@@ -11,11 +11,12 @@ The eight metabolites detected in most samples have already been reported with d
 
 **Fig. 2: Barplot of damaged individuals**
 
-![](../2.-METABOLOMICS/outputs/5.1_PCA_conti_HvsD.png)
-
 In particular δ-Cadineno, ß-Caryophylene oxide, L-α-Bornyl Acetate and ß-Pineno (Fig. 1 and 2) were more abundant (Fig. 1 and 2). Previously δ-Cadineno has been related to antioxidant functions (Kundu et al., 2013) and larvicides (Govindarajan, Rajeswary, & Benelli, 2016). Similarly, ß-Caryophylene oxide is a metabolite produced by plants to inhibit the attack of insects (Ortiz et al., 2017). Given the above we can assume that healthy individuals have mechanisms that make them less susceptible to damage from biotic and abiotic stress.
 Similarly, healthy individuals produced a greater amount of ß-Pinene compared to those damaged in both seasons (Fig. 3 and 4). This increase in β-Pineno has been related to the stimulation of stress-induced antioxidant mechanisms to O3 in Quercus index (Loreto et al., 2004). In addition ß-Pineno belongs to the group of monoterpenes, which can favor resistance to O3 (Pellegrini et al., 2012). Likewise, there are significant differences of α-Muurolene, which, like ß-Pineno, has previously been related to the recovery phase of the plant after being induced at high concentrations of O3 in Nicotiana tabacum (Kanagendran, Pazouki, & Niinemets, 2018).
 In our sampling site it is common for O3 levels to be high (Alvarado-Rosales et al., 2017), exceeding 100 ppb most of the year (SEDEMA, 2018). Likewise, it is known that the detrimental effect of O3 at 150 ppb depends on the chemical structure of the compounds. Therefore, saturated terpenoids such as L-α-Bornyl Acetate are not equally affected by O3 than terpenes with double CC bond (pinenes) or those with more than double bonds (karyophilenes) (Calogirou et al., 1996). 
+
+
+![](../2.-METABOLOMICS/outputs/5.1_PCA_conti_HvsD.png)
 
 **Fig. 3: PCA analysis with healthy vs damaged individuals (170ppb)**
 
