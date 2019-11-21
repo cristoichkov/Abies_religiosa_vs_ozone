@@ -128,8 +128,8 @@ res[rownames(topTags(et, n= Inf)),]
 ################################
 ########
 # edgeR
-########
-de <- decideTestsDGE(et, p.value=0.1)
+########p.value=0.1
+de <- decideTestsDGE(et, adjust.method = "fdr" )
 detags <- rownames(d)[as.logical(de)]
 plotSmear(et, de.tags=detags, main="plotSmear de edgeR") > abline(h=0, col="red", lwd=3)
 
@@ -144,13 +144,22 @@ plotMA(res, main="MA-plot DESeq2", ylim=c(-5,5))
 ########
 # edgeR
 ########
-topSig <- top[top$table$PValue < 1, ]
+topSig <- top[top$table$FDR < 0.05, ]
 dim(topSig)
 genesDEedgeR <- rownames(topSig)
 genesDEedgeR
 topSig_export<-topSig
 topSig_export$ID<-genesDEedgeR
-write.table(topSig_export, "../../metadata/DGE/EdgeR_HvsD170ppb_Pvalue_1.txt", sep="\t", row.names=FALSE)
+write.table(topSig_export, "../../metadata/DGE/EdgeR_HvsD170ppb_FDR_0.05.txt", sep="\t", row.names=FALSE)
+
+topSig <- top[top$table$FDR < 5, ]
+dim(topSig)
+genesDEedgeR <- rownames(topSig)
+genesDEedgeR
+topSig_export<-topSig
+topSig_export$ID<-genesDEedgeR
+write.table(topSig_export, "../../metadata/DGE/EdgeR_HvsD170ppb_FDR_5.txt", sep="\t", row.names=FALSE)
+
 
 ########
 # DESeq2
@@ -159,13 +168,22 @@ write.table(topSig_export, "../../metadata/DGE/EdgeR_HvsD170ppb_Pvalue_1.txt", s
 resOrdered <- res[order(res$padj),]
 # Only DEG
 xx <-res[order(res$padj,na.last=NA),] 
-resSig2 <- xx[xx$pvalue < 1, ]
+resSig2 <- xx[xx$padj < 0.05, ]
 dim(resSig2)
 genesDEDESeq2 <- rownames(resSig2)
 genesDEDESeq2 
 resSig2_export<-resSig2
 resSig2_export$ID<-resSig2_export
-write.table(resSig2_export, "../../metadata/DGE/DESeq2_HvsD170ppb_pvalue_1.txt", sep="\t", row.names=FALSE)
+write.table(resSig2_export, "../../metadata/DGE/DESeq2_HvsD170ppb_FDR_0.05.txt", sep="\t", row.names=FALSE)
+
+xx <-res[order(res$padj,na.last=NA),] 
+resSig2 <- xx[xx$padj < 5, ]
+dim(resSig2)
+genesDEDESeq2 <- rownames(resSig2)
+genesDEDESeq2 
+resSig2_export<-resSig2
+resSig2_export$ID<-resSig2_export
+write.table(resSig2_export, "../../metadata/DGE/DESeq2_HvsD170ppb_FDR_5.txt", sep="\t", row.names=FALSE)
 
 ###################################################
 ### How many common DE genes exist edgeR vs DESeq2
