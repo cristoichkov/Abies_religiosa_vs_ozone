@@ -233,10 +233,10 @@ SCRIPT in 3.-TRANSCRIPTOMICS/Rstudio/[6.1_Countreads_makematrix.R](bin/Rstudio/6
 
 SCRIPT in 3.-TRANSCRIPTOMICS/Rstudio/[7.1_5HCvs5DC.R](bin/Rstudio/7.1_5HCvs5DC.R)
 
-**OUT: images.png**
+**OUT: DESeq2.txt, EdgeR.txt**
 
-![](outputs/4.1_barplot_images_SS.png)
-![](outputs/4.1_barplot_images_conti.png)
+![](../5.-wonderful_images/DESeq2.png)
+
 
 # 8.0.- Volcano plot
 
@@ -252,5 +252,5 @@ SCRIPT in 3.-TRANSCRIPTOMICS/Rstudio/[8.1_Volcanoplot.R](bin/Rstudio/8.1_Volcano
 
 **OUT: images.png**
 
-![](outputs/4.1_barplot_images_SS.png)
-![](outputs/4.1_barplot_images_conti.png)
+![](outputs/8.1_VPSol_DESeq2.png)
+![](outputs/8.1_VPSol_edge.png)
