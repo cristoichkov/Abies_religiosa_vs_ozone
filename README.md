@@ -62,23 +62,23 @@ In addition, you can find in this repository:
 
 [README](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/README.md): is a intro about my project. This include the structure of my repository.
 
-:file_folder: **`/1.-GENOMICS`**
+:file_folder: **`/1.-GENOMICS`**: It is a genomic analysis from samples product of a GBS sequencing, ipyRAD was used to assemble de novo, VCFTools and plink to make more specific filters. The relationship was calculated, multiple SNPs were discarded in the same loci, a Mantel test, PCA and admixture were performed and the Heterocity was calculated.
 
 [GENOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS)
 
-:file_folder: **`/2.-METABOLOMICS`**
+:file_folder: **`/2.-METABOLOMICS`** This is an analysis of metabolites measured with a gas chromatograph spectrum mass (GC-SM). Data from html files were loaded into tables that were subsequently calculated for their relative abundance. The values between samples were compared from a barplot, ANOVA and finally a PCA analysis was made with the final metabolites.
 
 [METABOLOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/2.-METABOLOMICS)
 
-:file_folder: **`/3.-TRANSCRIPTOMICS`**
+:file_folder: **`/3.-TRANSCRIPTOMICS`** This is a transcriptomic analysis from samples sequenced with RNAseq. Samples were cut(Timmomatic) and mapped (BWA) to a reference transcriptome. Sequence counting was carried out through command lines in Rstudio that subsequently allowed the evaluation of differential expression between samples. From the counting table, a volcanoplot was performed to exemplify the overexpressed and underexpressed genes.
 
 [TRANSCRIPTOMICS](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/3.-TRANSCRIPTOMICS)
 
-:file_folder: **`/4.-INFO_PROJECT`**
+:file_folder: **`/4.-INFO_PROJECT`**: Here are exhibitions, summaries and analysis of the final data of this repository.
 
 [INFO_PROJECT](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/4.-INFO_PROJECT)
 
-:file_folder: **`/5.-wonderful_images`**
+:file_folder: **`/5.-wonderful_images`**: This directory stores images that help complement and exemplify my README files and my issues. NOTE: The product images of R scripts are in the corresponding "outputs" directory for each analysis (GENOMICS, METABOLOMICS and TRANSCRIPTOMICS).
 
 [wonderful_images](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/5.-wonderful_images)
 
