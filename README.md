@@ -93,6 +93,8 @@ The principal analysis are:
 
 Check more info about this pipeline in the [README_genomics](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS/README_genomics.md).
 
+To see a short summary about the analysis of the final data you can go to [Analysis_genomics](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/4.-INFO_PROJECT/GENOMICS_ligth_analysis.md)
+
 # METABOLOMICS
 
 ### Quantify the relative abundance of secondary metabolites in healthy y damaged trees in two periods of concentration of O3
@@ -101,11 +103,14 @@ Check more info about this pipeline in the [README_genomics](https://github.com/
 
 Check more info about this pipeline in the [README_metabolomics](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/2.-METABOLOMICS/README_metabolomics.md).
 
+To see a short summary about the analysis of the final data you can go to [Analysis_metabolomics](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/4.-INFO_PROJECT/METABOLOMICS_ligth_analysis.md)
+
 # TRANSCRIPTOMICS
 
 ### Evaluate the differential expression of healthy and damaged trees in two periods of [O3].
 
-
 ![](5.-wonderful_images/Transcriptomic_methods.png)
 
 Check more info about this pipeline in the [README_transcriptomics](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/3.-TRANSCRIPTOMICS/README_TRANSCRIPTOMICS.md).
+
+To see a short summary about the analysis of the final data you can go to [Analysis_transcriptomics](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/4.-INFO_PROJECT/TRANSCRIPTOMICS_ligth_analysis.md)
