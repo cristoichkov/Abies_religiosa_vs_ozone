@@ -105,9 +105,11 @@ Check more info about this pipeline in the [README_metabolomics](https://github.
 
 To see a short summary about the analysis of the final data you can go to [Analysis_metabolomics](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/blob/master/4.-INFO_PROJECT/METABOLOMICS_ligth_analysis.md)
 
-# TRANSCRIPTOMICS
+# TRANSCRIPTOMICS (ALERT: I keep developing this section)
 
 ### Evaluate the differential expression of healthy and damaged trees in two periods of [O3].
+
+
 
 ![](5.-wonderful_images/Transcriptomic_methods.png)
 
