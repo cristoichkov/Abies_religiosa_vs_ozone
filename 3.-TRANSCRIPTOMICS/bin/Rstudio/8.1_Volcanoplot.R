@@ -7,29 +7,29 @@ library(ggbiplot)
 library (ggplot2)
 
 
-#Load data
+#Load data DESeq2 and EdgeR
 results_DESeq2<- read.delim("../../metadata/DGE/DESeq2_HvsD170ppb_FDR_0.05.txt")
 results_Edge<- read.delim("../../metadata/DGE/EdgeR_HvsD170ppb_FDR_0.05.txt")
 
 #Indicate data to plot##
 results_DESeq2$sig <- -log10(results_DESeq2$padj) ##Create a column with aditional info of FDR (padj)##
-cols <- densCols(results_DESeq2$log2FoldChange, results_DESeq2$pvalue)
+cols_D <- densCols(results_DESeq2$log2FoldChange, results_DESeq2$pvalue)
 
 results_Edge$sig <- -log10(results_Edge$FDR) ##Create a column with aditional info of FDR (padj)##
-cols <- densCols(results_Edge$logFC, results_Edge$PValue)
+cols_E <- densCols(results_Edge$logFC, results_Edge$PValue)
 
 ##Indicate color code##
 
-cols[results_DESeq2$log2FoldChange < -1.5] <- "#0066FF"
-cols[results_DESeq2$log2FoldChange > 1.5] <- "#0033CC"
-cols[results_DESeq2$pvalue == 0] <- "#000000"
-cols[results_DESeq2$pvalue > 0.05] <- "#CCCCCC"
+cols_D[results_DESeq2$log2FoldChange < -1.5] <- "#0066FF"
+cols_D[results_DESeq2$log2FoldChange > 1.5] <- "#0033CC"
+cols_D[results_DESeq2$pvalue == 0] <- "#000000"
+cols_D[results_DESeq2$pvalue > 0.05] <- "#CCCCCC"
 
 
-cols[results_Edge$logFC < -1.5] <- "#0066FF"
-cols[results_Edge$logFC > 1.5] <- "#0033CC"
-cols[results_Edge$PValue == 0] <- "#000000"
-cols[results_Edge$PValue > 0.05] <- "#CCCCCC"
+cols_E[results_Edge$logFC < -1.5] <- "#0066FF"
+cols_E[results_Edge$logFC > 1.5] <- "#0033CC"
+cols_E[results_Edge$PValue == 0] <- "#000000"
+cols_E[results_Edge$PValue > 0.05] <- "#CCCCCC"
 
 ##Other graphical parameters##
 

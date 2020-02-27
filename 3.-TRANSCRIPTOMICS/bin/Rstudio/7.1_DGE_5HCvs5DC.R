@@ -6,18 +6,17 @@ library(DESeq2)
 library(ggbiplot)
 library (ggplot2)
 
-# Load data
-alldata<-read.delim("../../metadata/all_genes/allreadsgenes.txt")
+# Load data. Count table 
+alldata <-read.delim("../../metadata/all_genes/allreadsgenes.txt")
 alldata <- as.data.frame(alldata)
-head (alldata)
 
 # Convert dataframe to data matrix
 x<-alldata
-rownames(x)<-alldata[,1]
-x<-x[ ,2:ncol(x)]
+rownames(x)<-alldata[,1] # Add rownames
+x<-x[ ,2:ncol(x)] # Remove double col with names
 alldata<-as.matrix(x)
 
-########################################### Healthy vs Damaged 170 ppb###########################################
+########################################### Damaged vs Tolerant 170 ppb###########################################
 ##################################################################################################################
 ##################################################################################################################
 # Select subset data(descart data)
@@ -31,12 +30,12 @@ DCvsHC<- subset(alldata, select = -c(DS_1, DS_2, DS_4,
 ############################################
 tratamiento <- c("DC","DC","DC","DC","DC",
                  "HC","HC","HC","HC","HC")
-label<- c("DC_1", "DC_2","DC_3","DC_4","DC_5",
+label <- c("DC_1", "DC_2","DC_3","DC_4","DC_5",
           "HC_1","HC_2","HC_3","HC_4","HC_5")
-samples<-c("DC1", "DC2","DC3","DC4","DC5",
+samples <-c("DC1", "DC2","DC3","DC4","DC5",
            "HC1","HC2","HC3","HC4","HC5")
-targets<- data.frame(tratamiento,label,samples)
-rownames(targets)<- label
+targets <- data.frame(tratamiento,label,samples)
+rownames(targets) <- label
 
 targets
 
@@ -236,3 +235,4 @@ write.table(resSig2_export, "../../metadata/DGE/DESeq2_HvsD170ppb_FDR_5.txt", se
 genesDEcomunes <- intersect(genesDEedgeR,genesDEDESeq2) 
 head(genesDEcomunes)
 str(genesDEcomunes)
+
