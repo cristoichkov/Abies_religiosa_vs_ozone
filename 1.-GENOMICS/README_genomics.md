@@ -98,17 +98,17 @@ Before starting the analysis here are the programs that need to be installed:
 ```
 ## GENOMICS content
 
-:file_folder: **`/bin`**
+**`/bin`**
 Here you will find the scripts that are needed to perform the analyses. There is a folder for scripts that run in [Rstudio](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS/bin/Rstudio) and another one for those that run in another program through the [terminal](https://github.com/VeroIarrachtai/Abies_religiosa_vs_ozone/tree/master/1.-GENOMICS/bin/Software) and command line.
 
-:file_folder: **`/data`**
+**`/data`**
 Here are the product files of the sequencing and analysis of them (plink and vcf files).
 
-:file_folder: **`/metadata`** Here are tables and data that complement the omics data. Such as name of samples, coordinates, name of genes, name of sequences.
+**`/metadata`** Here are tables and data that complement the omics data. Such as name of samples, coordinates, name of genes, name of sequences.
 
-:file_folder: **`/outputs`** Here are outs product of the analysis of the data that do not serve as input for another analysis(.gds file). In the same way, the figures from Rstudio are stored here.
+**`/outputs`** Here are outs product of the analysis of the data that do not serve as input for another analysis(.gds file). In the same way, the figures from Rstudio are stored here.
 
-:page_facing_up: **`/README_genomics`** This is a README that describes the steps to perform the data analysis. It is organized numerically. It is explained that input is necessary and what outputs are obtained from each step.
+**`/README_genomics`** This is a README that describes the steps to perform the data analysis. It is organized numerically. It is explained that input is necessary and what outputs are obtained from each step.
 
 
 # 1.0.-RUN de novo ASSEMBLY
@@ -117,12 +117,14 @@ Because my project is part of another great project, we had to do a lax assembly
 **So this step allows you to have a relaxed assembly ipyrad with two species**
 You will need [ipyrad](https://ipyrad.readthedocs.io/en/latest/)
 
-* **INPUT**:
+```
+**INPUT**:
    * Archivos de la secuenciación **files.fq.gz**
    * barcodes **file.txt**
 
-* **OUTPUT**:
+**OUTPUT**:
    * **file.vcf**(.vcf)
+```
 
 ## 1.1.-Run relaxed assembly with ipyrad
 SCRIPT in 1.-GENOMICS/Software/[1.1_Run_relaxed_assembly.sh](bin/Software/1.1_Run_relaxed_assembly.sh)
@@ -170,12 +172,14 @@ p, s, v, k, n, g               ## [27] [output_formats]: Output formats (see doc
 Therefore, this step allows us to extract samples that we want to keep in a .vcf file, applying MAF filter and maximum missing data**
 You will need [vcfTools](https://vcftools.github.io/man_latest.html)
 
-* **INPUT**:
+```
+**INPUT**:
    * **file.vcf** (TMVB_5SNPrad.vcf)
    * **ind.txt** (89_ind.txt)
 
-* **OUTPUT**:
+**OUTPUT**:
    * **fitered_file.vcf**(89ind_maxmiss0.9_maf0.05.recode.vcf)
+```
 
 ## 2.1.-Selected samples, missing data and maf. Only 89 *Abies religiosa* samples with missing data max 10% and maf 0.05
 SCRIPT in 1.-GENOMICS/Software/[2.1_Samples_missdata_maf.sh](bin/Software/2.1_Samples_missdata_maf.sh)
@@ -183,7 +187,10 @@ SCRIPT in 1.-GENOMICS/Software/[2.1_Samples_missdata_maf.sh](bin/Software/2.1_Sa
 ```
 vcftools --vcf ../data/TMVB_5SNPradlocus.vcf --keep ../metadata/89_ind.txt --max-missing 0.9 --maf 0.05 --recode --out ../data/89ind_maxmiss0.9_maf0.05
 ```
+
+```
 **OUT: fitered_file.vcf**
+```
 
 # 3.0.-Make LD linkage desequilibrium (delete a SNPs in the same loci)
 
@@ -191,10 +198,11 @@ vcftools --vcf ../data/TMVB_5SNPradlocus.vcf --keep ../metadata/89_ind.txt --max
 
 You will need [vcfTools](https://vcftools.github.io/man_latest.html), [PLINK](https://www.cog-genomics.org/plink2/),[R](https://cran.r-project.org) and [Rstudio (optional)](https://rstudio.com)
 
-* **INPUT**:
+```
+**INPUT**:
    * **fitered_file.vcf**(89ind_maxmiss0.9_maf0.05.recode.vcf)
 
-* **OUTPUT**:   
+**OUTPUT**:   
    * **fitered_file.freq**(freq_89ind_maxmiss0.9_maf0.05.frq)
    * **fitered_file.bed**(89ind_maxmiss0.9_maf0.05.bed)
    * **fitered_file.bim**(89ind_maxmiss0.9_maf0.05.bim)
@@ -203,6 +211,7 @@ You will need [vcfTools](https://vcftools.github.io/man_latest.html), [PLINK](ht
    * **snp_withoutDupLoci.bed**(snp_withoutDupLoci_89s_maxmiss0.9_maf0.05.bed)
    * **snp_withoutDupLoci.bim**(snp_withoutDupLoci_89s_maxmiss0.9_maf0.05.bim)
    * **snp_withoutDupLoci.fam**(snp_withoutDupLoci_89s_maxmiss0.9_maf0.05.fam)
+```
 
 ## 3.1.-First you have to get how often the loci have
 
@@ -215,8 +224,9 @@ vcftools --vcf ../data/89ind_maxmiss0.9_maf0.05.recode.vcf --freq --out ../data/
 
 ```
 
+```
 **OUT: fitered_file.freq**
-
+```
 Modify the .freq file by replacing the "space" with ":". This way we can load the .freq file in R
 
 Example:
@@ -258,6 +268,7 @@ SCRIPT in 1.-GENOMICS/Software/[3.4_Extract_positions_HM.sh](bin/Software/3.4_Ex
 **This step lets you know if individuals are highly related (siblings, clones) or if there are inbred populations.It is important to know it so as not to misunderstand the admxture analysis.**
 You will need [PLINK](https://www.cog-genomics.org/plink2/),[R](https://cran.r-project.org) and [Rstudio (optional)](https://rstudio.com)
 
+```
 * **INPUT**:
   * **snp_withoutDupLoci.bed**(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bed)
   * **snp_withoutDupLoci.bim**(snp_withoutDupLoci_88s_maxmiss0.9_maf0.05.bim)
@@ -270,21 +281,25 @@ You will need [PLINK](https://www.cog-genomics.org/plink2/),[R](https://cran.r-p
   * **relsnp_snp_withoutDupLoci.bim**(relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.bim)
   * **relsnp_snp_withoutDupLoci.bed**(relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.rel.bed)
   * **relsnp_snp_withoutDupLoci.fam**(relsnp_snp_withoutDupLoci_88ind_maxmiss0.9_maf0.05.rel.fam)
+```
 
 ## 4.1.-The resulting files are converted to .plink and .vcf format, using the following commands:
 
 SCRIPT in 1.-GENOMICS/Software/[4.1_Calculate_relatedness.sh](bin/Software/4.1_Calculate_relatedness.sh)
+
 ```
 ./plink --bfile ../data/snp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05 --make-rel square --make-bed --out ../data/relsnp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05
 ./plink --bfile ../data/relsnp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05 --recode --out ../data/relsnp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05
 ./plink --file ../data/relsnp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05 --recode vcf --out ../data/relsnp_withoutDupLoci_without_duplicates89s_maxmiss0.9_maf0.05
 
 ```
+```
 **OUT: relsnp_snp_withoutDupLoci.rel, relsnp_snp_withoutDupLoci.id, relsnp_snp_withoutDupLoci.bim, relsnp_snp_withoutDupLoci.bed, relsnp_snp_withoutDupLoci.fam**
-
+```
 ## 4.2.-plot Relatedness
 
 To run the script, you will need replace the sample name by population name in the first column
+
 ```
 Example:
 ArDlD5	ArDlD5	0	0	0	-9
@@ -292,9 +307,13 @@ SantaRosaXochiac	ArDlD5	0	0	0	-9
 ```
 SCRIPT in 1.-GENOMICS/Rstudio/[4.2_Relatedness.R](bin/Rstudio/4.2_Relatedness.R)
 
+
+
 **OUT: Relatedness_images**
 
 ![](outputs/4.2_Relatedness.png)
+
+
 
 # 5.0.-Mantel test
 
